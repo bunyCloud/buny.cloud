@@ -1,0 +1,33 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/Rabbits.sol": {
+      "content": "// SPDX-License-Identifier: GPL-3.0\r\n\r\npragma solidity >=0.7.0 <0.9.0;\r\n\r\ncontract Rabbits {\r\n\r\n    // Stores the default name of an user and her friends info\r\n    struct user {\r\n        string name;\r\n        friend[] friendList;\r\n    }\r\n\r\n    // Each friend is identified by its address and name assigned by the second party\r\n    struct friend {\r\n        address pubkey;\r\n        string name;\r\n    }\r\n\r\n    // message construct stores the single chat message and its metadata\r\n    struct message {\r\n        address sender;\r\n        uint256 timestamp;\r\n        string msg;\r\n    }\r\n\r\n    // Collection of users registered on the application\r\n    mapping(address => user) userList;\r\n    // Collection of messages communicated in a channel between two users\r\n    mapping(bytes32 => message[]) allMessages; // key : Hash(user1,user2)\r\n\r\n    // It checks whether a user(identified by its public key)\r\n    // has created an account on this application or not\r\n    function checkUserExists(address pubkey) public view returns(bool) {\r\n        return bytes(userList[pubkey].name).length > 0;\r\n    }\r\n\r\n    // Registers the caller(msg.sender) to our app with a non-empty username\r\n    function createAccount(string calldata name) external {\r\n        require(checkUserExists(msg.sender)==false, \"User already exists!\");\r\n        require(bytes(name).length>0, \"Username cannot be empty!\"); \r\n        userList[msg.sender].name = name;\r\n    }\r\n\r\n    // Returns the default name provided by an user\r\n    function getUsername(address pubkey) external view returns(string memory) {\r\n        require(checkUserExists(pubkey), \"User is not registered!\");\r\n        return userList[pubkey].name;\r\n    }\r\n\r\n    // Adds new user as your friend with an associated nickname\r\n    function addFriend(address friend_key, string calldata name) external {\r\n        require(checkUserExists(msg.sender), \"Create an account first!\");\r\n        require(checkUserExists(friend_key), \"User is not registered!\");\r\n        require(msg.sender!=friend_key, \"Users cannot add themselves as friends!\");\r\n        require(checkAlreadyFriends(msg.sender,friend_key)==false, \"These users are already friends!\");\r\n\r\n        _addFriend(msg.sender, friend_key, name);\r\n        _addFriend(friend_key, msg.sender, userList[msg.sender].name);\r\n    }\r\n\r\n    // Checks if two users are already friends or not\r\n    function checkAlreadyFriends(address pubkey1, address pubkey2) internal view returns(bool) {\r\n\r\n        if(userList[pubkey1].friendList.length > userList[pubkey2].friendList.length)\r\n        {\r\n            address tmp = pubkey1;\r\n            pubkey1 = pubkey2;\r\n            pubkey2 = tmp;\r\n        }\r\n\r\n        for(uint i=0; i<userList[pubkey1].friendList.length; ++i)\r\n        {\r\n            if(userList[pubkey1].friendList[i].pubkey == pubkey2)\r\n                return true;\r\n        }\r\n        return false;\r\n    }\r\n\r\n    // A helper function to update the friendList\r\n    function _addFriend(address me, address friend_key, string memory name) internal {\r\n        friend memory newFriend = friend(friend_key,name);\r\n        userList[me].friendList.push(newFriend);\r\n    }\r\n\r\n    // Returns list of friends of the sender\r\n    function getMyFriendList() external view returns(friend[] memory) {\r\n        return userList[msg.sender].friendList;\r\n    }\r\n\r\n    // Returns a unique code for the channel created between the two users\r\n    // Hash(key1,key2) where key1 is lexicographically smaller than key2\r\n    function _getChatCode(address pubkey1, address pubkey2) internal pure returns(bytes32) {\r\n        if(pubkey1 < pubkey2)\r\n            return keccak256(abi.encodePacked(pubkey1, pubkey2));\r\n        else\r\n            return keccak256(abi.encodePacked(pubkey2, pubkey1));\r\n    }\r\n\r\n    // Sends a new message to a given friend\r\n    function sendMessage(address friend_key, string calldata _msg) external {\r\n        require(checkUserExists(msg.sender), \"Create an account first!\");\r\n        require(checkUserExists(friend_key), \"User is not registered!\");\r\n        require(checkAlreadyFriends(msg.sender,friend_key), \"You are not friends with the given user\");\r\n\r\n        bytes32 chatCode = _getChatCode(msg.sender, friend_key);\r\n        message memory newMsg = message(msg.sender, block.timestamp, _msg);\r\n        allMessages[chatCode].push(newMsg);\r\n    }\r\n\r\n    // Returns all the chat messages communicated in a channel\r\n    function readMessage(address friend_key) external view returns(message[] memory) {\r\n        bytes32 chatCode = _getChatCode(msg.sender, friend_key);\r\n        return allMessages[chatCode];\r\n    }\r\n}"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": ["ast"]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

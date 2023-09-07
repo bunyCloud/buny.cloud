@@ -1,0 +1,36 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/CollectionPool.sol": {
+      "content": "// SPDX-License-Identifier: GPL-3.0\n\npragma solidity >=0.7.0 <0.9.0;\n\nimport './CollectionPoolFactory.sol';\n\n/**\n * @title Address Pool\n * @dev Store collections and make transfers\n */\ncontract CollectionPool {\n  uint256 private _totalCollections;\n  uint256 private _securityTimelock;\n  uint256 private _lastTimelockUpdate;\n  CollectionPoolFactory private _factory;\n\n  struct Collection {\n    string name;\n    string symbol;\n    address wallet;\n    uint256 dateAdded;\n  }\n\n  // Array of Collection structs (collections in address pool)\n  Collection[] private collections;\n\n  // Mapping to retrieve Array index from address or name\n  mapping(address => uint256) private addressToIndex;\n  mapping(string => uint256) private nameToIndex;\n  mapping(string => uint256) private symbolToIndex;\n  address public owner;\n\n  event collectionAdded(string _name, string _symbol, address _address);\n\n  constructor(address _poolOwner) {\n    owner = _poolOwner;\n    _totalCollections = 0;\n    _securityTimelock = 90; // in seconds\n    _lastTimelockUpdate = block.timestamp;\n    _factory = CollectionPoolFactory(msg.sender);\n  }\n\n  // MODIFIERS\n\n  // Only the owner of the contract may call\n  modifier onlyOwner() {\n    require(msg.sender == owner, 'Only the contract owner may call this function');\n    _;\n  }\n\n  // Only permitted after x time (z.B. new collections can't be paid for at least this amount of time)\n  modifier timelockElapsed() {\n    require(block.timestamp >= _lastTimelockUpdate + _securityTimelock, 'You must wait for the security timelock to elapse before this is permitted');\n    _;\n  }\n\n  // CONTACT MANAGEMENT\n\n  // add a user / Collection struct to the collections Array\n  function addCollection(string calldata _name, string memory _symbol, address _address) public onlyOwner {\n    Collection memory person = Collection(_name, _symbol, _address, block.timestamp);\n    collections.push(person);\n    addressToIndex[_address] = _totalCollections;\n    nameToIndex[_name] = _totalCollections;\n    symbolToIndex[_symbol] = _totalCollections;\n    _totalCollections++;\n    emit collectionAdded(_name, _symbol, _address);\n  }\n\n  // Get all contact data for this CollectionPool\n  function readAllCollections() public view onlyOwner returns (Collection[] memory) {\n    Collection[] memory result = new Collection[](_totalCollections);\n    for (uint256 i = 0; i < _totalCollections; i++) {\n      result[i] = collections[i];\n    }\n    return result;\n  }\n\n  function readTotalCollections() public view onlyOwner returns (uint256 totalCollections) {\n    totalCollections = _totalCollections;\n    return totalCollections;\n  }\n\n  function readSecurityTimelock() public view onlyOwner returns (uint256 securityTimelock) {\n    securityTimelock = _securityTimelock;\n    return securityTimelock;\n  }\n\n  function readLastTimelockUpdate() public view onlyOwner returns (uint256 lastTimelockUpdate) {\n    lastTimelockUpdate = _lastTimelockUpdate;\n    return lastTimelockUpdate;\n  }\n\n  // UPDATE VARIABLE FUNCTIONS\n\n  // Update this user's personal timelock\n  function updateTimelock(uint256 duration) public onlyOwner timelockElapsed {\n    _securityTimelock = duration;\n    _lastTimelockUpdate = block.timestamp;\n  }\n\n  // PAYMENT FUNCTIONS\n\n  // Get the latest TX cost from the Factory\n  function checkTxCost() public view returns (uint256 _price) {\n    _price = _factory.txCost();\n    return _price;\n  }\n\n  // Leaving these two functions in in case of accidental transfer of money into contract\n  function checkBalance() public view onlyOwner returns (uint256 amount) {\n    amount = address(this).balance;\n    return amount;\n  }\n\n  function withdraw() public onlyOwner {\n    uint256 amount = checkBalance();\n    (bool sent, ) = msg.sender.call{ value: amount }('');\n    require(sent, 'There was a problem while withdrawing');\n  }\n}\n"
+    },
+    "contracts/CollectionPoolFactory.sol": {
+      "content": "// SPDX-License-Identifier: GPL-3.0\n\npragma solidity >=0.7.0 <0.9.0;\n\nimport './CollectionPool.sol';\n\ncontract CollectionPoolFactory {\n  uint256 public accountOpenCost;\n  uint256 public txCost;\n  address public owner;\n\n  mapping(address => CollectionPool) private collectionPools;\n\n  event CollectionAdded(address contractAddress);\n\n  constructor() {\n    owner = msg.sender;\n    accountOpenCost = 0.2 ether; // in ETH\n    txCost = 0.001 ether; // in ETH\n  }\n\n  modifier onlyOwner() {\n    require(msg.sender == owner, 'Only the contract owner may call this function');\n    _;\n  }\n\n  // COLLECTION POOL MANAGEMENT\n\n  // Return this user's COLLECTION POOL contract address\n  function fetchCollectionPool() public view returns (CollectionPool userData) {\n    userData = collectionPools[msg.sender];\n    return userData;\n  }\n\n  // Create a new CollectionPool struct for this user\n  function createCollectionPool() public payable returns (address contractAddress) {\n    require(msg.value >= accountOpenCost, 'Not enough ETH');\n    CollectionPool newPool = new CollectionPool(msg.sender);\n    collectionPools[msg.sender] = newPool;\n    contractAddress = address(newPool);\n    emit CollectionAdded(contractAddress);\n\n    return contractAddress;\n  }\n\n  // UPDATE VARIABLE FUNCTIONS\n\n  // Update the price to open an account here\n  function updateAccountOpenCost(uint256 _accountOpenCost) public onlyOwner {\n    accountOpenCost = _accountOpenCost;\n  }\n\n  // Update the price to interact with this contract\n  function updateTransactionCost(uint256 _txCost) public onlyOwner {\n    txCost = _txCost;\n  }\n\n  // PAYMENT FUNCTIONS\n\n  function checkBalance() public view onlyOwner returns (uint256 amount) {\n    amount = address(this).balance;\n    return amount;\n  }\n\n  function withdraw() public onlyOwner {\n    (bool sent, ) = msg.sender.call{ value: checkBalance() }('');\n    require(sent, 'There was a problem while withdrawing');\n  }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": ["ast"]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

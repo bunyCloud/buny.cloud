@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../Buny/hardhat"
+		},
+		{
+			"path": "../../../Buny"
+		},
+		{
+			"path": "../../../hashlips_art_engine"
+		},
+		{
+			"path": "../../.."
+		}
+	],
+	"settings": {}
+}

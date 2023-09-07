@@ -1,0 +1,630 @@
+{
+  "address": "0xccAfE370Ba9F5b57b877c8282CC5973095721a1A",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "dutchAuction",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "AuctionRemoved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "oldDutchAuction",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newDutchAuction",
+          "type": "address"
+        }
+      ],
+      "name": "AuctionTemplateUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "addr",
+          "type": "address"
+        }
+      ],
+      "name": "CustomAuctionDeployed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "addr",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "dutchAuction",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "fee",
+          "type": "uint256"
+        }
+      ],
+      "name": "DutchAuctionDeployed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newAddress",
+          "type": "address"
+        }
+      ],
+      "name": "FactoryDeprecated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "oldFee",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newFee",
+          "type": "uint256"
+        }
+      ],
+      "name": "MinimumFeeUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "acceptOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_auction",
+          "type": "address"
+        }
+      ],
+      "name": "addCustomAuction",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "auctions",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_tokenSupply",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_startDate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_endDate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_paymentCurrency",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_startPrice",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_minimumPrice",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address payable",
+          "name": "_wallet",
+          "type": "address"
+        }
+      ],
+      "name": "deployDutchAuction",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "dutchAuction",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_newAddress",
+          "type": "address"
+        }
+      ],
+      "name": "deprecateFactory",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "dutchAuctionTemplate",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_dutchAuctionTemplate",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_minimumFee",
+          "type": "uint256"
+        }
+      ],
+      "name": "initDutchSwapFactory",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "isChildAuction",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "exists",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isOwner",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "minimumFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "newAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "newOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "numberOfAuctions",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokens",
+          "type": "uint256"
+        }
+      ],
+      "name": "recoverTokens",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_auction",
+          "type": "address"
+        }
+      ],
+      "name": "removeFinalisedAuction",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_dutchAuctionTemplate",
+          "type": "address"
+        }
+      ],
+      "name": "setDutchAuctionTemplate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_minimumFee",
+          "type": "uint256"
+        }
+      ],
+      "name": "setMinimumFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "tokenAddress",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokens",
+          "type": "uint256"
+        }
+      ],
+      "name": "transferAnyERC20Token",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "transactionHash": "0x00ad5c80d42df0e4942af6794e5c019552657aa03625c3dc9fe457fdff6f465a",
+  "receipt": {
+    "to": null,
+    "from": "0x8406A51A0E1B5F52Ff61226773e6328e5Da5d964",
+    "contractAddress": "0xccAfE370Ba9F5b57b877c8282CC5973095721a1A",
+    "transactionIndex": 0,
+    "gasUsed": "965507",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xa09109490aab698fc72a94e090a4ddd27bade00e99b15d2e665ed06e200348bd",
+    "transactionHash": "0x00ad5c80d42df0e4942af6794e5c019552657aa03625c3dc9fe457fdff6f465a",
+    "logs": [],
+    "blockNumber": 12925531,
+    "cumulativeGasUsed": "965507",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "d9c02394b2d9331cad4460e650831b12",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.9+commit.3e3065ac\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"dutchAuction\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"name\":\"AuctionRemoved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"oldDutchAuction\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newDutchAuction\",\"type\":\"address\"}],\"name\":\"AuctionTemplateUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"}],\"name\":\"CustomAuctionDeployed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"dutchAuction\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"}],\"name\":\"DutchAuctionDeployed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\"}],\"name\":\"FactoryDeprecated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"oldFee\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"newFee\",\"type\":\"uint256\"}],\"name\":\"MinimumFeeUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"acceptOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_auction\",\"type\":\"address\"}],\"name\":\"addCustomAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"auctions\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_tokenSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_startDate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_endDate\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_paymentCurrency\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_startPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_minimumPrice\",\"type\":\"uint256\"},{\"internalType\":\"address payable\",\"name\":\"_wallet\",\"type\":\"address\"}],\"name\":\"deployDutchAuction\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"dutchAuction\",\"type\":\"address\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_newAddress\",\"type\":\"address\"}],\"name\":\"deprecateFactory\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"dutchAuctionTemplate\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_dutchAuctionTemplate\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_minimumFee\",\"type\":\"uint256\"}],\"name\":\"initDutchSwapFactory\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"isChildAuction\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"exists\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"index\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"isOwner\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"minimumFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"newAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"newOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"numberOfAuctions\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokens\",\"type\":\"uint256\"}],\"name\":\"recoverTokens\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_auction\",\"type\":\"address\"}],\"name\":\"removeFinalisedAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_dutchAuctionTemplate\",\"type\":\"address\"}],\"name\":\"setDutchAuctionTemplate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_minimumFee\",\"type\":\"uint256\"}],\"name\":\"setMinimumFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokens\",\"type\":\"uint256\"}],\"name\":\"transferAnyERC20Token\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"success\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"contracts/Dutch/contracts/DutchSwapFactory.sol\":\"DutchSwapFactory\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Dutch/contracts/DutchSwapFactory.sol\":{\"content\":\"pragma solidity ^0.6.9;\\r\\n\\r\\n//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\\r\\n//::::::::::: @#::::::::::: @#:::::::::::: #@j:::::::::::::::::::::::::\\r\\n//::::::::::: ##::::::::::: @#:::::::::::: #@j:::::::::::::::::::::::::\\r\\n//::::::::::: ##::::::::::: @#:::::::::::: #@j:::::::::::::::::::::::::\\r\\n//::::: ########: ##:: jU* DUTCh>: ihD%Ky: #@Whdqy:::::::::::::::::::::\\r\\n//::: ###... ###: ##:: #@j: @B... @@7...t: N@N.. R@K:::::::::::::::::::\\r\\n//::: ##::::: ##: ##::.Q@t: @Q::: @Q.::::: N@j:: z@Q:::::::::::::::::::\\r\\n//:::: ##DuTCH##: %@QQ@@S`: hQQQh <R@QN@Q* N@j:: z@Q:::::::::::::::::::\\r\\n//::::::.......: =Q@y....:::....:::......::...:::...:::::::::::::::::::\\r\\n//:::::::::::::: h@W? sWAP@! 'DW;::::::.KK. ydSWAP@t: NNKNQBdt:::::::::\\r\\n//:::::::::::::: 'zqRqj*. L@R h@w: QQ: L@5 Q@z.. d@@: @@U... @Q::::::::\\r\\n//:::::::::::::::::...... Q@^ ^@@N@wt@BQ@ <@Q^::: @@: @@}::: @@::::::::\\r\\n//:::::::::::::::::: U@@QKt... D@@L...B@Q.. KDUTCH@Q: @@QQ#QQq:::::::::\\r\\n//:::::::::::::::::::.....::::::...:::...::::.......: @@!.....:::::::::\\r\\n//::::::::::::::::::::::::::::::::::::::::::::::::::: @@!::::::::::::::\\r\\n//::::::::::::::::::::::::::::::::::::::::::::::::::: @@!::::::::::::::\\r\\n//::::::::::::::01101100:01101111:01101111:01101011::::::::::::::::::::\\r\\n//:::::01100100:01100101:01100101:01110000:01111001:01110010:::::::::::\\r\\n//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\\r\\n//\\r\\n// DutchSwap Factory\\r\\n//\\r\\n// Authors:\\r\\n// * Adrian Guerrera / Deepyr Pty Ltd\\r\\n//\\r\\n// Appropriated from BokkyPooBah's Fixed Supply Token \\ud83d\\udc4a Factory\\r\\n// https://www.ethervendingmachine.io\\r\\n// Thanks Bokky!\\r\\n// ----------------------------------------------------------------------------\\r\\n// SPDX-License-Identifier: GPL-3.0\\r\\n\\r\\nimport \\\"./Utils/Owned.sol\\\";\\r\\nimport \\\"./Utils/SafeMathPlus.sol\\\";\\r\\nimport \\\"./Utils/CloneFactory.sol\\\";\\r\\nimport \\\"../interfaces/IOwned.sol\\\";\\r\\nimport \\\"../interfaces/IERC20.sol\\\";\\r\\nimport \\\"../interfaces/IDutchAuction.sol\\\";\\r\\n\\r\\ncontract DutchSwapFactory is Owned, CloneFactory {\\r\\n  using SafeMathPlus for uint256;\\r\\n\\r\\n  address public dutchAuctionTemplate;\\r\\n\\r\\n  struct Auction {\\r\\n    bool exists;\\r\\n    uint256 index;\\r\\n  }\\r\\n\\r\\n  address public newAddress;\\r\\n  uint256 public minimumFee = 0 ether;\\r\\n  mapping(address => Auction) public isChildAuction;\\r\\n  address[] public auctions;\\r\\n\\r\\n  event DutchAuctionDeployed(\\r\\n    address indexed owner,\\r\\n    address indexed addr,\\r\\n    address dutchAuction,\\r\\n    uint256 fee\\r\\n  );\\r\\n\\r\\n  event CustomAuctionDeployed(address indexed owner, address indexed addr);\\r\\n\\r\\n  event AuctionRemoved(address dutchAuction, uint256 index);\\r\\n  event FactoryDeprecated(address newAddress);\\r\\n  event MinimumFeeUpdated(uint256 oldFee, uint256 newFee);\\r\\n  event AuctionTemplateUpdated(\\r\\n    address oldDutchAuction,\\r\\n    address newDutchAuction\\r\\n  );\\r\\n\\r\\n  function initDutchSwapFactory(\\r\\n    address _dutchAuctionTemplate,\\r\\n    uint256 _minimumFee\\r\\n  ) public {\\r\\n    _initOwned(msg.sender);\\r\\n    dutchAuctionTemplate = _dutchAuctionTemplate;\\r\\n    minimumFee = _minimumFee;\\r\\n  }\\r\\n\\r\\n  function numberOfAuctions() public view returns (uint256) {\\r\\n    return auctions.length;\\r\\n  }\\r\\n\\r\\n  function addCustomAuction(address _auction) public {\\r\\n    require(isOwner());\\r\\n    require(!isChildAuction[_auction].exists);\\r\\n    bool finalised = IDutchAuction(_auction).auctionEnded();\\r\\n    require(!finalised);\\r\\n    isChildAuction[address(_auction)] = Auction(true, auctions.length - 1);\\r\\n    auctions.push(address(_auction));\\r\\n    emit CustomAuctionDeployed(msg.sender, address(_auction));\\r\\n  }\\r\\n\\r\\n  function removeFinalisedAuction(address _auction) public {\\r\\n    require(isChildAuction[_auction].exists);\\r\\n    bool finalised = IDutchAuction(_auction).auctionEnded();\\r\\n    require(finalised);\\r\\n    uint256 removeIndex = isChildAuction[_auction].index;\\r\\n    emit AuctionRemoved(_auction, auctions.length - 1);\\r\\n    uint256 lastIndex = auctions.length - 1;\\r\\n    address lastIndexAddress = auctions[lastIndex];\\r\\n    auctions[removeIndex] = lastIndexAddress;\\r\\n    isChildAuction[lastIndexAddress].index = removeIndex;\\r\\n    if (auctions.length > 0) {\\r\\n      auctions.pop();\\r\\n    }\\r\\n  }\\r\\n\\r\\n  function deprecateFactory(address _newAddress) public {\\r\\n    require(isOwner());\\r\\n    require(newAddress == address(0));\\r\\n    emit FactoryDeprecated(_newAddress);\\r\\n    newAddress = _newAddress;\\r\\n  }\\r\\n\\r\\n  function setMinimumFee(uint256 _minimumFee) public {\\r\\n    require(isOwner());\\r\\n    emit MinimumFeeUpdated(minimumFee, _minimumFee);\\r\\n    minimumFee = _minimumFee;\\r\\n  }\\r\\n\\r\\n  function setDutchAuctionTemplate(address _dutchAuctionTemplate) public {\\r\\n    require(isOwner());\\r\\n    emit AuctionTemplateUpdated(dutchAuctionTemplate, _dutchAuctionTemplate);\\r\\n    dutchAuctionTemplate = _dutchAuctionTemplate;\\r\\n  }\\r\\n\\r\\n  function deployDutchAuction(\\r\\n    address _token,\\r\\n    uint256 _tokenSupply,\\r\\n    uint256 _startDate,\\r\\n    uint256 _endDate,\\r\\n    address _paymentCurrency,\\r\\n    uint256 _startPrice,\\r\\n    uint256 _minimumPrice,\\r\\n    address payable _wallet\\r\\n  ) public payable returns (address dutchAuction) {\\r\\n    dutchAuction = createClone(dutchAuctionTemplate);\\r\\n    isChildAuction[address(dutchAuction)] = Auction(true, auctions.length - 1);\\r\\n    auctions.push(address(dutchAuction));\\r\\n    require(\\r\\n      IERC20(_token).transferFrom(msg.sender, address(this), _tokenSupply)\\r\\n    );\\r\\n    require(IERC20(_token).approve(dutchAuction, _tokenSupply));\\r\\n    IDutchAuction(dutchAuction).initDutchAuction(\\r\\n      address(this),\\r\\n      _token,\\r\\n      _tokenSupply,\\r\\n      _startDate,\\r\\n      _endDate,\\r\\n      _paymentCurrency,\\r\\n      _startPrice,\\r\\n      _minimumPrice,\\r\\n      _wallet\\r\\n    );\\r\\n    emit DutchAuctionDeployed(\\r\\n      msg.sender,\\r\\n      address(dutchAuction),\\r\\n      dutchAuctionTemplate,\\r\\n      msg.value\\r\\n    );\\r\\n  }\\r\\n\\r\\n  // footer functions\\r\\n  function transferAnyERC20Token(address tokenAddress, uint256 tokens)\\r\\n    public\\r\\n    returns (bool success)\\r\\n  {\\r\\n    require(isOwner());\\r\\n    return IERC20(tokenAddress).transfer(owner(), tokens);\\r\\n  }\\r\\n\\r\\n  receive() external payable {\\r\\n    revert();\\r\\n  }\\r\\n}\\r\\n\",\"keccak256\":\"0xf22825de78e795ae54ec94119f7223e2a3bb8dd93e20f5db14bdb2781b8999fe\",\"license\":\"GPL-3.0\"},\"contracts/Dutch/contracts/Utils/CloneFactory.sol\":{\"content\":\"pragma solidity ^0.6.9;\\r\\n\\r\\n// ----------------------------------------------------------------------------\\r\\n// CloneFactory.sol\\r\\n// From\\r\\n// https://github.com/optionality/clone-factory/blob/32782f82dfc5a00d103a7e61a17a5dedbd1e8e9d/contracts/CloneFactory.sol\\r\\n// ----------------------------------------------------------------------------\\r\\n\\r\\n/*\\r\\nThe MIT License (MIT)\\r\\nCopyright (c) 2018 Murray Software, LLC.\\r\\nPermission is hereby granted, free of charge, to any person obtaining\\r\\na copy of this software and associated documentation files (the\\r\\n\\\"Software\\\"), to deal in the Software without restriction, including\\r\\nwithout limitation the rights to use, copy, modify, merge, publish,\\r\\ndistribute, sublicense, and/or sell copies of the Software, and to\\r\\npermit persons to whom the Software is furnished to do so, subject to\\r\\nthe following conditions:\\r\\nThe above copyright notice and this permission notice shall be included\\r\\nin all copies or substantial portions of the Software.\\r\\nTHE SOFTWARE IS PROVIDED \\\"AS IS\\\", WITHOUT WARRANTY OF ANY KIND, EXPRESS\\r\\nOR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\\r\\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\\r\\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\\r\\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\\r\\nTORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\\r\\nSOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\\r\\n*/\\r\\n//solhint-disable max-line-length\\r\\n//solhint-disable no-inline-assembly\\r\\n\\r\\ncontract CloneFactory {\\r\\n\\r\\n  function createClone(address target) internal returns (address result) {\\r\\n    bytes20 targetBytes = bytes20(target);\\r\\n    assembly {\\r\\n      let clone := mload(0x40)\\r\\n      mstore(clone, 0x3d602d80600a3d3981f3363d3d373d3d3d363d73000000000000000000000000)\\r\\n      mstore(add(clone, 0x14), targetBytes)\\r\\n      mstore(add(clone, 0x28), 0x5af43d82803e903d91602b57fd5bf30000000000000000000000000000000000)\\r\\n      result := create(0, clone, 0x37)\\r\\n    }\\r\\n  }\\r\\n\\r\\n  function isClone(address target, address query) internal view returns (bool result) {\\r\\n    bytes20 targetBytes = bytes20(target);\\r\\n    assembly {\\r\\n      let clone := mload(0x40)\\r\\n      mstore(clone, 0x363d3d373d3d3d363d7300000000000000000000000000000000000000000000)\\r\\n      mstore(add(clone, 0xa), targetBytes)\\r\\n      mstore(add(clone, 0x1e), 0x5af43d82803e903d91602b57fd5bf30000000000000000000000000000000000)\\r\\n\\r\\n      let other := add(clone, 0x40)\\r\\n      extcodecopy(query, other, 0, 0x2d)\\r\\n      result := and(\\r\\n        eq(mload(clone), mload(other)),\\r\\n        eq(mload(add(clone, 0xd)), mload(add(other, 0xd)))\\r\\n      )\\r\\n    }\\r\\n  }\\r\\n}\\r\\n\",\"keccak256\":\"0xbcb27bb96a8838960d9abe42c0d160a3edad03cb6badb6bc3601e9ce74eb5678\"},\"contracts/Dutch/contracts/Utils/Owned.sol\":{\"content\":\"pragma solidity ^0.6.9;\\r\\n\\r\\n\\r\\nimport \\\"../../interfaces/IERC20.sol\\\";\\r\\n\\r\\n\\r\\ncontract Owned {\\r\\n\\r\\n    address private mOwner;   \\r\\n    bool private initialised;    \\r\\n    address public newOwner;\\r\\n\\r\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\r\\n\\r\\n    modifier onlyOwner() {\\r\\n        require(isOwner());\\r\\n        _;\\r\\n    }\\r\\n\\r\\n    function _initOwned(address _owner) internal {\\r\\n        require(!initialised);\\r\\n        mOwner = address(uint160(_owner));\\r\\n        initialised = true;\\r\\n        emit OwnershipTransferred(address(0), mOwner);\\r\\n    }\\r\\n\\r\\n    function owner() public view returns (address) {\\r\\n        return mOwner;\\r\\n    }\\r\\n    function isOwner() public view returns (bool) {\\r\\n        return msg.sender == mOwner;\\r\\n    }\\r\\n\\r\\n    function transferOwnership(address _newOwner) public {\\r\\n        require(isOwner());\\r\\n        newOwner = _newOwner;\\r\\n    }\\r\\n\\r\\n    function acceptOwnership() public {\\r\\n        require(msg.sender == newOwner);\\r\\n        emit OwnershipTransferred(mOwner, newOwner);\\r\\n        mOwner = address(uint160(newOwner));\\r\\n        newOwner = address(0);\\r\\n    }\\r\\n    function recoverTokens(address token, uint tokens) public {\\r\\n        require(isOwner());\\r\\n        if (token == address(0)) {\\r\\n            payable(mOwner).transfer((tokens == 0 ? address(this).balance : tokens));\\r\\n        } else {\\r\\n            IERC20(token).transfer(mOwner, tokens == 0 ? IERC20(token).balanceOf(address(this)) : tokens);\\r\\n        }\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0x4175cf8f7fb91ec4bb940e94a85af50eabd021101b630d1941bb93f2b53ee7cd\"},\"contracts/Dutch/contracts/Utils/SafeMathPlus.sol\":{\"content\":\"pragma solidity ^0.6.9;\\r\\n\\r\\n/**\\r\\n * @dev Wrappers over Solidity's arithmetic operations with added overflow\\r\\n * checks.\\r\\n *\\r\\n * See: https://github.com/OpenZeppelin/openzeppelin-contracts\\r\\n */\\r\\nlibrary SafeMathPlus {\\r\\n    function add(uint256 a, uint256 b) internal pure returns (uint256) {\\r\\n        uint256 c = a + b;\\r\\n        require(c >= a, \\\"SafeMath: addition overflow\\\");\\r\\n        return c;\\r\\n    }\\r\\n    function sub(uint256 a, uint256 b) internal pure returns (uint256) {\\r\\n        return sub(a, b, \\\"SafeMath: subtraction overflow\\\");\\r\\n    }\\r\\n    function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\r\\n        require(b <= a, errorMessage);\\r\\n        uint256 c = a - b;\\r\\n        return c;\\r\\n    }\\r\\n    function mul(uint256 a, uint256 b) internal pure returns (uint256) {\\r\\n        if (a == 0) {\\r\\n            return 0;\\r\\n        }\\r\\n        uint256 c = a * b;\\r\\n        require(c / a == b, \\\"SafeMath: multiplication overflow\\\");\\r\\n        return c;\\r\\n    }\\r\\n    function div(uint256 a, uint256 b) internal pure returns (uint256) {\\r\\n        return div(a, b, \\\"SafeMath: division by zero\\\");\\r\\n    }\\r\\n    function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\r\\n        require(b > 0, errorMessage);\\r\\n        uint256 c = a / b;\\r\\n        // assert(a == b * c + a % b); // There is no case in which this doesn't hold\\r\\n        return c;\\r\\n    }\\r\\n    function mod(uint256 a, uint256 b) internal pure returns (uint256) {\\r\\n        return mod(a, b, \\\"SafeMath: modulo by zero\\\");\\r\\n    }\\r\\n    function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\r\\n        require(b != 0, errorMessage);\\r\\n        return a % b;\\r\\n    }\\r\\n    function max(uint256 a, uint256 b) internal pure returns (uint256 c) {\\r\\n        c = a >= b ? a : b;\\r\\n    }\\r\\n    function min(uint256 a, uint256 b) internal pure returns (uint256 c) {\\r\\n        c = a <= b ? a : b;\\r\\n    }\\r\\n    // babylonian method (https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method)\\r\\n    function sqrt(uint y) internal pure returns (uint z) {\\r\\n        if (y > 3) {\\r\\n            z = y;\\r\\n            uint x = y / 2 + 1;\\r\\n            while (x < z) {\\r\\n                z = x;\\r\\n                x = (y / x + x) / 2;\\r\\n            }\\r\\n        } else if (y != 0) {\\r\\n            z = 1;\\r\\n        }\\r\\n    }\\r\\n}\",\"keccak256\":\"0x08c2b41c1c11f76c42b8a61bf37e3efcea98dc7798c7304fc6cf0542ae30d176\"},\"contracts/Dutch/interfaces/IDutchAuction.sol\":{\"content\":\"pragma solidity ^0.6.9;\\r\\n\\r\\n// ----------------------------------------------------------------------------\\r\\n// ERC Token Standard #20 Interface\\r\\n// https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md\\r\\n// ----------------------------------------------------------------------------\\r\\n\\r\\ninterface IDutchAuction {\\r\\n\\r\\n    function initDutchAuction (\\r\\n            address _funder,\\r\\n            address _token,\\r\\n            uint256 _tokenSupply,\\r\\n            uint256 _startDate,\\r\\n            uint256 _endDate,\\r\\n            address _paymentCurrency,\\r\\n            uint256 _startPrice,\\r\\n            uint256 _minimumPrice,\\r\\n            address payable _wallet\\r\\n        ) external ;\\r\\n    function auctionEnded() external view returns (bool);\\r\\n    function tokensClaimed(address user) external view returns (uint256);\\r\\n    function tokenSupply() external view returns(uint256);\\r\\n    function wallet() external view returns(address);\\r\\n    function minimumPrice() external view returns(uint256);\\r\\n    function clearingPrice() external view returns (uint256);\\r\\n    function auctionToken() external view returns(address);\\r\\n    function endDate() external view returns(uint256);\\r\\n\\r\\n    function paymentCurrency() external view returns(address);\\r\\n\\r\\n}\\r\\n\",\"keccak256\":\"0x3f5af0c0f0968559720c2669d362843bd1afbf9786f3b163710cb1dcbbdd22db\"},\"contracts/Dutch/interfaces/IERC20.sol\":{\"content\":\"pragma solidity ^0.6.2;\\r\\n// SPDX-License-Identifier: UNLICENSED\\r\\n\\r\\n\\r\\ninterface IERC20 {\\r\\n    function name() external view returns (string memory);\\r\\n    function symbol() external view returns (string memory);\\r\\n    function decimals() external view returns (uint8);\\r\\n    function totalSupply() external view returns (uint256);\\r\\n    function balanceOf(address owner) external view returns (uint256);\\r\\n    function transfer(address to, uint256 amount) external returns (bool);\\r\\n    function transferFrom(address from, address to, uint256 amount) external returns (bool);\\r\\n    function approve(address spender, uint256 amount) external returns (bool);\\r\\n    function allowance(address owner, address spender) external view returns (uint256);\\r\\n\\r\\n    event Transfer(address indexed from, address indexed to, uint256 amount);\\r\\n    event Approval(address indexed owner, address indexed spender, uint256 amount);\\r\\n}\\r\\n\\r\\n\",\"keccak256\":\"0x82f04c336f39d8a57fdc91236f9f28d6106c6eb1f2484e91318b19945c681169\",\"license\":\"UNLICENSED\"},\"contracts/Dutch/interfaces/IOwned.sol\":{\"content\":\"pragma solidity ^0.6.9;\\r\\n\\r\\n// ----------------------------------------------------------------------------\\r\\n// White List interface\\r\\n// ----------------------------------------------------------------------------\\r\\n\\r\\ninterface IOwned {\\r\\n    function owner() external view returns (address) ;\\r\\n    function isOwner() external view returns (bool) ;\\r\\n    function transferOwnership(address _newOwner) external;\\r\\n}\\r\\n\",\"keccak256\":\"0xaac353ccbec1d5b214efd8614c1c5e3c6f8b84118471cf3e4cbe8077feea09c2\"}},\"version\":1}",
+  "bytecode": "0x6080604052600060045534801561001557600080fd5b50611077806100256000396000f3fe6080604052600436106101235760003560e01c80638da5cb5b116100a0578063d4ee1d9011610064578063d4ee1d90146103b6578063dc39d06d146103cb578063de0946af14610404578063f2fde38b14610437578063f952cc001461046a5761012d565b80638da5cb5b1461031b5780638f32d59b14610330578063a7227b0014610359578063c58097801461038c578063ccdb3f45146103a15761012d565b806350d9d472116100e757806350d9d47214610224578063571a26a0146102395780635b422fcd1461027f5780636183e76d146102cd57806379ba5097146103065761012d565b8063069c9fae14610132578063182a75061461016d5780631a7626e714610197578063417279ca146101be57806344e64077146101f15761012d565b3661012d57600080fd5b600080fd5b34801561013e57600080fd5b5061016b6004803603604081101561015557600080fd5b506001600160a01b0381351690602001356104bf565b005b34801561017957600080fd5b5061016b6004803603602081101561019057600080fd5b503561063e565b3480156101a357600080fd5b506101ac610691565b60408051918252519081900360200190f35b3480156101ca57600080fd5b5061016b600480360360208110156101e157600080fd5b50356001600160a01b0316610697565b3480156101fd57600080fd5b5061016b6004803603602081101561021457600080fd5b50356001600160a01b0316610848565b34801561023057600080fd5b506101ac6108c3565b34801561024557600080fd5b506102636004803603602081101561025c57600080fd5b50356108c9565b604080516001600160a01b039092168252519081900360200190f35b34801561028b57600080fd5b506102b2600480360360208110156102a257600080fd5b50356001600160a01b03166108f0565b60408051921515835260208301919091528051918290030190f35b3480156102d957600080fd5b5061016b600480360360408110156102f057600080fd5b506001600160a01b03813516906020013561090f565b34801561031257600080fd5b5061016b61093e565b34801561032757600080fd5b506102636109b9565b34801561033c57600080fd5b506103456109c8565b604080519115158252519081900360200190f35b34801561036557600080fd5b5061016b6004803603602081101561037c57600080fd5b50356001600160a01b03166109d9565b34801561039857600080fd5b50610263610b39565b3480156103ad57600080fd5b50610263610b48565b3480156103c257600080fd5b50610263610b57565b3480156103d757600080fd5b50610345600480360360408110156103ee57600080fd5b506001600160a01b038135169060200135610b66565b34801561041057600080fd5b5061016b6004803603602081101561042757600080fd5b50356001600160a01b0316610c13565b34801561044357600080fd5b5061016b6004803603602081101561045a57600080fd5b50356001600160a01b0316610c98565b610263600480360361010081101561048157600080fd5b506001600160a01b038135811691602081013591604082013591606081013591608082013581169160a08101359160c08201359160e0013516610ccb565b6104c76109c8565b6104d057600080fd5b6001600160a01b038216610529576000546001600160a01b03166108fc82156104f957826104fb565b475b6040518115909202916000818181858888f19350505050158015610523573d6000803e3d6000fd5b5061063a565b6000546001600160a01b038084169163a9059cbb9116831561054b57836105be565b604080516370a0823160e01b815230600482015290516001600160a01b038716916370a08231916024808301926020929190829003018186803b15801561059157600080fd5b505afa1580156105a5573d6000803e3d6000fd5b505050506040513d60208110156105bb57600080fd5b50515b6040518363ffffffff1660e01b815260040180836001600160a01b03166001600160a01b0316815260200182815260200192505050602060405180830381600087803b15801561060d57600080fd5b505af1158015610621573d6000803e3d6000fd5b505050506040513d602081101561063757600080fd5b50505b5050565b6106466109c8565b61064f57600080fd5b600454604080519182526020820183905280517fcc2f49c6214278ae5862935eff953448e8e69118d10abfafaf63ea6aa35255cb9281900390910190a1600455565b60045481565b6001600160a01b03811660009081526005602052604090205460ff166106bc57600080fd5b6000816001600160a01b031663864333746040518163ffffffff1660e01b815260040160206040518083038186803b1580156106f757600080fd5b505afa15801561070b573d6000803e3d6000fd5b505050506040513d602081101561072157600080fd5b505190508061072f57600080fd5b6001600160a01b0382166000818152600560209081526040918290206001015460065483519485526000190191840191909152815190927fc528cccad9c639c86a5e3fa29584f873df29a52b27c5c018865d597427a52b7092908290030190a160068054600019810191600091839081106107a657fe5b600091825260209091200154600680546001600160a01b0390921692508291859081106107cf57fe5b600091825260208083209190910180546001600160a01b0319166001600160a01b0394851617905591831681526005909152604090206001018390556006541561084157600680548061081e57fe5b600082815260209020810160001990810180546001600160a01b03191690550190555b5050505050565b6108506109c8565b61085957600080fd5b600254604080516001600160a01b039283168152918316602083015280517fcc56e57028002b9711486efce1fb8c1df287479e8dda2b895cbd8c4089abf7fc9281900390910190a1600280546001600160a01b0319166001600160a01b0392909216919091179055565b60065490565b600681815481106108d657fe5b6000918252602090912001546001600160a01b0316905081565b6005602052600090815260409020805460019091015460ff9091169082565b61091833610f7a565b600280546001600160a01b0319166001600160a01b039390931692909217909155600455565b6001546001600160a01b0316331461095557600080fd5b600154600080546040516001600160a01b0393841693909116917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a360018054600080546001600160a01b03199081166001600160a01b03841617909155169055565b6000546001600160a01b031690565b6000546001600160a01b0316331490565b6109e16109c8565b6109ea57600080fd5b6001600160a01b03811660009081526005602052604090205460ff1615610a1057600080fd5b6000816001600160a01b031663864333746040518163ffffffff1660e01b815260040160206040518083038186803b158015610a4b57600080fd5b505afa158015610a5f573d6000803e3d6000fd5b505050506040513d6020811015610a7557600080fd5b505190508015610a8457600080fd5b6040805180820182526001808252600680546000190160208085019182526001600160a01b038816600081815260059092528682209551865460ff1916901515178655915194840194909455815492830182559083527ff652222313e28459528d920b65115c16c04f3efc82aaedc97be59f3f377c0d3f90910180546001600160a01b03191682179055915133917ff702a7cb5f31ef81d6905c26d4d92e5ad9faf2dcf26effee3868537f39cf492b91a35050565b6002546001600160a01b031681565b6003546001600160a01b031681565b6001546001600160a01b031681565b6000610b706109c8565b610b7957600080fd5b826001600160a01b031663a9059cbb610b906109b9565b846040518363ffffffff1660e01b815260040180836001600160a01b03166001600160a01b0316815260200182815260200192505050602060405180830381600087803b158015610be057600080fd5b505af1158015610bf4573d6000803e3d6000fd5b505050506040513d6020811015610c0a57600080fd5b50519392505050565b610c1b6109c8565b610c2457600080fd5b6003546001600160a01b031615610c3a57600080fd5b604080516001600160a01b038316815290517f0ac885cfcac9d1450e80f787dbf9546001fb50414106435b10b1d27b448b86689181900360200190a1600380546001600160a01b0319166001600160a01b0392909216919091179055565b610ca06109c8565b610ca957600080fd5b600180546001600160a01b0319166001600160a01b0392909216919091179055565b600254600090610ce3906001600160a01b0316610fef565b6040805180820182526001808252600680546000190160208085019182526001600160a01b038781166000818152600584528881209751885460ff1916901515178855935196860196909655835494850184559282527ff652222313e28459528d920b65115c16c04f3efc82aaedc97be59f3f377c0d3f90930180546001600160a01b03191690941790935583516323b872dd60e01b8152336004820152306024820152604481018e905293519495508d16936323b872dd93606480820194918390030190829087803b158015610db957600080fd5b505af1158015610dcd573d6000803e3d6000fd5b505050506040513d6020811015610de357600080fd5b5051610dee57600080fd5b886001600160a01b031663095ea7b3828a6040518363ffffffff1660e01b815260040180836001600160a01b03166001600160a01b0316815260200182815260200192505050602060405180830381600087803b158015610e4e57600080fd5b505af1158015610e62573d6000803e3d6000fd5b505050506040513d6020811015610e7857600080fd5b5051610e8357600080fd5b604080516355b603e360e11b81523060048201526001600160a01b038b81166024830152604482018b9052606482018a90526084820189905287811660a483015260c4820187905260e4820186905284811661010483015291519183169163ab6c07c6916101248082019260009290919082900301818387803b158015610f0957600080fd5b505af1158015610f1d573d6000803e3d6000fd5b5050600254604080516001600160a01b039283168152346020820152815192861694503393507f3f18a7c9a87dcc800ca9d07e304371e1b140781acb5ab26b89080e1b96c3d167929081900390910190a398975050505050505050565b600054600160a01b900460ff1615610f9157600080fd5b6000805460ff60a01b196001600160a01b038085166001600160a01b03199093169290921716600160a01b17808355604051911691907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a350565b6000808260601b9050604051733d602d80600a3d3981f3363d3d373d3d3d363d7360601b81528160148201526e5af43d82803e903d91602b57fd5bf360881b60288201526037816000f094935050505056fea2646970667358221220035639ee2fc5d43eab40ec3a14d8af9ae857a15056db5688f8c1fe9176afd46664736f6c63430006090033",
+  "deployedBytecode": "0x6080604052600436106101235760003560e01c80638da5cb5b116100a0578063d4ee1d9011610064578063d4ee1d90146103b6578063dc39d06d146103cb578063de0946af14610404578063f2fde38b14610437578063f952cc001461046a5761012d565b80638da5cb5b1461031b5780638f32d59b14610330578063a7227b0014610359578063c58097801461038c578063ccdb3f45146103a15761012d565b806350d9d472116100e757806350d9d47214610224578063571a26a0146102395780635b422fcd1461027f5780636183e76d146102cd57806379ba5097146103065761012d565b8063069c9fae14610132578063182a75061461016d5780631a7626e714610197578063417279ca146101be57806344e64077146101f15761012d565b3661012d57600080fd5b600080fd5b34801561013e57600080fd5b5061016b6004803603604081101561015557600080fd5b506001600160a01b0381351690602001356104bf565b005b34801561017957600080fd5b5061016b6004803603602081101561019057600080fd5b503561063e565b3480156101a357600080fd5b506101ac610691565b60408051918252519081900360200190f35b3480156101ca57600080fd5b5061016b600480360360208110156101e157600080fd5b50356001600160a01b0316610697565b3480156101fd57600080fd5b5061016b6004803603602081101561021457600080fd5b50356001600160a01b0316610848565b34801561023057600080fd5b506101ac6108c3565b34801561024557600080fd5b506102636004803603602081101561025c57600080fd5b50356108c9565b604080516001600160a01b039092168252519081900360200190f35b34801561028b57600080fd5b506102b2600480360360208110156102a257600080fd5b50356001600160a01b03166108f0565b60408051921515835260208301919091528051918290030190f35b3480156102d957600080fd5b5061016b600480360360408110156102f057600080fd5b506001600160a01b03813516906020013561090f565b34801561031257600080fd5b5061016b61093e565b34801561032757600080fd5b506102636109b9565b34801561033c57600080fd5b506103456109c8565b604080519115158252519081900360200190f35b34801561036557600080fd5b5061016b6004803603602081101561037c57600080fd5b50356001600160a01b03166109d9565b34801561039857600080fd5b50610263610b39565b3480156103ad57600080fd5b50610263610b48565b3480156103c257600080fd5b50610263610b57565b3480156103d757600080fd5b50610345600480360360408110156103ee57600080fd5b506001600160a01b038135169060200135610b66565b34801561041057600080fd5b5061016b6004803603602081101561042757600080fd5b50356001600160a01b0316610c13565b34801561044357600080fd5b5061016b6004803603602081101561045a57600080fd5b50356001600160a01b0316610c98565b610263600480360361010081101561048157600080fd5b506001600160a01b038135811691602081013591604082013591606081013591608082013581169160a08101359160c08201359160e0013516610ccb565b6104c76109c8565b6104d057600080fd5b6001600160a01b038216610529576000546001600160a01b03166108fc82156104f957826104fb565b475b6040518115909202916000818181858888f19350505050158015610523573d6000803e3d6000fd5b5061063a565b6000546001600160a01b038084169163a9059cbb9116831561054b57836105be565b604080516370a0823160e01b815230600482015290516001600160a01b038716916370a08231916024808301926020929190829003018186803b15801561059157600080fd5b505afa1580156105a5573d6000803e3d6000fd5b505050506040513d60208110156105bb57600080fd5b50515b6040518363ffffffff1660e01b815260040180836001600160a01b03166001600160a01b0316815260200182815260200192505050602060405180830381600087803b15801561060d57600080fd5b505af1158015610621573d6000803e3d6000fd5b505050506040513d602081101561063757600080fd5b50505b5050565b6106466109c8565b61064f57600080fd5b600454604080519182526020820183905280517fcc2f49c6214278ae5862935eff953448e8e69118d10abfafaf63ea6aa35255cb9281900390910190a1600455565b60045481565b6001600160a01b03811660009081526005602052604090205460ff166106bc57600080fd5b6000816001600160a01b031663864333746040518163ffffffff1660e01b815260040160206040518083038186803b1580156106f757600080fd5b505afa15801561070b573d6000803e3d6000fd5b505050506040513d602081101561072157600080fd5b505190508061072f57600080fd5b6001600160a01b0382166000818152600560209081526040918290206001015460065483519485526000190191840191909152815190927fc528cccad9c639c86a5e3fa29584f873df29a52b27c5c018865d597427a52b7092908290030190a160068054600019810191600091839081106107a657fe5b600091825260209091200154600680546001600160a01b0390921692508291859081106107cf57fe5b600091825260208083209190910180546001600160a01b0319166001600160a01b0394851617905591831681526005909152604090206001018390556006541561084157600680548061081e57fe5b600082815260209020810160001990810180546001600160a01b03191690550190555b5050505050565b6108506109c8565b61085957600080fd5b600254604080516001600160a01b039283168152918316602083015280517fcc56e57028002b9711486efce1fb8c1df287479e8dda2b895cbd8c4089abf7fc9281900390910190a1600280546001600160a01b0319166001600160a01b0392909216919091179055565b60065490565b600681815481106108d657fe5b6000918252602090912001546001600160a01b0316905081565b6005602052600090815260409020805460019091015460ff9091169082565b61091833610f7a565b600280546001600160a01b0319166001600160a01b039390931692909217909155600455565b6001546001600160a01b0316331461095557600080fd5b600154600080546040516001600160a01b0393841693909116917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e091a360018054600080546001600160a01b03199081166001600160a01b03841617909155169055565b6000546001600160a01b031690565b6000546001600160a01b0316331490565b6109e16109c8565b6109ea57600080fd5b6001600160a01b03811660009081526005602052604090205460ff1615610a1057600080fd5b6000816001600160a01b031663864333746040518163ffffffff1660e01b815260040160206040518083038186803b158015610a4b57600080fd5b505afa158015610a5f573d6000803e3d6000fd5b505050506040513d6020811015610a7557600080fd5b505190508015610a8457600080fd5b6040805180820182526001808252600680546000190160208085019182526001600160a01b038816600081815260059092528682209551865460ff1916901515178655915194840194909455815492830182559083527ff652222313e28459528d920b65115c16c04f3efc82aaedc97be59f3f377c0d3f90910180546001600160a01b03191682179055915133917ff702a7cb5f31ef81d6905c26d4d92e5ad9faf2dcf26effee3868537f39cf492b91a35050565b6002546001600160a01b031681565b6003546001600160a01b031681565b6001546001600160a01b031681565b6000610b706109c8565b610b7957600080fd5b826001600160a01b031663a9059cbb610b906109b9565b846040518363ffffffff1660e01b815260040180836001600160a01b03166001600160a01b0316815260200182815260200192505050602060405180830381600087803b158015610be057600080fd5b505af1158015610bf4573d6000803e3d6000fd5b505050506040513d6020811015610c0a57600080fd5b50519392505050565b610c1b6109c8565b610c2457600080fd5b6003546001600160a01b031615610c3a57600080fd5b604080516001600160a01b038316815290517f0ac885cfcac9d1450e80f787dbf9546001fb50414106435b10b1d27b448b86689181900360200190a1600380546001600160a01b0319166001600160a01b0392909216919091179055565b610ca06109c8565b610ca957600080fd5b600180546001600160a01b0319166001600160a01b0392909216919091179055565b600254600090610ce3906001600160a01b0316610fef565b6040805180820182526001808252600680546000190160208085019182526001600160a01b038781166000818152600584528881209751885460ff1916901515178855935196860196909655835494850184559282527ff652222313e28459528d920b65115c16c04f3efc82aaedc97be59f3f377c0d3f90930180546001600160a01b03191690941790935583516323b872dd60e01b8152336004820152306024820152604481018e905293519495508d16936323b872dd93606480820194918390030190829087803b158015610db957600080fd5b505af1158015610dcd573d6000803e3d6000fd5b505050506040513d6020811015610de357600080fd5b5051610dee57600080fd5b886001600160a01b031663095ea7b3828a6040518363ffffffff1660e01b815260040180836001600160a01b03166001600160a01b0316815260200182815260200192505050602060405180830381600087803b158015610e4e57600080fd5b505af1158015610e62573d6000803e3d6000fd5b505050506040513d6020811015610e7857600080fd5b5051610e8357600080fd5b604080516355b603e360e11b81523060048201526001600160a01b038b81166024830152604482018b9052606482018a90526084820189905287811660a483015260c4820187905260e4820186905284811661010483015291519183169163ab6c07c6916101248082019260009290919082900301818387803b158015610f0957600080fd5b505af1158015610f1d573d6000803e3d6000fd5b5050600254604080516001600160a01b039283168152346020820152815192861694503393507f3f18a7c9a87dcc800ca9d07e304371e1b140781acb5ab26b89080e1b96c3d167929081900390910190a398975050505050505050565b600054600160a01b900460ff1615610f9157600080fd5b6000805460ff60a01b196001600160a01b038085166001600160a01b03199093169290921716600160a01b17808355604051911691907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0908290a350565b6000808260601b9050604051733d602d80600a3d3981f3363d3d373d3d3d363d7360601b81528160148201526e5af43d82803e903d91602b57fd5bf360881b60288201526037816000f094935050505056fea2646970667358221220035639ee2fc5d43eab40ec3a14d8af9ae857a15056db5688f8c1fe9176afd46664736f6c63430006090033",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 2832,
+        "contract": "contracts/Dutch/contracts/DutchSwapFactory.sol:DutchSwapFactory",
+        "label": "mOwner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 2834,
+        "contract": "contracts/Dutch/contracts/DutchSwapFactory.sol:DutchSwapFactory",
+        "label": "initialised",
+        "offset": 20,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 2836,
+        "contract": "contracts/Dutch/contracts/DutchSwapFactory.sol:DutchSwapFactory",
+        "label": "newOwner",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_address"
+      },
+      {
+        "astId": 873,
+        "contract": "contracts/Dutch/contracts/DutchSwapFactory.sol:DutchSwapFactory",
+        "label": "dutchAuctionTemplate",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_address"
+      },
+      {
+        "astId": 880,
+        "contract": "contracts/Dutch/contracts/DutchSwapFactory.sol:DutchSwapFactory",
+        "label": "newAddress",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_address"
+      },
+      {
+        "astId": 883,
+        "contract": "contracts/Dutch/contracts/DutchSwapFactory.sol:DutchSwapFactory",
+        "label": "minimumFee",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 887,
+        "contract": "contracts/Dutch/contracts/DutchSwapFactory.sol:DutchSwapFactory",
+        "label": "isChildAuction",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_mapping(t_address,t_struct(Auction)878_storage)"
+      },
+      {
+        "astId": 890,
+        "contract": "contracts/Dutch/contracts/DutchSwapFactory.sol:DutchSwapFactory",
+        "label": "auctions",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_array(t_address)dyn_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_address)dyn_storage": {
+        "base": "t_address",
+        "encoding": "dynamic_array",
+        "label": "address[]",
+        "numberOfBytes": "32"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_struct(Auction)878_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct DutchSwapFactory.Auction)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Auction)878_storage"
+      },
+      "t_struct(Auction)878_storage": {
+        "encoding": "inplace",
+        "label": "struct DutchSwapFactory.Auction",
+        "members": [
+          {
+            "astId": 875,
+            "contract": "contracts/Dutch/contracts/DutchSwapFactory.sol:DutchSwapFactory",
+            "label": "exists",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_bool"
+          },
+          {
+            "astId": 877,
+            "contract": "contracts/Dutch/contracts/DutchSwapFactory.sol:DutchSwapFactory",
+            "label": "index",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

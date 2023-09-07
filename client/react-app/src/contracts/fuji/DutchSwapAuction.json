@@ -1,0 +1,725 @@
+{
+  "address": "0x1449D46AEFEBF46cdBe444377daC39e173C24891",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "addr",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "commitment",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        }
+      ],
+      "name": "AddedCommitment",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "auctionEnded",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "auctionSuccessful",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "auctionToken",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_commitment",
+          "type": "uint256"
+        }
+      ],
+      "name": "calculateCommitment",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "committed",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "claimed",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "clearingPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "commitEth",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address payable",
+          "name": "_from",
+          "type": "address"
+        }
+      ],
+      "name": "commitEthFrom",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "commitTokens",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "commitTokensFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "commitments",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "commitmentsTotal",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "endDate",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "finaliseAuction",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "finalised",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_funder",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_totalTokens",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_startDate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_endDate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_paymentCurrency",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_startPrice",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_minimumPrice",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address payable",
+          "name": "_wallet",
+          "type": "address"
+        }
+      ],
+      "name": "initDutchAuction",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "minimumPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "paymentCurrency",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "priceDrop",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "priceFunction",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "startDate",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "startPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tokenPrice",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tokenWithdrawn",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_user",
+          "type": "address"
+        }
+      ],
+      "name": "tokensClaimable",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tokensRemaining",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalTokens",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalTokensCommitted",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "wallet",
+      "outputs": [
+        {
+          "internalType": "address payable",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdrawTokens",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "transactionHash": "0x523a0f54323a560bafffc0f8a37af89b8888efbb769a20f60d39530418c6aea0",
+  "receipt": {
+    "to": null,
+    "from": "0x8406A51A0E1B5F52Ff61226773e6328e5Da5d964",
+    "contractAddress": "0x1449D46AEFEBF46cdBe444377daC39e173C24891",
+    "transactionIndex": 0,
+    "gasUsed": "1080296",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xe5555bbf8f20cb696c6e80bb342a48e1e7a4084fb1882879141cab1185eeb58f",
+    "transactionHash": "0x523a0f54323a560bafffc0f8a37af89b8888efbb769a20f60d39530418c6aea0",
+    "logs": [],
+    "blockNumber": 12925241,
+    "cumulativeGasUsed": "1080296",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "d9c02394b2d9331cad4460e650831b12",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.9+commit.3e3065ac\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"commitment\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"}],\"name\":\"AddedCommitment\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"auctionEnded\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"auctionSuccessful\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"auctionToken\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_commitment\",\"type\":\"uint256\"}],\"name\":\"calculateCommitment\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"committed\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"claimed\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"clearingPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"commitEth\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"_from\",\"type\":\"address\"}],\"name\":\"commitEthFrom\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"commitTokens\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_from\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"commitTokensFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"commitments\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"commitmentsTotal\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"endDate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"finaliseAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"finalised\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_funder\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_totalTokens\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_startDate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_endDate\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_paymentCurrency\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_startPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_minimumPrice\",\"type\":\"uint256\"},{\"internalType\":\"address payable\",\"name\":\"_wallet\",\"type\":\"address\"}],\"name\":\"initDutchAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"minimumPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paymentCurrency\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"priceDrop\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"priceFunction\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"startDate\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"startPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tokenPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tokenWithdrawn\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"}],\"name\":\"tokensClaimable\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tokensRemaining\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalTokens\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalTokensCommitted\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"wallet\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"withdrawTokens\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"methods\":{\"auctionEnded()\":{\"details\":\"able to claim early if auction is successful\"},\"commitEth()\":{\"details\":\"Needs extra gas limit for additional state changes\"},\"commitTokensFrom(address,uint256)\":{\"details\":\"Users must approve contract prior to committing tokens to auction\"},\"finaliseAuction()\":{\"details\":\"Transfer contract funds to initialised wallet.\"},\"initDutchAuction(address,address,uint256,uint256,uint256,address,uint256,uint256,address)\":{\"details\":\"Init function\"}},\"stateVariables\":{\"ETH_ADDRESS\":{\"details\":\"The placeholder ETH address.\"}}},\"userdoc\":{\"methods\":{\"auctionEnded()\":{\"notice\":\"Returns bool if successful or time has ended\"},\"auctionSuccessful()\":{\"notice\":\"Successful if tokens sold equals totalTokens\"},\"calculateCommitment(uint256)\":{\"notice\":\"Returns the amout able to be committed during an auction\"},\"clearingPrice()\":{\"notice\":\"The current clearing price of the Dutch auction\"},\"commitEthFrom(address)\":{\"notice\":\"Commit ETH to buy tokens for any address\"},\"commitTokens(uint256)\":{\"notice\":\"Commit approved ERC20 tokens to buy tokens on sale\"},\"finaliseAuction()\":{\"notice\":\"Auction finishes successfully above the reserve\"},\"priceFunction()\":{\"notice\":\"Returns price during the auction\"},\"tokenPrice()\":{\"notice\":\"The average price of each token from all commitments.\"},\"tokensClaimable(address)\":{\"notice\":\"How many tokens the user is able to claim\"},\"tokensRemaining()\":{\"notice\":\"Total amount of tokens remaining\"},\"totalTokensCommitted()\":{\"notice\":\"Total amount of tokens committed at current auction price\\u2013\"},\"withdrawTokens()\":{\"notice\":\"Withdraw your tokens once the Auction has ended.\"}}}},\"settings\":{\"compilationTarget\":{\"contracts/Dutch/contracts/DutchSwapAuction.sol\":\"DutchSwapAuction\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Dutch/contracts/DutchSwapAuction.sol\":{\"content\":\"pragma solidity ^0.6.9;\\r\\n\\r\\n// ---------------------------------------------------------------------\\r\\n// SPDX-License-Identifier: GPL-3.0\\r\\n// ---------------------------------------------------------------------\\r\\n\\r\\nimport \\\"./Utils/SafeMathPlus.sol\\\";\\r\\n\\r\\ncontract DutchSwapAuction {\\r\\n  using SafeMathPlus for uint256;\\r\\n  /// @dev The placeholder ETH address.\\r\\n  address private constant ETH_ADDRESS =\\r\\n    0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;\\r\\n\\r\\n  uint256 public startDate;\\r\\n  uint256 public endDate;\\r\\n  uint256 public startPrice;\\r\\n  uint256 public minimumPrice;\\r\\n  uint256 public totalTokens; // Amount to be sold\\r\\n  uint256 public priceDrop; // Price reduction from startPrice at endDate\\r\\n  uint256 public commitmentsTotal;\\r\\n  uint256 public tokenWithdrawn; // the amount of auction tokens already withdrawn\\r\\n  bool private initialised;\\r\\n  bool public finalised;\\r\\n  uint256 private constant _NOT_ENTERED = 1;\\r\\n  uint256 private constant _ENTERED = 2;\\r\\n  uint256 private _status;\\r\\n\\r\\n  address public auctionToken;\\r\\n  address public paymentCurrency;\\r\\n  address payable public wallet; // Where the auction funds will get paid\\r\\n  mapping(address => uint256) public commitments;\\r\\n  mapping(address => uint256) public claimed;\\r\\n\\r\\n  event AddedCommitment(address addr, uint256 commitment, uint256 price);\\r\\n\\r\\n  /// @dev Prevents a contract from calling itself, directly or indirectly.\\r\\n  /// @dev https://eips.ethereum.org/EIPS/eip-2200)\\r\\n  modifier nonReentrant() {\\r\\n    require(_status != _ENTERED); // ReentrancyGuard: reentrant call\\r\\n    _status = _ENTERED;\\r\\n    _;\\r\\n    _status = _NOT_ENTERED;\\r\\n  }\\r\\n\\r\\n  /// @dev Init function\\r\\n  function initDutchAuction(\\r\\n    address _funder,\\r\\n    address _token,\\r\\n    uint256 _totalTokens,\\r\\n    uint256 _startDate,\\r\\n    uint256 _endDate,\\r\\n    address _paymentCurrency,\\r\\n    uint256 _startPrice,\\r\\n    uint256 _minimumPrice,\\r\\n    address payable _wallet\\r\\n  ) external {\\r\\n    require(!initialised); // Already Initialised\\r\\n    require(_endDate > _startDate); // End date earlier than start date\\r\\n    require(_minimumPrice > 0); // Minimum price must be greater than 0\\r\\n\\r\\n    auctionToken = _token;\\r\\n    paymentCurrency = _paymentCurrency;\\r\\n\\r\\n    totalTokens = _totalTokens;\\r\\n    startDate = _startDate;\\r\\n    endDate = _endDate;\\r\\n    startPrice = _startPrice;\\r\\n    minimumPrice = _minimumPrice;\\r\\n    wallet = _wallet;\\r\\n    _status = _NOT_ENTERED;\\r\\n\\r\\n    uint256 numerator = startPrice.sub(minimumPrice);\\r\\n    uint256 denominator = endDate.sub(startDate);\\r\\n    priceDrop = numerator.div(denominator);\\r\\n\\r\\n    // There are many non-compliant ERC20 tokens... this can handle most, adapted from UniSwap V2\\r\\n    _safeTransferFrom(auctionToken, _funder, _totalTokens);\\r\\n    initialised = true;\\r\\n  }\\r\\n\\r\\n  // Dutch Auction Price Function\\r\\n  // ============================\\r\\n  //\\r\\n  // Start Price -----\\r\\n  //                   \\\\\\r\\n  //                    \\\\\\r\\n  //                     \\\\\\r\\n  //                      \\\\ ------------ Clearing Price\\r\\n  //                     / \\\\            = AmountRaised/TokenSupply\\r\\n  //      Token Price  --   \\\\\\r\\n  //                  /      \\\\\\r\\n  //                --        ----------- Minimum Price\\r\\n  // Amount raised /          End Time\\r\\n  //\\r\\n\\r\\n  /// @notice The average price of each token from all commitments.\\r\\n  function tokenPrice() public view returns (uint256) {\\r\\n    return commitmentsTotal.mul(1e18).div(totalTokens);\\r\\n  }\\r\\n\\r\\n  /// @notice Returns price during the auction\\r\\n  function priceFunction() public view returns (uint256) {\\r\\n    /// @dev Return Auction Price\\r\\n    if (block.timestamp <= startDate) {\\r\\n      return startPrice;\\r\\n    }\\r\\n    if (block.timestamp >= endDate) {\\r\\n      return minimumPrice;\\r\\n    }\\r\\n    return _currentPrice();\\r\\n  }\\r\\n\\r\\n  /// @notice The current clearing price of the Dutch auction\\r\\n  function clearingPrice() public view returns (uint256) {\\r\\n    /// @dev If auction successful, return tokenPrice\\r\\n    if (tokenPrice() > priceFunction()) {\\r\\n      return tokenPrice();\\r\\n    }\\r\\n    return priceFunction();\\r\\n  }\\r\\n\\r\\n  /// @notice How many tokens the user is able to claim\\r\\n  function tokensClaimable(address _user) public view returns (uint256) {\\r\\n    uint256 tokensAvailable = commitments[_user].mul(1e18).div(clearingPrice());\\r\\n    return tokensAvailable.sub(claimed[msg.sender]);\\r\\n  }\\r\\n\\r\\n  /// @notice Total amount of tokens committed at current auction price\\u2013\\r\\n  function totalTokensCommitted() public view returns (uint256) {\\r\\n    return commitmentsTotal.mul(1e18).div(clearingPrice());\\r\\n  }\\r\\n\\r\\n  /// @notice Total amount of tokens remaining\\r\\n  function tokensRemaining() public view returns (uint256) {\\r\\n    uint256 totalCommitted = totalTokensCommitted();\\r\\n    if (totalCommitted >= totalTokens) {\\r\\n      return 0;\\r\\n    } else {\\r\\n      return totalTokens.sub(totalCommitted);\\r\\n    }\\r\\n  }\\r\\n\\r\\n  /// @notice Returns price during the auction\\r\\n  function _currentPrice() private view returns (uint256) {\\r\\n    uint256 elapsed = block.timestamp.sub(startDate);\\r\\n    uint256 priceDiff = elapsed.mul(priceDrop);\\r\\n    return startPrice.sub(priceDiff);\\r\\n  }\\r\\n\\r\\n  //--------------------------------------------------------\\r\\n  // Commit to buying tokens!\\r\\n  //--------------------------------------------------------\\r\\n\\r\\n  /// @notice Buy Tokens by committing ETH to this contract address\\r\\n  /// @dev Needs extra gas limit for additional state changes\\r\\n  receive() external payable {\\r\\n    commitEthFrom(msg.sender);\\r\\n  }\\r\\n\\r\\n  /// @dev Needs extra gas limit for additional state changes\\r\\n  function commitEth() public payable {\\r\\n    commitEthFrom(msg.sender);\\r\\n  }\\r\\n\\r\\n  /// @notice Commit ETH to buy tokens for any address\\r\\n  function commitEthFrom(address payable _from) public payable {\\r\\n    require(!finalised); // Auction was cancelled\\r\\n    require(address(paymentCurrency) == ETH_ADDRESS); // Payment currency is not ETH\\r\\n    // Get ETH able to be committed\\r\\n    uint256 ethToTransfer = calculateCommitment(msg.value);\\r\\n\\r\\n    // Accept ETH Payments\\r\\n    uint256 ethToRefund = msg.value.sub(ethToTransfer);\\r\\n    if (ethToTransfer > 0) {\\r\\n      _addCommitment(_from, ethToTransfer);\\r\\n    }\\r\\n    // Return any ETH to be refunded\\r\\n    if (ethToRefund > 0) {\\r\\n      _from.transfer(ethToRefund);\\r\\n    }\\r\\n  }\\r\\n\\r\\n  /// @notice Commit approved ERC20 tokens to buy tokens on sale\\r\\n  function commitTokens(uint256 _amount) public {\\r\\n    commitTokensFrom(msg.sender, _amount);\\r\\n  }\\r\\n\\r\\n  /// @dev Users must approve contract prior to committing tokens to auction\\r\\n  function commitTokensFrom(address _from, uint256 _amount)\\r\\n    public\\r\\n    nonReentrant\\r\\n  {\\r\\n    require(!finalised); // Auction was cancelled\\r\\n    require(address(paymentCurrency) != ETH_ADDRESS); // Only token transfers\\r\\n    uint256 tokensToTransfer = calculateCommitment(_amount);\\r\\n    if (tokensToTransfer > 0) {\\r\\n      _safeTransferFrom(paymentCurrency, _from, tokensToTransfer);\\r\\n      _addCommitment(_from, tokensToTransfer);\\r\\n    }\\r\\n  }\\r\\n\\r\\n  /// @notice Returns the amout able to be committed during an auction\\r\\n  function calculateCommitment(uint256 _commitment)\\r\\n    public\\r\\n    view\\r\\n    returns (uint256 committed)\\r\\n  {\\r\\n    uint256 maxCommitment = totalTokens.mul(clearingPrice()).div(1e18);\\r\\n    if (commitmentsTotal.add(_commitment) > maxCommitment) {\\r\\n      return maxCommitment.sub(commitmentsTotal);\\r\\n    }\\r\\n    return _commitment;\\r\\n  }\\r\\n\\r\\n  /// @notice Commits to an amount during an auction\\r\\n  function _addCommitment(address _addr, uint256 _commitment) internal {\\r\\n    require(block.timestamp >= startDate && block.timestamp <= endDate); // Outside auction hours\\r\\n    commitments[_addr] = commitments[_addr].add(_commitment);\\r\\n    commitmentsTotal = commitmentsTotal.add(_commitment);\\r\\n    emit AddedCommitment(_addr, _commitment, _currentPrice());\\r\\n  }\\r\\n\\r\\n  //--------------------------------------------------------\\r\\n  // Finalise Auction\\r\\n  //--------------------------------------------------------\\r\\n\\r\\n  /// @notice Successful if tokens sold equals totalTokens\\r\\n  function auctionSuccessful() public view returns (bool) {\\r\\n    return tokenPrice() >= clearingPrice();\\r\\n  }\\r\\n\\r\\n  /// @notice Returns bool if successful or time has ended\\r\\n  /// @dev able to claim early if auction is successful\\r\\n  function auctionEnded() public view returns (bool) {\\r\\n    return auctionSuccessful() || block.timestamp > endDate;\\r\\n  }\\r\\n\\r\\n  /// @notice Auction finishes successfully above the reserve\\r\\n  /// @dev Transfer contract funds to initialised wallet.\\r\\n  function finaliseAuction() public nonReentrant {\\r\\n    require(!finalised); // Auction already finalised\\r\\n    if (auctionSuccessful()) {\\r\\n      /// @dev Successful auction\\r\\n      /// @dev Transfer contributed tokens to wallet.\\r\\n      _tokenPayment(paymentCurrency, wallet, commitmentsTotal);\\r\\n    } else if (commitmentsTotal == 0 && block.timestamp < startDate) {\\r\\n      /// @dev Cancelled Auction\\r\\n      /// @dev You can cancel the auction before it starts\\r\\n      _tokenPayment(auctionToken, wallet, totalTokens);\\r\\n    } else {\\r\\n      /// @dev Failed auction\\r\\n      /// @dev Return auction tokens back to wallet.\\r\\n      require(block.timestamp > endDate, \\\"Auction not finished yet\\\");\\r\\n      _tokenPayment(auctionToken, wallet, totalTokens);\\r\\n    }\\r\\n    finalised = true;\\r\\n  }\\r\\n\\r\\n  /// @notice Withdraw your tokens once the Auction has ended.\\r\\n  function withdrawTokens() public nonReentrant {\\r\\n    if (auctionSuccessful()) {\\r\\n      /// @dev Successful auction! Transfer claimed tokens.\\r\\n      uint256 tokensToClaim = tokensClaimable(msg.sender);\\r\\n      require(tokensToClaim > 0, \\\"No tokens to claim\\\");\\r\\n      claimed[msg.sender] = claimed[msg.sender].add(tokensToClaim);\\r\\n      tokenWithdrawn = tokenWithdrawn.add(tokensToClaim);\\r\\n      _tokenPayment(auctionToken, msg.sender, tokensToClaim);\\r\\n    } else {\\r\\n      /// @dev Auction did not meet reserve price.\\r\\n      /// @dev Return committed funds back to user.\\r\\n      require(block.timestamp > endDate); // Auction not yet finished\\r\\n      uint256 fundsCommitted = commitments[msg.sender];\\r\\n      require(fundsCommitted > 0); // No funds committed\\r\\n\\r\\n      commitments[msg.sender] = 0; // Stop multiple withdrawals and free some gas\\r\\n      _tokenPayment(paymentCurrency, msg.sender, fundsCommitted);\\r\\n    }\\r\\n  }\\r\\n\\r\\n  //--------------------------------------------------------\\r\\n  // Helper Functions\\r\\n  //--------------------------------------------------------\\r\\n\\r\\n  // There are many non-compliant ERC20 tokens... this can handle most, adapted from UniSwap V2\\r\\n  // I'm trying to make it a habit to put external calls last (reentrancy)\\r\\n  // You can put this in an internal function if you like.\\r\\n  function _safeTransfer(\\r\\n    address token,\\r\\n    address to,\\r\\n    uint256 amount\\r\\n  ) internal {\\r\\n    // solium-disable-next-line security/no-low-level-calls\\r\\n    (bool success, bytes memory data) = token.call(\\r\\n      // 0xa9059cbb = bytes4(keccak256(\\\"transferFrom(address,address,uint256)\\\"))\\r\\n      abi.encodeWithSelector(0xa9059cbb, to, amount)\\r\\n    );\\r\\n    require(success && (data.length == 0 || abi.decode(data, (bool)))); // ERC20 Transfer failed\\r\\n  }\\r\\n\\r\\n  function _safeTransferFrom(\\r\\n    address token,\\r\\n    address from,\\r\\n    uint256 amount\\r\\n  ) internal {\\r\\n    // solium-disable-next-line security/no-low-level-calls\\r\\n    (bool success, bytes memory data) = token.call(\\r\\n      // 0x23b872dd = bytes4(keccak256(\\\"transferFrom(address,address,uint256)\\\"))\\r\\n      abi.encodeWithSelector(0x23b872dd, from, address(this), amount)\\r\\n    );\\r\\n    require(success && (data.length == 0 || abi.decode(data, (bool)))); // ERC20 TransferFrom failed\\r\\n  }\\r\\n\\r\\n  /// @dev Helper function to handle both ETH and ERC20 payments\\r\\n  function _tokenPayment(\\r\\n    address _token,\\r\\n    address payable _to,\\r\\n    uint256 _amount\\r\\n  ) internal {\\r\\n    if (address(_token) == ETH_ADDRESS) {\\r\\n      _to.transfer(_amount);\\r\\n    } else {\\r\\n      _safeTransfer(_token, _to, _amount);\\r\\n    }\\r\\n  }\\r\\n}\\r\\n\",\"keccak256\":\"0x1a01b38bc117b67a5d10fa779d12c34fb4f2030a388ccdeea160c683e796c88e\",\"license\":\"GPL-3.0\"},\"contracts/Dutch/contracts/Utils/SafeMathPlus.sol\":{\"content\":\"pragma solidity ^0.6.9;\\r\\n\\r\\n/**\\r\\n * @dev Wrappers over Solidity's arithmetic operations with added overflow\\r\\n * checks.\\r\\n *\\r\\n * See: https://github.com/OpenZeppelin/openzeppelin-contracts\\r\\n */\\r\\nlibrary SafeMathPlus {\\r\\n    function add(uint256 a, uint256 b) internal pure returns (uint256) {\\r\\n        uint256 c = a + b;\\r\\n        require(c >= a, \\\"SafeMath: addition overflow\\\");\\r\\n        return c;\\r\\n    }\\r\\n    function sub(uint256 a, uint256 b) internal pure returns (uint256) {\\r\\n        return sub(a, b, \\\"SafeMath: subtraction overflow\\\");\\r\\n    }\\r\\n    function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\r\\n        require(b <= a, errorMessage);\\r\\n        uint256 c = a - b;\\r\\n        return c;\\r\\n    }\\r\\n    function mul(uint256 a, uint256 b) internal pure returns (uint256) {\\r\\n        if (a == 0) {\\r\\n            return 0;\\r\\n        }\\r\\n        uint256 c = a * b;\\r\\n        require(c / a == b, \\\"SafeMath: multiplication overflow\\\");\\r\\n        return c;\\r\\n    }\\r\\n    function div(uint256 a, uint256 b) internal pure returns (uint256) {\\r\\n        return div(a, b, \\\"SafeMath: division by zero\\\");\\r\\n    }\\r\\n    function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\r\\n        require(b > 0, errorMessage);\\r\\n        uint256 c = a / b;\\r\\n        // assert(a == b * c + a % b); // There is no case in which this doesn't hold\\r\\n        return c;\\r\\n    }\\r\\n    function mod(uint256 a, uint256 b) internal pure returns (uint256) {\\r\\n        return mod(a, b, \\\"SafeMath: modulo by zero\\\");\\r\\n    }\\r\\n    function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {\\r\\n        require(b != 0, errorMessage);\\r\\n        return a % b;\\r\\n    }\\r\\n    function max(uint256 a, uint256 b) internal pure returns (uint256 c) {\\r\\n        c = a >= b ? a : b;\\r\\n    }\\r\\n    function min(uint256 a, uint256 b) internal pure returns (uint256 c) {\\r\\n        c = a <= b ? a : b;\\r\\n    }\\r\\n    // babylonian method (https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method)\\r\\n    function sqrt(uint y) internal pure returns (uint z) {\\r\\n        if (y > 3) {\\r\\n            z = y;\\r\\n            uint x = y / 2 + 1;\\r\\n            while (x < z) {\\r\\n                z = x;\\r\\n                x = (y / x + x) / 2;\\r\\n            }\\r\\n        } else if (y != 0) {\\r\\n            z = 1;\\r\\n        }\\r\\n    }\\r\\n}\",\"keccak256\":\"0x08c2b41c1c11f76c42b8a61bf37e3efcea98dc7798c7304fc6cf0542ae30d176\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50611296806100206000396000f3fe6080604052600436106101d15760003560e01c80637e1c0c09116100f7578063a9d87ee611610095578063c8b0812511610064578063c8b0812514610530578063d7568b6e14610545578063e8fcf7231461055a578063f1a9af891461058d576101e1565b8063a9d87ee614610466578063ab6c07c61461047b578063c24a0f8b146104e8578063c884ef83146104fd576101e1565b806386433374116100d157806386433374146104125780638d8f2adb14610427578063919e93b51461043c57806399fdb32014610451576101e1565b80637e1c0c09146103d35780637f386b6c146103e85780637ff9b596146103fd576101e1565b806336d0054b1161016f5780634dc80e151161013e5780634dc80e151461034c578063521eb2731461037f5780635228733f1461039457806373973fcb146103a9576101e1565b806336d0054b146102c55780633d15cc6d146102da57806345dc13f31461030b5780634646783914610313576101e1565b806323bb46b6116101ab57806323bb46b6146102605780632897a6b9146102755780632b3853bd1461029b57806332a0f2d7146102b0576101e1565b80630482a787146101e65780630b97bc8614610210578063214bb60f14610237576101e1565b366101e1576101df336105a2565b005b600080fd5b3480156101f257600080fd5b506101df6004803603602081101561020957600080fd5b5035610656565b34801561021c57600080fd5b50610225610663565b60408051918252519081900360200190f35b34801561024357600080fd5b5061024c610669565b604080519115158252519081900360200190f35b34801561026c57600080fd5b50610225610677565b6101df6004803603602081101561028b57600080fd5b50356001600160a01b03166105a2565b3480156102a757600080fd5b5061022561067d565b3480156102bc57600080fd5b50610225610683565b3480156102d157600080fd5b5061024c6106b8565b3480156102e657600080fd5b506102ef6106d1565b604080516001600160a01b039092168252519081900360200190f35b6101df6106e0565b34801561031f57600080fd5b506101df6004803603604081101561033657600080fd5b506001600160a01b0381351690602001356106eb565b34801561035857600080fd5b506102256004803603602081101561036f57600080fd5b50356001600160a01b031661077f565b34801561038b57600080fd5b506102ef6107f7565b3480156103a057600080fd5b506101df610806565b3480156103b557600080fd5b50610225600480360360208110156103cc57600080fd5b5035610924565b3480156103df57600080fd5b5061022561098e565b3480156103f457600080fd5b50610225610994565b34801561040957600080fd5b5061022561099a565b34801561041e57600080fd5b5061024c6109bf565b34801561043357600080fd5b506101df6109d8565b34801561044857600080fd5b50610225610b0e565b34801561045d57600080fd5b506102ef610b36565b34801561047257600080fd5b50610225610b45565b34801561048757600080fd5b506101df600480360361012081101561049f57600080fd5b506001600160a01b038135811691602081013582169160408201359160608101359160808201359160a081013582169160c08201359160e0810135916101009091013516610b72565b3480156104f457600080fd5b50610225610c69565b34801561050957600080fd5b506102256004803603602081101561052057600080fd5b50356001600160a01b0316610c6f565b34801561053c57600080fd5b50610225610c81565b34801561055157600080fd5b50610225610cbc565b34801561056657600080fd5b506102256004803603602081101561057d57600080fd5b50356001600160a01b0316610cc2565b34801561059957600080fd5b50610225610cd4565b600854610100900460ff16156105b757600080fd5b600b546001600160a01b031673eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee146105e257600080fd5b60006105ed34610924565b90506000610601348363ffffffff610cda16565b90508115610613576106138383610d25565b8015610651576040516001600160a01b0384169082156108fc029083906000818181858888f1935050505015801561064f573d6000803e3d6000fd5b505b505050565b61066033826106eb565b50565b60005481565b600854610100900460ff1681565b60065481565b60075481565b600061068d610b45565b61069561099a565b11156106aa576106a361099a565b90506106b5565b6106b2610b45565b90505b90565b60006106c2610683565b6106ca61099a565b1015905090565b600b546001600160a01b031681565b6106e9336105a2565b565b600260095414156106fb57600080fd5b6002600955600854610100900460ff161561071557600080fd5b600b546001600160a01b031673eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee141561074157600080fd5b600061074c82610924565b9050801561077557600b5461076b906001600160a01b03168483610df0565b6107758382610d25565b5050600160095550565b6000806107ca61078d610683565b6001600160a01b0385166000908152600d60205260409020546107be90670de0b6b3a764000063ffffffff610f1816565b9063ffffffff610f7116565b336000908152600e60205260409020549091506107ee90829063ffffffff610cda16565b9150505b919050565b600c546001600160a01b031681565b6002600954141561081657600080fd5b6002600955600854610100900460ff161561083057600080fd5b6108386106b8565b1561086257600b54600c5460065461085d926001600160a01b03908116921690610fb3565b61090e565b600654158015610873575060005442105b1561089857600a54600c5460045461085d926001600160a01b03908116921690610fb3565b60015442116108ee576040805162461bcd60e51b815260206004820152601860248201527f41756374696f6e206e6f742066696e6973686564207965740000000000000000604482015290519081900360640190fd5b600a54600c5460045461090e926001600160a01b03908116921690610fb3565b6008805461ff0019166101001790556001600955565b60008061094d670de0b6b3a76400006107be61093e610683565b6004549063ffffffff610f1816565b9050806109658460065461101f90919063ffffffff16565b11156109875760065461097f90829063ffffffff610cda16565b9150506107f2565b5090919050565b60045481565b60035481565b60006106b26004546107be670de0b6b3a7640000600654610f1890919063ffffffff16565b60006109c96106b8565b806106b2575050600154421190565b600260095414156109e857600080fd5b60026009556109f56106b8565b15610ab4576000610a053361077f565b905060008111610a51576040805162461bcd60e51b81526020600482015260126024820152714e6f20746f6b656e7320746f20636c61696d60701b604482015290519081900360640190fd5b336000908152600e6020526040902054610a71908263ffffffff61101f16565b336000908152600e6020526040902055600754610a94908263ffffffff61101f16565b600755600a54610aae906001600160a01b03163383610fb3565b50610b07565b6001544211610ac257600080fd5b336000908152600d602052604090205480610adc57600080fd5b336000818152600d6020526040812055600b54610b05916001600160a01b039091169083610fb3565b505b6001600955565b60006106b2610b1b610683565b6006546107be90670de0b6b3a764000063ffffffff610f1816565b600a546001600160a01b031681565b600080544211610b5857506002546106b5565b6001544210610b6a57506003546106b5565b6106b2611079565b60085460ff1615610b8257600080fd5b858511610b8e57600080fd5b60008211610b9b57600080fd5b600a80546001600160a01b03808b166001600160a01b031992831617909255600b805487841690831617905560048990556000888155600188815560028790556003869055600c80549486169490931693909317909155600991909155610c08848463ffffffff610cda16565b90506000610c23600054600154610cda90919063ffffffff16565b9050610c35828263ffffffff610f7116565b600555600a54610c4f906001600160a01b03168c8b610df0565b50506008805460ff19166001179055505050505050505050565b60015481565b600e6020526000908152604090205481565b600080610c8c610b0e565b90506004548110610ca15760009150506106b5565b600454610cb4908263ffffffff610cda16565b9150506106b5565b60055481565b600d6020526000908152604090205481565b60025481565b6000610d1c83836040518060400160405280601e81526020017f536166654d6174683a207375627472616374696f6e206f766572666c6f7700008152506110c7565b90505b92915050565b6000544210158015610d3957506001544211155b610d4257600080fd5b6001600160a01b0382166000908152600d6020526040902054610d6b908263ffffffff61101f16565b6001600160a01b0383166000908152600d6020526040902055600654610d97908263ffffffff61101f16565b6006557f2708a7a3988eeb427740f4fc8a40de05ea1ef186ec85ff11b09d8c486ca4a0038282610dc5611079565b604080516001600160a01b039094168452602084019290925282820152519081900360600190a15050565b604080516001600160a01b038481166024830152306044830152606480830185905283518084039091018152608490920183526020820180516001600160e01b03166323b872dd60e01b178152925182516000946060949389169392918291908083835b60208310610e735780518252601f199092019160209182019101610e54565b6001836020036101000a0380198251168184511680821785525050505050509050019150506000604051808303816000865af19150503d8060008114610ed5576040519150601f19603f3d011682016040523d82523d6000602084013e610eda565b606091505b5091509150818015610f08575080511580610f085750808060200190516020811015610f0557600080fd5b50515b610f1157600080fd5b5050505050565b600082610f2757506000610d1f565b82820282848281610f3457fe5b0414610d1c5760405162461bcd60e51b81526004018080602001828103825260218152602001806112406021913960400191505060405180910390fd5b6000610d1c83836040518060400160405280601a81526020017f536166654d6174683a206469766973696f6e206279207a65726f00000000000081525061115e565b6001600160a01b03831673eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee1415611014576040516001600160a01b0383169082156108fc029083906000818181858888f1935050505015801561100e573d6000803e3d6000fd5b50610651565b6106518383836111c3565b600082820183811015610d1c576040805162461bcd60e51b815260206004820152601b60248201527f536166654d6174683a206164646974696f6e206f766572666c6f770000000000604482015290519081900360640190fd5b60008061109160005442610cda90919063ffffffff16565b905060006110aa60055483610f1890919063ffffffff16565b6002549091506110c0908263ffffffff610cda16565b9250505090565b600081848411156111565760405162461bcd60e51b81526004018080602001828103825283818151815260200191508051906020019080838360005b8381101561111b578181015183820152602001611103565b50505050905090810190601f1680156111485780820380516001836020036101000a031916815260200191505b509250505060405180910390fd5b505050900390565b600081836111ad5760405162461bcd60e51b815260206004820181815283516024840152835190928392604490910191908501908083836000831561111b578181015183820152602001611103565b5060008385816111b957fe5b0495945050505050565b604080516001600160a01b038481166024830152604480830185905283518084039091018152606490920183526020820180516001600160e01b031663a9059cbb60e01b1781529251825160009460609493891693929182919080838360208310610e735780518252601f199092019160209182019101610e5456fe536166654d6174683a206d756c7469706c69636174696f6e206f766572666c6f77a2646970667358221220bdbc4de894979af23b8cd48a2166d864be4704a98aa2a877607bba9aa4dc06e864736f6c63430006090033",
+  "deployedBytecode": "0x6080604052600436106101d15760003560e01c80637e1c0c09116100f7578063a9d87ee611610095578063c8b0812511610064578063c8b0812514610530578063d7568b6e14610545578063e8fcf7231461055a578063f1a9af891461058d576101e1565b8063a9d87ee614610466578063ab6c07c61461047b578063c24a0f8b146104e8578063c884ef83146104fd576101e1565b806386433374116100d157806386433374146104125780638d8f2adb14610427578063919e93b51461043c57806399fdb32014610451576101e1565b80637e1c0c09146103d35780637f386b6c146103e85780637ff9b596146103fd576101e1565b806336d0054b1161016f5780634dc80e151161013e5780634dc80e151461034c578063521eb2731461037f5780635228733f1461039457806373973fcb146103a9576101e1565b806336d0054b146102c55780633d15cc6d146102da57806345dc13f31461030b5780634646783914610313576101e1565b806323bb46b6116101ab57806323bb46b6146102605780632897a6b9146102755780632b3853bd1461029b57806332a0f2d7146102b0576101e1565b80630482a787146101e65780630b97bc8614610210578063214bb60f14610237576101e1565b366101e1576101df336105a2565b005b600080fd5b3480156101f257600080fd5b506101df6004803603602081101561020957600080fd5b5035610656565b34801561021c57600080fd5b50610225610663565b60408051918252519081900360200190f35b34801561024357600080fd5b5061024c610669565b604080519115158252519081900360200190f35b34801561026c57600080fd5b50610225610677565b6101df6004803603602081101561028b57600080fd5b50356001600160a01b03166105a2565b3480156102a757600080fd5b5061022561067d565b3480156102bc57600080fd5b50610225610683565b3480156102d157600080fd5b5061024c6106b8565b3480156102e657600080fd5b506102ef6106d1565b604080516001600160a01b039092168252519081900360200190f35b6101df6106e0565b34801561031f57600080fd5b506101df6004803603604081101561033657600080fd5b506001600160a01b0381351690602001356106eb565b34801561035857600080fd5b506102256004803603602081101561036f57600080fd5b50356001600160a01b031661077f565b34801561038b57600080fd5b506102ef6107f7565b3480156103a057600080fd5b506101df610806565b3480156103b557600080fd5b50610225600480360360208110156103cc57600080fd5b5035610924565b3480156103df57600080fd5b5061022561098e565b3480156103f457600080fd5b50610225610994565b34801561040957600080fd5b5061022561099a565b34801561041e57600080fd5b5061024c6109bf565b34801561043357600080fd5b506101df6109d8565b34801561044857600080fd5b50610225610b0e565b34801561045d57600080fd5b506102ef610b36565b34801561047257600080fd5b50610225610b45565b34801561048757600080fd5b506101df600480360361012081101561049f57600080fd5b506001600160a01b038135811691602081013582169160408201359160608101359160808201359160a081013582169160c08201359160e0810135916101009091013516610b72565b3480156104f457600080fd5b50610225610c69565b34801561050957600080fd5b506102256004803603602081101561052057600080fd5b50356001600160a01b0316610c6f565b34801561053c57600080fd5b50610225610c81565b34801561055157600080fd5b50610225610cbc565b34801561056657600080fd5b506102256004803603602081101561057d57600080fd5b50356001600160a01b0316610cc2565b34801561059957600080fd5b50610225610cd4565b600854610100900460ff16156105b757600080fd5b600b546001600160a01b031673eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee146105e257600080fd5b60006105ed34610924565b90506000610601348363ffffffff610cda16565b90508115610613576106138383610d25565b8015610651576040516001600160a01b0384169082156108fc029083906000818181858888f1935050505015801561064f573d6000803e3d6000fd5b505b505050565b61066033826106eb565b50565b60005481565b600854610100900460ff1681565b60065481565b60075481565b600061068d610b45565b61069561099a565b11156106aa576106a361099a565b90506106b5565b6106b2610b45565b90505b90565b60006106c2610683565b6106ca61099a565b1015905090565b600b546001600160a01b031681565b6106e9336105a2565b565b600260095414156106fb57600080fd5b6002600955600854610100900460ff161561071557600080fd5b600b546001600160a01b031673eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee141561074157600080fd5b600061074c82610924565b9050801561077557600b5461076b906001600160a01b03168483610df0565b6107758382610d25565b5050600160095550565b6000806107ca61078d610683565b6001600160a01b0385166000908152600d60205260409020546107be90670de0b6b3a764000063ffffffff610f1816565b9063ffffffff610f7116565b336000908152600e60205260409020549091506107ee90829063ffffffff610cda16565b9150505b919050565b600c546001600160a01b031681565b6002600954141561081657600080fd5b6002600955600854610100900460ff161561083057600080fd5b6108386106b8565b1561086257600b54600c5460065461085d926001600160a01b03908116921690610fb3565b61090e565b600654158015610873575060005442105b1561089857600a54600c5460045461085d926001600160a01b03908116921690610fb3565b60015442116108ee576040805162461bcd60e51b815260206004820152601860248201527f41756374696f6e206e6f742066696e6973686564207965740000000000000000604482015290519081900360640190fd5b600a54600c5460045461090e926001600160a01b03908116921690610fb3565b6008805461ff0019166101001790556001600955565b60008061094d670de0b6b3a76400006107be61093e610683565b6004549063ffffffff610f1816565b9050806109658460065461101f90919063ffffffff16565b11156109875760065461097f90829063ffffffff610cda16565b9150506107f2565b5090919050565b60045481565b60035481565b60006106b26004546107be670de0b6b3a7640000600654610f1890919063ffffffff16565b60006109c96106b8565b806106b2575050600154421190565b600260095414156109e857600080fd5b60026009556109f56106b8565b15610ab4576000610a053361077f565b905060008111610a51576040805162461bcd60e51b81526020600482015260126024820152714e6f20746f6b656e7320746f20636c61696d60701b604482015290519081900360640190fd5b336000908152600e6020526040902054610a71908263ffffffff61101f16565b336000908152600e6020526040902055600754610a94908263ffffffff61101f16565b600755600a54610aae906001600160a01b03163383610fb3565b50610b07565b6001544211610ac257600080fd5b336000908152600d602052604090205480610adc57600080fd5b336000818152600d6020526040812055600b54610b05916001600160a01b039091169083610fb3565b505b6001600955565b60006106b2610b1b610683565b6006546107be90670de0b6b3a764000063ffffffff610f1816565b600a546001600160a01b031681565b600080544211610b5857506002546106b5565b6001544210610b6a57506003546106b5565b6106b2611079565b60085460ff1615610b8257600080fd5b858511610b8e57600080fd5b60008211610b9b57600080fd5b600a80546001600160a01b03808b166001600160a01b031992831617909255600b805487841690831617905560048990556000888155600188815560028790556003869055600c80549486169490931693909317909155600991909155610c08848463ffffffff610cda16565b90506000610c23600054600154610cda90919063ffffffff16565b9050610c35828263ffffffff610f7116565b600555600a54610c4f906001600160a01b03168c8b610df0565b50506008805460ff19166001179055505050505050505050565b60015481565b600e6020526000908152604090205481565b600080610c8c610b0e565b90506004548110610ca15760009150506106b5565b600454610cb4908263ffffffff610cda16565b9150506106b5565b60055481565b600d6020526000908152604090205481565b60025481565b6000610d1c83836040518060400160405280601e81526020017f536166654d6174683a207375627472616374696f6e206f766572666c6f7700008152506110c7565b90505b92915050565b6000544210158015610d3957506001544211155b610d4257600080fd5b6001600160a01b0382166000908152600d6020526040902054610d6b908263ffffffff61101f16565b6001600160a01b0383166000908152600d6020526040902055600654610d97908263ffffffff61101f16565b6006557f2708a7a3988eeb427740f4fc8a40de05ea1ef186ec85ff11b09d8c486ca4a0038282610dc5611079565b604080516001600160a01b039094168452602084019290925282820152519081900360600190a15050565b604080516001600160a01b038481166024830152306044830152606480830185905283518084039091018152608490920183526020820180516001600160e01b03166323b872dd60e01b178152925182516000946060949389169392918291908083835b60208310610e735780518252601f199092019160209182019101610e54565b6001836020036101000a0380198251168184511680821785525050505050509050019150506000604051808303816000865af19150503d8060008114610ed5576040519150601f19603f3d011682016040523d82523d6000602084013e610eda565b606091505b5091509150818015610f08575080511580610f085750808060200190516020811015610f0557600080fd5b50515b610f1157600080fd5b5050505050565b600082610f2757506000610d1f565b82820282848281610f3457fe5b0414610d1c5760405162461bcd60e51b81526004018080602001828103825260218152602001806112406021913960400191505060405180910390fd5b6000610d1c83836040518060400160405280601a81526020017f536166654d6174683a206469766973696f6e206279207a65726f00000000000081525061115e565b6001600160a01b03831673eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee1415611014576040516001600160a01b0383169082156108fc029083906000818181858888f1935050505015801561100e573d6000803e3d6000fd5b50610651565b6106518383836111c3565b600082820183811015610d1c576040805162461bcd60e51b815260206004820152601b60248201527f536166654d6174683a206164646974696f6e206f766572666c6f770000000000604482015290519081900360640190fd5b60008061109160005442610cda90919063ffffffff16565b905060006110aa60055483610f1890919063ffffffff16565b6002549091506110c0908263ffffffff610cda16565b9250505090565b600081848411156111565760405162461bcd60e51b81526004018080602001828103825283818151815260200191508051906020019080838360005b8381101561111b578181015183820152602001611103565b50505050905090810190601f1680156111485780820380516001836020036101000a031916815260200191505b509250505060405180910390fd5b505050900390565b600081836111ad5760405162461bcd60e51b815260206004820181815283516024840152835190928392604490910191908501908083836000831561111b578181015183820152602001611103565b5060008385816111b957fe5b0495945050505050565b604080516001600160a01b038481166024830152604480830185905283518084039091018152606490920183526020820180516001600160e01b031663a9059cbb60e01b1781529251825160009460609493891693929182919080838360208310610e735780518252601f199092019160209182019101610e5456fe536166654d6174683a206d756c7469706c69636174696f6e206f766572666c6f77a2646970667358221220bdbc4de894979af23b8cd48a2166d864be4704a98aa2a877607bba9aa4dc06e864736f6c63430006090033",
+  "devdoc": {
+    "methods": {
+      "auctionEnded()": {
+        "details": "able to claim early if auction is successful"
+      },
+      "commitEth()": {
+        "details": "Needs extra gas limit for additional state changes"
+      },
+      "commitTokensFrom(address,uint256)": {
+        "details": "Users must approve contract prior to committing tokens to auction"
+      },
+      "finaliseAuction()": {
+        "details": "Transfer contract funds to initialised wallet."
+      },
+      "initDutchAuction(address,address,uint256,uint256,uint256,address,uint256,uint256,address)": {
+        "details": "Init function"
+      }
+    },
+    "stateVariables": {
+      "ETH_ADDRESS": {
+        "details": "The placeholder ETH address."
+      }
+    }
+  },
+  "userdoc": {
+    "methods": {
+      "auctionEnded()": {
+        "notice": "Returns bool if successful or time has ended"
+      },
+      "auctionSuccessful()": {
+        "notice": "Successful if tokens sold equals totalTokens"
+      },
+      "calculateCommitment(uint256)": {
+        "notice": "Returns the amout able to be committed during an auction"
+      },
+      "clearingPrice()": {
+        "notice": "The current clearing price of the Dutch auction"
+      },
+      "commitEthFrom(address)": {
+        "notice": "Commit ETH to buy tokens for any address"
+      },
+      "commitTokens(uint256)": {
+        "notice": "Commit approved ERC20 tokens to buy tokens on sale"
+      },
+      "finaliseAuction()": {
+        "notice": "Auction finishes successfully above the reserve"
+      },
+      "priceFunction()": {
+        "notice": "Returns price during the auction"
+      },
+      "tokenPrice()": {
+        "notice": "The average price of each token from all commitments."
+      },
+      "tokensClaimable(address)": {
+        "notice": "How many tokens the user is able to claim"
+      },
+      "tokensRemaining()": {
+        "notice": "Total amount of tokens remaining"
+      },
+      "totalTokensCommitted()": {
+        "notice": "Total amount of tokens committed at current auction price–"
+      },
+      "withdrawTokens()": {
+        "notice": "Withdraw your tokens once the Auction has ended."
+      }
+    }
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 11,
+        "contract": "contracts/Dutch/contracts/DutchSwapAuction.sol:DutchSwapAuction",
+        "label": "startDate",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 13,
+        "contract": "contracts/Dutch/contracts/DutchSwapAuction.sol:DutchSwapAuction",
+        "label": "endDate",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 15,
+        "contract": "contracts/Dutch/contracts/DutchSwapAuction.sol:DutchSwapAuction",
+        "label": "startPrice",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 17,
+        "contract": "contracts/Dutch/contracts/DutchSwapAuction.sol:DutchSwapAuction",
+        "label": "minimumPrice",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 19,
+        "contract": "contracts/Dutch/contracts/DutchSwapAuction.sol:DutchSwapAuction",
+        "label": "totalTokens",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 21,
+        "contract": "contracts/Dutch/contracts/DutchSwapAuction.sol:DutchSwapAuction",
+        "label": "priceDrop",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 23,
+        "contract": "contracts/Dutch/contracts/DutchSwapAuction.sol:DutchSwapAuction",
+        "label": "commitmentsTotal",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 25,
+        "contract": "contracts/Dutch/contracts/DutchSwapAuction.sol:DutchSwapAuction",
+        "label": "tokenWithdrawn",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 27,
+        "contract": "contracts/Dutch/contracts/DutchSwapAuction.sol:DutchSwapAuction",
+        "label": "initialised",
+        "offset": 0,
+        "slot": "8",
+        "type": "t_bool"
+      },
+      {
+        "astId": 29,
+        "contract": "contracts/Dutch/contracts/DutchSwapAuction.sol:DutchSwapAuction",
+        "label": "finalised",
+        "offset": 1,
+        "slot": "8",
+        "type": "t_bool"
+      },
+      {
+        "astId": 37,
+        "contract": "contracts/Dutch/contracts/DutchSwapAuction.sol:DutchSwapAuction",
+        "label": "_status",
+        "offset": 0,
+        "slot": "9",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 39,
+        "contract": "contracts/Dutch/contracts/DutchSwapAuction.sol:DutchSwapAuction",
+        "label": "auctionToken",
+        "offset": 0,
+        "slot": "10",
+        "type": "t_address"
+      },
+      {
+        "astId": 41,
+        "contract": "contracts/Dutch/contracts/DutchSwapAuction.sol:DutchSwapAuction",
+        "label": "paymentCurrency",
+        "offset": 0,
+        "slot": "11",
+        "type": "t_address"
+      },
+      {
+        "astId": 43,
+        "contract": "contracts/Dutch/contracts/DutchSwapAuction.sol:DutchSwapAuction",
+        "label": "wallet",
+        "offset": 0,
+        "slot": "12",
+        "type": "t_address_payable"
+      },
+      {
+        "astId": 47,
+        "contract": "contracts/Dutch/contracts/DutchSwapAuction.sol:DutchSwapAuction",
+        "label": "commitments",
+        "offset": 0,
+        "slot": "13",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 51,
+        "contract": "contracts/Dutch/contracts/DutchSwapAuction.sol:DutchSwapAuction",
+        "label": "claimed",
+        "offset": 0,
+        "slot": "14",
+        "type": "t_mapping(t_address,t_uint256)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_address_payable": {
+        "encoding": "inplace",
+        "label": "address payable",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "address": "0xEDf83d9CD45d220058Ad1a7E91CB3b77De699E2B",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "unencoded",
+          "type": "bytes"
+        }
+      ],
+      "name": "base64Encode",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "imageUrl",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "animationUrl",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenOfEdition",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "editionSize",
+          "type": "uint256"
+        }
+      ],
+      "name": "createMetadataEdition",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "mediaData",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenOfEdition",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "editionSize",
+          "type": "uint256"
+        }
+      ],
+      "name": "createMetadataJSON",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "json",
+          "type": "bytes"
+        }
+      ],
+      "name": "encodeMetadataJSON",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "numberToString",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "imageUrl",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "animationUrl",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenOfEdition",
+          "type": "uint256"
+        }
+      ],
+      "name": "tokenMediaData",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xe85d0c3d7303b9bf8f208b54b74391d022b9ad081b92b573f49a6c752bf7a3e1",
+  "receipt": {
+    "to": null,
+    "from": "0x8406A51A0E1B5F52Ff61226773e6328e5Da5d964",
+    "contractAddress": "0xEDf83d9CD45d220058Ad1a7E91CB3b77De699E2B",
+    "transactionIndex": 13,
+    "gasUsed": "763417",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xccac24b1cd6b214ede49d31d44722f3df4cbbff5ce83c81f7e85d623ed8deb04",
+    "transactionHash": "0xe85d0c3d7303b9bf8f208b54b74391d022b9ad081b92b573f49a6c752bf7a3e1",
+    "logs": [],
+    "blockNumber": 3245516,
+    "cumulativeGasUsed": "3788634",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "de4160586ad795cf7004a8e4f221e39e",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.16+commit.07a7930e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"unencoded\",\"type\":\"bytes\"}],\"name\":\"base64Encode\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"imageUrl\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"animationUrl\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"tokenOfEdition\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"editionSize\",\"type\":\"uint256\"}],\"name\":\"createMetadataEdition\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"description\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"mediaData\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"tokenOfEdition\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"editionSize\",\"type\":\"uint256\"}],\"name\":\"createMetadataJSON\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"json\",\"type\":\"bytes\"}],\"name\":\"encodeMetadataJSON\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"numberToString\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"imageUrl\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"animationUrl\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"tokenOfEdition\",\"type\":\"uint256\"}],\"name\":\"tokenMediaData\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Can safely be used for generic base64Encode and numberToString functions\",\"kind\":\"dev\",\"methods\":{\"base64Encode(bytes)\":{\"params\":{\"unencoded\":\"bytes to base64-encode\"}},\"createMetadataEdition(string,string,string,string,uint256,uint256)\":{\"params\":{\"animationUrl\":\"URL of animation to render for edition\",\"description\":\"Description of NFT in metadata\",\"editionSize\":\"Size of entire edition to show\",\"imageUrl\":\"URL of image to render for edition\",\"name\":\"Name of NFT in metadata\",\"tokenOfEdition\":\"Token ID for specific token\"}},\"createMetadataJSON(string,string,string,uint256,uint256)\":{\"params\":{\"description\":\"Description of NFT in metadata\",\"editionSize\":\"Size of entire edition to show\",\"mediaData\":\"Data for media to include in json object\",\"name\":\"Name of NFT in metadata\",\"tokenOfEdition\":\"Token ID for specific token\"}},\"encodeMetadataJSON(bytes)\":{\"params\":{\"json\":\"Raw json to base64 and turn into a data-uri\"}},\"numberToString(uint256)\":{\"params\":{\"value\":\"number to return as a string\"}},\"tokenMediaData(string,string,uint256)\":{\"params\":{\"animationUrl\":\"URL of animation to render for edition\",\"imageUrl\":\"URL of image to render for edition\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"createMetadataEdition(string,string,string,string,uint256,uint256)\":{\"notice\":\"Generate edition metadata from storage information as base64-json blob Combines the media data and metadata\"},\"createMetadataJSON(string,string,string,uint256,uint256)\":{\"notice\":\"Function to create the metadata json string for the nft edition\"},\"encodeMetadataJSON(bytes)\":{\"notice\":\"Encodes the argument json bytes into base64-data uri format\"},\"numberToString(uint256)\":{\"notice\":\"Proxy to openzeppelin's toString function\"},\"tokenMediaData(string,string,uint256)\":{\"notice\":\"Generates edition metadata from storage information as base64-json blob Combines the media data and metadata\"}},\"notice\":\"Shared NFT logic for rendering metadata associated with editions\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/SharedNFTLogic.sol\":\"SharedNFTLogic\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.8.0) (utils/Strings.sol)\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"./math/MathUpgradeable.sol\\\";\\n\\n/**\\n * @dev String operations.\\n */\\nlibrary StringsUpgradeable {\\n    bytes16 private constant _SYMBOLS = \\\"0123456789abcdef\\\";\\n    uint8 private constant _ADDRESS_LENGTH = 20;\\n\\n    /**\\n     * @dev Converts a `uint256` to its ASCII `string` decimal representation.\\n     */\\n    function toString(uint256 value) internal pure returns (string memory) {\\n        unchecked {\\n            uint256 length = MathUpgradeable.log10(value) + 1;\\n            string memory buffer = new string(length);\\n            uint256 ptr;\\n            /// @solidity memory-safe-assembly\\n            assembly {\\n                ptr := add(buffer, add(32, length))\\n            }\\n            while (true) {\\n                ptr--;\\n                /// @solidity memory-safe-assembly\\n                assembly {\\n                    mstore8(ptr, byte(mod(value, 10), _SYMBOLS))\\n                }\\n                value /= 10;\\n                if (value == 0) break;\\n            }\\n            return buffer;\\n        }\\n    }\\n\\n    /**\\n     * @dev Converts a `uint256` to its ASCII `string` hexadecimal representation.\\n     */\\n    function toHexString(uint256 value) internal pure returns (string memory) {\\n        unchecked {\\n            return toHexString(value, MathUpgradeable.log256(value) + 1);\\n        }\\n    }\\n\\n    /**\\n     * @dev Converts a `uint256` to its ASCII `string` hexadecimal representation with fixed length.\\n     */\\n    function toHexString(uint256 value, uint256 length) internal pure returns (string memory) {\\n        bytes memory buffer = new bytes(2 * length + 2);\\n        buffer[0] = \\\"0\\\";\\n        buffer[1] = \\\"x\\\";\\n        for (uint256 i = 2 * length + 1; i > 1; --i) {\\n            buffer[i] = _SYMBOLS[value & 0xf];\\n            value >>= 4;\\n        }\\n        require(value == 0, \\\"Strings: hex length insufficient\\\");\\n        return string(buffer);\\n    }\\n\\n    /**\\n     * @dev Converts an `address` with fixed length of 20 bytes to its not checksummed ASCII `string` hexadecimal representation.\\n     */\\n    function toHexString(address addr) internal pure returns (string memory) {\\n        return toHexString(uint256(uint160(addr)), _ADDRESS_LENGTH);\\n    }\\n}\\n\",\"keccak256\":\"0x6b9a5d35b744b25529a2856a8093e7c03fb35a34b1c4fb5499e560f8ade140da\",\"license\":\"MIT\"},\"@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.8.0) (utils/math/Math.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Standard math utilities missing in the Solidity language.\\n */\\nlibrary MathUpgradeable {\\n    enum Rounding {\\n        Down, // Toward negative infinity\\n        Up, // Toward infinity\\n        Zero // Toward zero\\n    }\\n\\n    /**\\n     * @dev Returns the largest of two numbers.\\n     */\\n    function max(uint256 a, uint256 b) internal pure returns (uint256) {\\n        return a > b ? a : b;\\n    }\\n\\n    /**\\n     * @dev Returns the smallest of two numbers.\\n     */\\n    function min(uint256 a, uint256 b) internal pure returns (uint256) {\\n        return a < b ? a : b;\\n    }\\n\\n    /**\\n     * @dev Returns the average of two numbers. The result is rounded towards\\n     * zero.\\n     */\\n    function average(uint256 a, uint256 b) internal pure returns (uint256) {\\n        // (a + b) / 2 can overflow.\\n        return (a & b) + (a ^ b) / 2;\\n    }\\n\\n    /**\\n     * @dev Returns the ceiling of the division of two numbers.\\n     *\\n     * This differs from standard division with `/` in that it rounds up instead\\n     * of rounding down.\\n     */\\n    function ceilDiv(uint256 a, uint256 b) internal pure returns (uint256) {\\n        // (a + b - 1) / b can overflow on addition, so we distribute.\\n        return a == 0 ? 0 : (a - 1) / b + 1;\\n    }\\n\\n    /**\\n     * @notice Calculates floor(x * y / denominator) with full precision. Throws if result overflows a uint256 or denominator == 0\\n     * @dev Original credit to Remco Bloemen under MIT license (https://xn--2-umb.com/21/muldiv)\\n     * with further edits by Uniswap Labs also under MIT license.\\n     */\\n    function mulDiv(\\n        uint256 x,\\n        uint256 y,\\n        uint256 denominator\\n    ) internal pure returns (uint256 result) {\\n        unchecked {\\n            // 512-bit multiply [prod1 prod0] = x * y. Compute the product mod 2^256 and mod 2^256 - 1, then use\\n            // use the Chinese Remainder Theorem to reconstruct the 512 bit result. The result is stored in two 256\\n            // variables such that product = prod1 * 2^256 + prod0.\\n            uint256 prod0; // Least significant 256 bits of the product\\n            uint256 prod1; // Most significant 256 bits of the product\\n            assembly {\\n                let mm := mulmod(x, y, not(0))\\n                prod0 := mul(x, y)\\n                prod1 := sub(sub(mm, prod0), lt(mm, prod0))\\n            }\\n\\n            // Handle non-overflow cases, 256 by 256 division.\\n            if (prod1 == 0) {\\n                return prod0 / denominator;\\n            }\\n\\n            // Make sure the result is less than 2^256. Also prevents denominator == 0.\\n            require(denominator > prod1);\\n\\n            ///////////////////////////////////////////////\\n            // 512 by 256 division.\\n            ///////////////////////////////////////////////\\n\\n            // Make division exact by subtracting the remainder from [prod1 prod0].\\n            uint256 remainder;\\n            assembly {\\n                // Compute remainder using mulmod.\\n                remainder := mulmod(x, y, denominator)\\n\\n                // Subtract 256 bit number from 512 bit number.\\n                prod1 := sub(prod1, gt(remainder, prod0))\\n                prod0 := sub(prod0, remainder)\\n            }\\n\\n            // Factor powers of two out of denominator and compute largest power of two divisor of denominator. Always >= 1.\\n            // See https://cs.stackexchange.com/q/138556/92363.\\n\\n            // Does not overflow because the denominator cannot be zero at this stage in the function.\\n            uint256 twos = denominator & (~denominator + 1);\\n            assembly {\\n                // Divide denominator by twos.\\n                denominator := div(denominator, twos)\\n\\n                // Divide [prod1 prod0] by twos.\\n                prod0 := div(prod0, twos)\\n\\n                // Flip twos such that it is 2^256 / twos. If twos is zero, then it becomes one.\\n                twos := add(div(sub(0, twos), twos), 1)\\n            }\\n\\n            // Shift in bits from prod1 into prod0.\\n            prod0 |= prod1 * twos;\\n\\n            // Invert denominator mod 2^256. Now that denominator is an odd number, it has an inverse modulo 2^256 such\\n            // that denominator * inv = 1 mod 2^256. Compute the inverse by starting with a seed that is correct for\\n            // four bits. That is, denominator * inv = 1 mod 2^4.\\n            uint256 inverse = (3 * denominator) ^ 2;\\n\\n            // Use the Newton-Raphson iteration to improve the precision. Thanks to Hensel's lifting lemma, this also works\\n            // in modular arithmetic, doubling the correct bits in each step.\\n            inverse *= 2 - denominator * inverse; // inverse mod 2^8\\n            inverse *= 2 - denominator * inverse; // inverse mod 2^16\\n            inverse *= 2 - denominator * inverse; // inverse mod 2^32\\n            inverse *= 2 - denominator * inverse; // inverse mod 2^64\\n            inverse *= 2 - denominator * inverse; // inverse mod 2^128\\n            inverse *= 2 - denominator * inverse; // inverse mod 2^256\\n\\n            // Because the division is now exact we can divide by multiplying with the modular inverse of denominator.\\n            // This will give us the correct result modulo 2^256. Since the preconditions guarantee that the outcome is\\n            // less than 2^256, this is the final result. We don't need to compute the high bits of the result and prod1\\n            // is no longer required.\\n            result = prod0 * inverse;\\n            return result;\\n        }\\n    }\\n\\n    /**\\n     * @notice Calculates x * y / denominator with full precision, following the selected rounding direction.\\n     */\\n    function mulDiv(\\n        uint256 x,\\n        uint256 y,\\n        uint256 denominator,\\n        Rounding rounding\\n    ) internal pure returns (uint256) {\\n        uint256 result = mulDiv(x, y, denominator);\\n        if (rounding == Rounding.Up && mulmod(x, y, denominator) > 0) {\\n            result += 1;\\n        }\\n        return result;\\n    }\\n\\n    /**\\n     * @dev Returns the square root of a number. If the number is not a perfect square, the value is rounded down.\\n     *\\n     * Inspired by Henry S. Warren, Jr.'s \\\"Hacker's Delight\\\" (Chapter 11).\\n     */\\n    function sqrt(uint256 a) internal pure returns (uint256) {\\n        if (a == 0) {\\n            return 0;\\n        }\\n\\n        // For our first guess, we get the biggest power of 2 which is smaller than the square root of the target.\\n        //\\n        // We know that the \\\"msb\\\" (most significant bit) of our target number `a` is a power of 2 such that we have\\n        // `msb(a) <= a < 2*msb(a)`. This value can be written `msb(a)=2**k` with `k=log2(a)`.\\n        //\\n        // This can be rewritten `2**log2(a) <= a < 2**(log2(a) + 1)`\\n        // \\u2192 `sqrt(2**k) <= sqrt(a) < sqrt(2**(k+1))`\\n        // \\u2192 `2**(k/2) <= sqrt(a) < 2**((k+1)/2) <= 2**(k/2 + 1)`\\n        //\\n        // Consequently, `2**(log2(a) / 2)` is a good first approximation of `sqrt(a)` with at least 1 correct bit.\\n        uint256 result = 1 << (log2(a) >> 1);\\n\\n        // At this point `result` is an estimation with one bit of precision. We know the true value is a uint128,\\n        // since it is the square root of a uint256. Newton's method converges quadratically (precision doubles at\\n        // every iteration). We thus need at most 7 iteration to turn our partial result with one bit of precision\\n        // into the expected uint128 result.\\n        unchecked {\\n            result = (result + a / result) >> 1;\\n            result = (result + a / result) >> 1;\\n            result = (result + a / result) >> 1;\\n            result = (result + a / result) >> 1;\\n            result = (result + a / result) >> 1;\\n            result = (result + a / result) >> 1;\\n            result = (result + a / result) >> 1;\\n            return min(result, a / result);\\n        }\\n    }\\n\\n    /**\\n     * @notice Calculates sqrt(a), following the selected rounding direction.\\n     */\\n    function sqrt(uint256 a, Rounding rounding) internal pure returns (uint256) {\\n        unchecked {\\n            uint256 result = sqrt(a);\\n            return result + (rounding == Rounding.Up && result * result < a ? 1 : 0);\\n        }\\n    }\\n\\n    /**\\n     * @dev Return the log in base 2, rounded down, of a positive value.\\n     * Returns 0 if given 0.\\n     */\\n    function log2(uint256 value) internal pure returns (uint256) {\\n        uint256 result = 0;\\n        unchecked {\\n            if (value >> 128 > 0) {\\n                value >>= 128;\\n                result += 128;\\n            }\\n            if (value >> 64 > 0) {\\n                value >>= 64;\\n                result += 64;\\n            }\\n            if (value >> 32 > 0) {\\n                value >>= 32;\\n                result += 32;\\n            }\\n            if (value >> 16 > 0) {\\n                value >>= 16;\\n                result += 16;\\n            }\\n            if (value >> 8 > 0) {\\n                value >>= 8;\\n                result += 8;\\n            }\\n            if (value >> 4 > 0) {\\n                value >>= 4;\\n                result += 4;\\n            }\\n            if (value >> 2 > 0) {\\n                value >>= 2;\\n                result += 2;\\n            }\\n            if (value >> 1 > 0) {\\n                result += 1;\\n            }\\n        }\\n        return result;\\n    }\\n\\n    /**\\n     * @dev Return the log in base 2, following the selected rounding direction, of a positive value.\\n     * Returns 0 if given 0.\\n     */\\n    function log2(uint256 value, Rounding rounding) internal pure returns (uint256) {\\n        unchecked {\\n            uint256 result = log2(value);\\n            return result + (rounding == Rounding.Up && 1 << result < value ? 1 : 0);\\n        }\\n    }\\n\\n    /**\\n     * @dev Return the log in base 10, rounded down, of a positive value.\\n     * Returns 0 if given 0.\\n     */\\n    function log10(uint256 value) internal pure returns (uint256) {\\n        uint256 result = 0;\\n        unchecked {\\n            if (value >= 10**64) {\\n                value /= 10**64;\\n                result += 64;\\n            }\\n            if (value >= 10**32) {\\n                value /= 10**32;\\n                result += 32;\\n            }\\n            if (value >= 10**16) {\\n                value /= 10**16;\\n                result += 16;\\n            }\\n            if (value >= 10**8) {\\n                value /= 10**8;\\n                result += 8;\\n            }\\n            if (value >= 10**4) {\\n                value /= 10**4;\\n                result += 4;\\n            }\\n            if (value >= 10**2) {\\n                value /= 10**2;\\n                result += 2;\\n            }\\n            if (value >= 10**1) {\\n                result += 1;\\n            }\\n        }\\n        return result;\\n    }\\n\\n    /**\\n     * @dev Return the log in base 10, following the selected rounding direction, of a positive value.\\n     * Returns 0 if given 0.\\n     */\\n    function log10(uint256 value, Rounding rounding) internal pure returns (uint256) {\\n        unchecked {\\n            uint256 result = log10(value);\\n            return result + (rounding == Rounding.Up && 10**result < value ? 1 : 0);\\n        }\\n    }\\n\\n    /**\\n     * @dev Return the log in base 256, rounded down, of a positive value.\\n     * Returns 0 if given 0.\\n     *\\n     * Adding one to the result gives the number of pairs of hex symbols needed to represent `value` as a hex string.\\n     */\\n    function log256(uint256 value) internal pure returns (uint256) {\\n        uint256 result = 0;\\n        unchecked {\\n            if (value >> 128 > 0) {\\n                value >>= 128;\\n                result += 16;\\n            }\\n            if (value >> 64 > 0) {\\n                value >>= 64;\\n                result += 8;\\n            }\\n            if (value >> 32 > 0) {\\n                value >>= 32;\\n                result += 4;\\n            }\\n            if (value >> 16 > 0) {\\n                value >>= 16;\\n                result += 2;\\n            }\\n            if (value >> 8 > 0) {\\n                result += 1;\\n            }\\n        }\\n        return result;\\n    }\\n\\n    /**\\n     * @dev Return the log in base 10, following the selected rounding direction, of a positive value.\\n     * Returns 0 if given 0.\\n     */\\n    function log256(uint256 value, Rounding rounding) internal pure returns (uint256) {\\n        unchecked {\\n            uint256 result = log256(value);\\n            return result + (rounding == Rounding.Up && 1 << (result * 8) < value ? 1 : 0);\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0xc1bd5b53319c68f84e3becd75694d941e8f4be94049903232cd8bc7c535aaa5a\",\"license\":\"MIT\"},\"base64-sol/base64.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n\\npragma solidity >=0.6.0;\\n\\n/// @title Base64\\n/// @author Brecht Devos - <brecht@loopring.org>\\n/// @notice Provides functions for encoding/decoding base64\\nlibrary Base64 {\\n    string internal constant TABLE_ENCODE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';\\n    bytes  internal constant TABLE_DECODE = hex\\\"0000000000000000000000000000000000000000000000000000000000000000\\\"\\n                                            hex\\\"00000000000000000000003e0000003f3435363738393a3b3c3d000000000000\\\"\\n                                            hex\\\"00000102030405060708090a0b0c0d0e0f101112131415161718190000000000\\\"\\n                                            hex\\\"001a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132330000000000\\\";\\n\\n    function encode(bytes memory data) internal pure returns (string memory) {\\n        if (data.length == 0) return '';\\n\\n        // load the table into memory\\n        string memory table = TABLE_ENCODE;\\n\\n        // multiply by 4/3 rounded up\\n        uint256 encodedLen = 4 * ((data.length + 2) / 3);\\n\\n        // add some extra buffer at the end required for the writing\\n        string memory result = new string(encodedLen + 32);\\n\\n        assembly {\\n            // set the actual output length\\n            mstore(result, encodedLen)\\n\\n            // prepare the lookup table\\n            let tablePtr := add(table, 1)\\n\\n            // input ptr\\n            let dataPtr := data\\n            let endPtr := add(dataPtr, mload(data))\\n\\n            // result ptr, jump over length\\n            let resultPtr := add(result, 32)\\n\\n            // run over the input, 3 bytes at a time\\n            for {} lt(dataPtr, endPtr) {}\\n            {\\n                // read 3 bytes\\n                dataPtr := add(dataPtr, 3)\\n                let input := mload(dataPtr)\\n\\n                // write 4 characters\\n                mstore8(resultPtr, mload(add(tablePtr, and(shr(18, input), 0x3F))))\\n                resultPtr := add(resultPtr, 1)\\n                mstore8(resultPtr, mload(add(tablePtr, and(shr(12, input), 0x3F))))\\n                resultPtr := add(resultPtr, 1)\\n                mstore8(resultPtr, mload(add(tablePtr, and(shr( 6, input), 0x3F))))\\n                resultPtr := add(resultPtr, 1)\\n                mstore8(resultPtr, mload(add(tablePtr, and(        input,  0x3F))))\\n                resultPtr := add(resultPtr, 1)\\n            }\\n\\n            // padding with '='\\n            switch mod(mload(data), 3)\\n            case 1 { mstore(sub(resultPtr, 2), shl(240, 0x3d3d)) }\\n            case 2 { mstore(sub(resultPtr, 1), shl(248, 0x3d)) }\\n        }\\n\\n        return result;\\n    }\\n\\n    function decode(string memory _data) internal pure returns (bytes memory) {\\n        bytes memory data = bytes(_data);\\n\\n        if (data.length == 0) return new bytes(0);\\n        require(data.length % 4 == 0, \\\"invalid base64 decoder input\\\");\\n\\n        // load the table into memory\\n        bytes memory table = TABLE_DECODE;\\n\\n        // every 4 characters represent 3 bytes\\n        uint256 decodedLen = (data.length / 4) * 3;\\n\\n        // add some extra buffer at the end required for the writing\\n        bytes memory result = new bytes(decodedLen + 32);\\n\\n        assembly {\\n            // padding with '='\\n            let lastBytes := mload(add(data, mload(data)))\\n            if eq(and(lastBytes, 0xFF), 0x3d) {\\n                decodedLen := sub(decodedLen, 1)\\n                if eq(and(lastBytes, 0xFFFF), 0x3d3d) {\\n                    decodedLen := sub(decodedLen, 1)\\n                }\\n            }\\n\\n            // set the actual output length\\n            mstore(result, decodedLen)\\n\\n            // prepare the lookup table\\n            let tablePtr := add(table, 1)\\n\\n            // input ptr\\n            let dataPtr := data\\n            let endPtr := add(dataPtr, mload(data))\\n\\n            // result ptr, jump over length\\n            let resultPtr := add(result, 32)\\n\\n            // run over the input, 4 characters at a time\\n            for {} lt(dataPtr, endPtr) {}\\n            {\\n               // read 4 characters\\n               dataPtr := add(dataPtr, 4)\\n               let input := mload(dataPtr)\\n\\n               // write 3 bytes\\n               let output := add(\\n                   add(\\n                       shl(18, and(mload(add(tablePtr, and(shr(24, input), 0xFF))), 0xFF)),\\n                       shl(12, and(mload(add(tablePtr, and(shr(16, input), 0xFF))), 0xFF))),\\n                   add(\\n                       shl( 6, and(mload(add(tablePtr, and(shr( 8, input), 0xFF))), 0xFF)),\\n                               and(mload(add(tablePtr, and(        input , 0xFF))), 0xFF)\\n                    )\\n                )\\n                mstore(resultPtr, shl(232, output))\\n                resultPtr := add(resultPtr, 3)\\n            }\\n        }\\n\\n        return result;\\n    }\\n}\\n\",\"keccak256\":\"0xa73959e6ef0b693e4423a562e612370160b934a75e618361ddd8c9c4b8ddbaaf\",\"license\":\"MIT\"},\"contracts/IPublicSharedMetadata.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\npragma solidity ^0.8.6;\\n\\n/// Shared public library for on-chain NFT functions\\ninterface IPublicSharedMetadata {\\n  /// @param unencoded bytes to base64-encode\\n  function base64Encode(bytes memory unencoded) external pure returns (string memory);\\n\\n  /// Encodes the argument json bytes into base64-data uri format\\n  /// @param json Raw json to base64 and turn into a data-uri\\n  function encodeMetadataJSON(bytes memory json) external pure returns (string memory);\\n\\n  /// Proxy to openzeppelin's toString function\\n  /// @param value number to return as a string\\n  function numberToString(uint256 value) external pure returns (string memory);\\n}\\n\",\"keccak256\":\"0xaf1cbbb34e11975b02303c04d71796c8528341743fb9ba9f22f78d628d911caf\",\"license\":\"GPL-3.0\"},\"contracts/SharedNFTLogic.sol\":{\"content\":\"// SPDX-License-Identifier: GPL-3.0\\n\\npragma solidity ^0.8.7;\\n\\nimport { StringsUpgradeable } from '@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol';\\nimport { Base64 } from 'base64-sol/base64.sol';\\nimport { IPublicSharedMetadata } from './IPublicSharedMetadata.sol';\\n\\n/// Shared NFT logic for rendering metadata associated with editions\\n/// @dev Can safely be used for generic base64Encode and numberToString functions\\ncontract SharedNFTLogic is IPublicSharedMetadata {\\n  /// @param unencoded bytes to base64-encode\\n  function base64Encode(bytes memory unencoded) public pure override returns (string memory) {\\n    return Base64.encode(unencoded);\\n  }\\n\\n  /// Proxy to openzeppelin's toString function\\n  /// @param value number to return as a string\\n  function numberToString(uint256 value) public pure override returns (string memory) {\\n    return StringsUpgradeable.toString(value);\\n  }\\n\\n  /// Generate edition metadata from storage information as base64-json blob\\n  /// Combines the media data and metadata\\n  /// @param name Name of NFT in metadata\\n  /// @param description Description of NFT in metadata\\n  /// @param imageUrl URL of image to render for edition\\n  /// @param animationUrl URL of animation to render for edition\\n  /// @param tokenOfEdition Token ID for specific token\\n  /// @param editionSize Size of entire edition to show\\n  function createMetadataEdition(\\n    string memory name,\\n    string memory description,\\n    string memory imageUrl,\\n    string memory animationUrl,\\n    uint256 tokenOfEdition,\\n    uint256 editionSize\\n  ) external pure returns (string memory) {\\n    string memory _tokenMediaData = tokenMediaData(imageUrl, animationUrl, tokenOfEdition);\\n    bytes memory json = createMetadataJSON(name, description, _tokenMediaData, tokenOfEdition, editionSize);\\n    return encodeMetadataJSON(json);\\n  }\\n\\n  /// Function to create the metadata json string for the nft edition\\n  /// @param name Name of NFT in metadata\\n  /// @param description Description of NFT in metadata\\n  /// @param mediaData Data for media to include in json object\\n  /// @param tokenOfEdition Token ID for specific token\\n  /// @param editionSize Size of entire edition to show\\n  function createMetadataJSON(\\n    string memory name,\\n    string memory description,\\n    string memory mediaData,\\n    uint256 tokenOfEdition,\\n    uint256 editionSize\\n  ) public pure returns (bytes memory) {\\n    bytes memory editionSizeText;\\n    if (editionSize > 0) {\\n      editionSizeText = abi.encodePacked('/', numberToString(editionSize));\\n    }\\n    return\\n      abi.encodePacked(\\n        '{\\\"name\\\": \\\"',\\n        name,\\n        ' ',\\n        numberToString(tokenOfEdition),\\n        editionSizeText,\\n        '\\\", \\\"',\\n        'description\\\": \\\"',\\n        description,\\n        '\\\", \\\"',\\n        mediaData,\\n        'properties\\\": {\\\"number\\\": ',\\n        numberToString(tokenOfEdition),\\n        ', \\\"name\\\": \\\"',\\n        name,\\n        '\\\"}}'\\n      );\\n  }\\n\\n  /// Encodes the argument json bytes into base64-data uri format\\n  /// @param json Raw json to base64 and turn into a data-uri\\n  function encodeMetadataJSON(bytes memory json) public pure override returns (string memory) {\\n    return string(abi.encodePacked('data:application/json;base64,', base64Encode(json)));\\n  }\\n\\n  /// Generates edition metadata from storage information as base64-json blob\\n  /// Combines the media data and metadata\\n  /// @param imageUrl URL of image to render for edition\\n  /// @param animationUrl URL of animation to render for edition\\n  function tokenMediaData(string memory imageUrl, string memory animationUrl, uint256 tokenOfEdition) public pure returns (string memory) {\\n    bool hasImage = bytes(imageUrl).length > 0;\\n    bool hasAnimation = bytes(animationUrl).length > 0;\\n    if (hasImage && hasAnimation) {\\n      return\\n        string(\\n          abi.encodePacked(\\n            'image\\\": \\\"',\\n            imageUrl,\\n            '?id=',\\n            numberToString(tokenOfEdition),\\n            '\\\", \\\"animation_url\\\": \\\"',\\n            animationUrl,\\n            '?id=',\\n            numberToString(tokenOfEdition),\\n            '\\\", \\\"'\\n          )\\n        );\\n    }\\n    if (hasImage) {\\n      return string(abi.encodePacked('image\\\": \\\"', imageUrl, '?id=', numberToString(tokenOfEdition), '\\\", \\\"'));\\n    }\\n    if (hasAnimation) {\\n      return string(abi.encodePacked('animation_url\\\": \\\"', animationUrl, '?id=', numberToString(tokenOfEdition), '\\\", \\\"'));\\n    }\\n\\n    return '';\\n  }\\n}\\n\",\"keccak256\":\"0x986935a51bd9bfc02371248ed0d59a1a1150ccd113a912626ae6c7c1ebe3f043\",\"license\":\"GPL-3.0\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610cda806100206000396000f3fe608060405234801561001057600080fd5b50600436106100625760003560e01c8063170dc6601461006757806358464f3014610090578063d01fde8c146100a3578063d5fb1b19146100b6578063df30dba0146100c9578063eb111ab6146100dc575b600080fd5b61007a610075366004610579565b6100ef565b60405161008791906105e2565b60405180910390f35b61007a61009e3660046106a1565b610100565b61007a6100b136600461073b565b61017c565b61007a6100c436600461073b565b6101ad565b61007a6100d736600461078c565b6101b8565b61007a6100ea36600461084b565b6101f0565b60606100fa826102a9565b92915050565b606080821561013457610112836100ef565b60405160200161012291906108d4565b60405160208183030381529060405290505b8661013e856100ef565b82888861014a896100ef565b8c60405160200161016197969594939291906108fd565b60405160208183030381529060405291505095945050505050565b6060610187826101ad565b6040516020016101979190610a26565b6040516020818303038152906040529050919050565b60606100fa8261033c565b606060006101c78686866101f0565b905060006101d88989848888610100565b90506101e38161017c565b9998505050505050505050565b825182516060911580159115159082906102075750805b1561024b5785610216856100ef565b86610220876100ef565b6040516020016102339493929190610a6b565b604051602081830303815290604052925050506102a2565b811561026c578561025b856100ef565b604051602001610233929190610b26565b801561028d578461027c856100ef565b604051602001610233929190610b8c565b60405180602001604052806000815250925050505b9392505050565b606060006102b6836104a1565b600101905060008167ffffffffffffffff8111156102d6576102d66105f5565b6040519080825280601f01601f191660200182016040528015610300576020820181803683370190505b5090508181016020015b600019016f181899199a1a9b1b9c1cb0b131b232b360811b600a86061a8153600a850494508461030a57509392505050565b6060815160000361035b57505060408051602081019091526000815290565b6000604051806060016040528060408152602001610c65604091399050600060038451600261038a9190610c10565b6103949190610c23565b61039f906004610c45565b905060006103ae826020610c10565b67ffffffffffffffff8111156103c6576103c66105f5565b6040519080825280601f01601f1916602001820160405280156103f0576020820181803683370190505b509050818152600183018586518101602084015b8183101561045c576003830192508251603f8160121c168501518253600182019150603f81600c1c168501518253600182019150603f8160061c168501518253600182019150603f8116850151825350600101610404565b600389510660018114610476576002811461048757610493565b613d3d60f01b600119830152610493565b603d60f81b6000198301525b509398975050505050505050565b60008072184f03e93ff9f4daa797ed6e38ed64bf6a1f0160401b83106104e05772184f03e93ff9f4daa797ed6e38ed64bf6a1f0160401b830492506040015b6d04ee2d6d415b85acef8100000000831061050c576d04ee2d6d415b85acef8100000000830492506020015b662386f26fc10000831061052a57662386f26fc10000830492506010015b6305f5e1008310610542576305f5e100830492506008015b612710831061055657612710830492506004015b60648310610568576064830492506002015b600a83106100fa5760010192915050565b60006020828403121561058b57600080fd5b5035919050565b60005b838110156105ad578181015183820152602001610595565b50506000910152565b600081518084526105ce816020860160208601610592565b601f01601f19169290920160200192915050565b6020815260006102a260208301846105b6565b634e487b7160e01b600052604160045260246000fd5b600067ffffffffffffffff80841115610626576106266105f5565b604051601f8501601f19908116603f0116810190828211818310171561064e5761064e6105f5565b8160405280935085815286868601111561066757600080fd5b858560208301376000602087830101525050509392505050565b600082601f83011261069257600080fd5b6102a28383356020850161060b565b600080600080600060a086880312156106b957600080fd5b853567ffffffffffffffff808211156106d157600080fd5b6106dd89838a01610681565b965060208801359150808211156106f357600080fd5b6106ff89838a01610681565b9550604088013591508082111561071557600080fd5b5061072288828901610681565b9598949750949560608101359550608001359392505050565b60006020828403121561074d57600080fd5b813567ffffffffffffffff81111561076457600080fd5b8201601f8101841361077557600080fd5b6107848482356020840161060b565b949350505050565b60008060008060008060c087890312156107a557600080fd5b863567ffffffffffffffff808211156107bd57600080fd5b6107c98a838b01610681565b975060208901359150808211156107df57600080fd5b6107eb8a838b01610681565b9650604089013591508082111561080157600080fd5b61080d8a838b01610681565b9550606089013591508082111561082357600080fd5b5061083089828a01610681565b9350506080870135915060a087013590509295509295509295565b60008060006060848603121561086057600080fd5b833567ffffffffffffffff8082111561087857600080fd5b61088487838801610681565b9450602086013591508082111561089a57600080fd5b506108a786828701610681565b925050604084013590509250925092565b600081516108ca818560208601610592565b9290920192915050565b602f60f81b8152600082516108f0816001850160208701610592565b9190910160010192915050565b693d913730b6b2911d101160b11b8152875160009061092381600a850160208d01610592565b600160fd1b600a91840191820152885161094481600b840160208d01610592565b885191019061095a81600b840160208c01610592565b631116101160e11b600b929091019182018190526e3232b9b1b934b83a34b7b7111d101160891b600f830152875161099981601e850160208c01610592565b601e920191820152610a18610a09610a036109ec6109e66109bd602287018c6108b8565b7f70726f70657274696573223a207b226e756d626572223a200000000000000000815260180190565b896108b8565b6a1610113730b6b2911d101160a91b8152600b0190565b866108b8565b62227d7d60e81b815260030190565b9a9950505050505050505050565b7f646174613a6170706c69636174696f6e2f6a736f6e3b6261736536342c000000815260008251610a5e81601d850160208701610592565b91909101601d0192915050565b6834b6b0b3b2911d101160b91b81528451600090610a90816009850160208a01610592565b8083019050633f69643d60e01b8060098301528651610ab681600d850160208b01610592565b741116101130b734b6b0ba34b7b72fbab936111d101160591b600d93909101928301528551610aec816022850160208a01610592565b60229201918201528351610b07816026840160208801610592565b631116101160e11b60269290910191820152602a019695505050505050565b6834b6b0b3b2911d101160b91b81528251600090610b4b816009850160208801610592565b633f69643d60e01b6009918401918201528351610b6f81600d840160208801610592565b631116101160e11b600d9290910191820152601101949350505050565b7030b734b6b0ba34b7b72fbab936111d101160791b81528251600090610bb9816011850160208801610592565b633f69643d60e01b6011918401918201528351610bdd816015840160208801610592565b631116101160e11b60159290910191820152601901949350505050565b634e487b7160e01b600052601160045260246000fd5b808201808211156100fa576100fa610bfa565b600082610c4057634e487b7160e01b600052601260045260246000fd5b500490565b6000816000190483118215151615610c5f57610c5f610bfa565b50029056fe4142434445464748494a4b4c4d4e4f505152535455565758595a6162636465666768696a6b6c6d6e6f707172737475767778797a303132333435363738392b2fa264697066735822122038f3c2cc9a96f33534071fa7b432b8aac86a5befe3f84fcd7084471c1cdb893564736f6c63430008100033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100625760003560e01c8063170dc6601461006757806358464f3014610090578063d01fde8c146100a3578063d5fb1b19146100b6578063df30dba0146100c9578063eb111ab6146100dc575b600080fd5b61007a610075366004610579565b6100ef565b60405161008791906105e2565b60405180910390f35b61007a61009e3660046106a1565b610100565b61007a6100b136600461073b565b61017c565b61007a6100c436600461073b565b6101ad565b61007a6100d736600461078c565b6101b8565b61007a6100ea36600461084b565b6101f0565b60606100fa826102a9565b92915050565b606080821561013457610112836100ef565b60405160200161012291906108d4565b60405160208183030381529060405290505b8661013e856100ef565b82888861014a896100ef565b8c60405160200161016197969594939291906108fd565b60405160208183030381529060405291505095945050505050565b6060610187826101ad565b6040516020016101979190610a26565b6040516020818303038152906040529050919050565b60606100fa8261033c565b606060006101c78686866101f0565b905060006101d88989848888610100565b90506101e38161017c565b9998505050505050505050565b825182516060911580159115159082906102075750805b1561024b5785610216856100ef565b86610220876100ef565b6040516020016102339493929190610a6b565b604051602081830303815290604052925050506102a2565b811561026c578561025b856100ef565b604051602001610233929190610b26565b801561028d578461027c856100ef565b604051602001610233929190610b8c565b60405180602001604052806000815250925050505b9392505050565b606060006102b6836104a1565b600101905060008167ffffffffffffffff8111156102d6576102d66105f5565b6040519080825280601f01601f191660200182016040528015610300576020820181803683370190505b5090508181016020015b600019016f181899199a1a9b1b9c1cb0b131b232b360811b600a86061a8153600a850494508461030a57509392505050565b6060815160000361035b57505060408051602081019091526000815290565b6000604051806060016040528060408152602001610c65604091399050600060038451600261038a9190610c10565b6103949190610c23565b61039f906004610c45565b905060006103ae826020610c10565b67ffffffffffffffff8111156103c6576103c66105f5565b6040519080825280601f01601f1916602001820160405280156103f0576020820181803683370190505b509050818152600183018586518101602084015b8183101561045c576003830192508251603f8160121c168501518253600182019150603f81600c1c168501518253600182019150603f8160061c168501518253600182019150603f8116850151825350600101610404565b600389510660018114610476576002811461048757610493565b613d3d60f01b600119830152610493565b603d60f81b6000198301525b509398975050505050505050565b60008072184f03e93ff9f4daa797ed6e38ed64bf6a1f0160401b83106104e05772184f03e93ff9f4daa797ed6e38ed64bf6a1f0160401b830492506040015b6d04ee2d6d415b85acef8100000000831061050c576d04ee2d6d415b85acef8100000000830492506020015b662386f26fc10000831061052a57662386f26fc10000830492506010015b6305f5e1008310610542576305f5e100830492506008015b612710831061055657612710830492506004015b60648310610568576064830492506002015b600a83106100fa5760010192915050565b60006020828403121561058b57600080fd5b5035919050565b60005b838110156105ad578181015183820152602001610595565b50506000910152565b600081518084526105ce816020860160208601610592565b601f01601f19169290920160200192915050565b6020815260006102a260208301846105b6565b634e487b7160e01b600052604160045260246000fd5b600067ffffffffffffffff80841115610626576106266105f5565b604051601f8501601f19908116603f0116810190828211818310171561064e5761064e6105f5565b8160405280935085815286868601111561066757600080fd5b858560208301376000602087830101525050509392505050565b600082601f83011261069257600080fd5b6102a28383356020850161060b565b600080600080600060a086880312156106b957600080fd5b853567ffffffffffffffff808211156106d157600080fd5b6106dd89838a01610681565b965060208801359150808211156106f357600080fd5b6106ff89838a01610681565b9550604088013591508082111561071557600080fd5b5061072288828901610681565b9598949750949560608101359550608001359392505050565b60006020828403121561074d57600080fd5b813567ffffffffffffffff81111561076457600080fd5b8201601f8101841361077557600080fd5b6107848482356020840161060b565b949350505050565b60008060008060008060c087890312156107a557600080fd5b863567ffffffffffffffff808211156107bd57600080fd5b6107c98a838b01610681565b975060208901359150808211156107df57600080fd5b6107eb8a838b01610681565b9650604089013591508082111561080157600080fd5b61080d8a838b01610681565b9550606089013591508082111561082357600080fd5b5061083089828a01610681565b9350506080870135915060a087013590509295509295509295565b60008060006060848603121561086057600080fd5b833567ffffffffffffffff8082111561087857600080fd5b61088487838801610681565b9450602086013591508082111561089a57600080fd5b506108a786828701610681565b925050604084013590509250925092565b600081516108ca818560208601610592565b9290920192915050565b602f60f81b8152600082516108f0816001850160208701610592565b9190910160010192915050565b693d913730b6b2911d101160b11b8152875160009061092381600a850160208d01610592565b600160fd1b600a91840191820152885161094481600b840160208d01610592565b885191019061095a81600b840160208c01610592565b631116101160e11b600b929091019182018190526e3232b9b1b934b83a34b7b7111d101160891b600f830152875161099981601e850160208c01610592565b601e920191820152610a18610a09610a036109ec6109e66109bd602287018c6108b8565b7f70726f70657274696573223a207b226e756d626572223a200000000000000000815260180190565b896108b8565b6a1610113730b6b2911d101160a91b8152600b0190565b866108b8565b62227d7d60e81b815260030190565b9a9950505050505050505050565b7f646174613a6170706c69636174696f6e2f6a736f6e3b6261736536342c000000815260008251610a5e81601d850160208701610592565b91909101601d0192915050565b6834b6b0b3b2911d101160b91b81528451600090610a90816009850160208a01610592565b8083019050633f69643d60e01b8060098301528651610ab681600d850160208b01610592565b741116101130b734b6b0ba34b7b72fbab936111d101160591b600d93909101928301528551610aec816022850160208a01610592565b60229201918201528351610b07816026840160208801610592565b631116101160e11b60269290910191820152602a019695505050505050565b6834b6b0b3b2911d101160b91b81528251600090610b4b816009850160208801610592565b633f69643d60e01b6009918401918201528351610b6f81600d840160208801610592565b631116101160e11b600d9290910191820152601101949350505050565b7030b734b6b0ba34b7b72fbab936111d101160791b81528251600090610bb9816011850160208801610592565b633f69643d60e01b6011918401918201528351610bdd816015840160208801610592565b631116101160e11b60159290910191820152601901949350505050565b634e487b7160e01b600052601160045260246000fd5b808201808211156100fa576100fa610bfa565b600082610c4057634e487b7160e01b600052601260045260246000fd5b500490565b6000816000190483118215151615610c5f57610c5f610bfa565b50029056fe4142434445464748494a4b4c4d4e4f505152535455565758595a6162636465666768696a6b6c6d6e6f707172737475767778797a303132333435363738392b2fa264697066735822122038f3c2cc9a96f33534071fa7b432b8aac86a5befe3f84fcd7084471c1cdb893564736f6c63430008100033",
+  "devdoc": {
+    "details": "Can safely be used for generic base64Encode and numberToString functions",
+    "kind": "dev",
+    "methods": {
+      "base64Encode(bytes)": {
+        "params": {
+          "unencoded": "bytes to base64-encode"
+        }
+      },
+      "createMetadataEdition(string,string,string,string,uint256,uint256)": {
+        "params": {
+          "animationUrl": "URL of animation to render for edition",
+          "description": "Description of NFT in metadata",
+          "editionSize": "Size of entire edition to show",
+          "imageUrl": "URL of image to render for edition",
+          "name": "Name of NFT in metadata",
+          "tokenOfEdition": "Token ID for specific token"
+        }
+      },
+      "createMetadataJSON(string,string,string,uint256,uint256)": {
+        "params": {
+          "description": "Description of NFT in metadata",
+          "editionSize": "Size of entire edition to show",
+          "mediaData": "Data for media to include in json object",
+          "name": "Name of NFT in metadata",
+          "tokenOfEdition": "Token ID for specific token"
+        }
+      },
+      "encodeMetadataJSON(bytes)": {
+        "params": {
+          "json": "Raw json to base64 and turn into a data-uri"
+        }
+      },
+      "numberToString(uint256)": {
+        "params": {
+          "value": "number to return as a string"
+        }
+      },
+      "tokenMediaData(string,string,uint256)": {
+        "params": {
+          "animationUrl": "URL of animation to render for edition",
+          "imageUrl": "URL of image to render for edition"
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "createMetadataEdition(string,string,string,string,uint256,uint256)": {
+        "notice": "Generate edition metadata from storage information as base64-json blob Combines the media data and metadata"
+      },
+      "createMetadataJSON(string,string,string,uint256,uint256)": {
+        "notice": "Function to create the metadata json string for the nft edition"
+      },
+      "encodeMetadataJSON(bytes)": {
+        "notice": "Encodes the argument json bytes into base64-data uri format"
+      },
+      "numberToString(uint256)": {
+        "notice": "Proxy to openzeppelin's toString function"
+      },
+      "tokenMediaData(string,string,uint256)": {
+        "notice": "Generates edition metadata from storage information as base64-json blob Combines the media data and metadata"
+      }
+    },
+    "notice": "Shared NFT logic for rendering metadata associated with editions",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}

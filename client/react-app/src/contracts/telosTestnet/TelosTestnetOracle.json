@@ -1,0 +1,190 @@
+{
+  "address": "0xB757391dF996f5B91E6e998D7986d4a592eb77Dc",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "btcUSD",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "maxTimePassed",
+          "type": "uint256"
+        }
+      ],
+      "name": "checkUSDAge",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "inTime",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "ethUSD",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getBTCUSD",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getETHUSD",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getTelosUSD",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "timestampOflatestUSD",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tlosUSD",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xbd7d6ecb07540d47426a8b3137d54edae8a283750aa0c48ba7a0783b1d57a2b2",
+  "receipt": {
+    "to": null,
+    "from": "0x8406A51A0E1B5F52Ff61226773e6328e5Da5d964",
+    "contractAddress": "0xB757391dF996f5B91E6e998D7986d4a592eb77Dc",
+    "transactionIndex": 0,
+    "gasUsed": "264463",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x0991945e1f4bbd661a85cf74336dac3f09ab0153865f59066389003d7bc189f1",
+    "transactionHash": "0xbd7d6ecb07540d47426a8b3137d54edae8a283750aa0c48ba7a0783b1d57a2b2",
+    "logs": [],
+    "blockNumber": 224258170,
+    "cumulativeGasUsed": "264463",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "3866ecff75b435ce836935f96f3e83cd",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.16+commit.07a7930e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"btcUSD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"maxTimePassed\",\"type\":\"uint256\"}],\"name\":\"checkUSDAge\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"inTime\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ethUSD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBTCUSD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getETHUSD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTelosUSD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"timestampOflatestUSD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tlosUSD\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/DiaTelosTestnet.sol\":\"TelosTestnetOracle\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/DiaTelosTestnet.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\r\\n\\r\\npragma solidity ^0.8.10;\\r\\n\\r\\ninterface IDIAOracleV2{\\r\\n    function getValue(string memory) external returns (uint256, uint256);\\r\\n}\\r\\n\\r\\ncontract TelosTestnetOracle{\\r\\n\\r\\n    address immutable ORACLE = 0x261cF410d0A83193D647E47c35178288D99E12Dd;\\r\\n    uint256 public tlosUSD; \\r\\n    uint256 public btcUSD;\\r\\n    uint256 public ethUSD;\\r\\n    uint256 public timestampOflatestUSD; \\r\\n   \\r\\n    function getTelosUSD() external returns(uint256) {\\r\\n        (tlosUSD, timestampOflatestUSD) = IDIAOracleV2(ORACLE).getValue(\\\"TLOS/USD\\\"); \\r\\n        return tlosUSD;\\r\\n    }\\r\\n\\r\\n     function getBTCUSD() external returns(uint256) {\\r\\n        (btcUSD, timestampOflatestUSD) = IDIAOracleV2(ORACLE).getValue(\\\"BTC/USD\\\"); \\r\\n        return btcUSD;\\r\\n    }\\r\\n\\r\\n     function getETHUSD() external returns(uint256) {\\r\\n        (ethUSD, timestampOflatestUSD) = IDIAOracleV2(ORACLE).getValue(\\\"ETH/USD\\\"); \\r\\n        return ethUSD;\\r\\n    }\\r\\n\\r\\n    function checkUSDAge(uint256 maxTimePassed) external view returns (bool inTime){\\r\\n         if((block.timestamp - timestampOflatestUSD) < maxTimePassed){\\r\\n             inTime = true;\\r\\n         } else {\\r\\n             inTime = false;\\r\\n         }\\r\\n    }\\r\\n}\",\"keccak256\":\"0x6e9e61ece6670aaeaf04883fcdaf234f30b76da21cf424c2811e910d69d5393a\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60a060405273261cf410d0a83193d647e47c35178288d99e12dd60805234801561002857600080fd5b506080516103d4610052600039600081816101300152818161020801526102b901526103d46000f3fe608060405234801561001057600080fd5b50600436106100885760003560e01c8063bac5ff511161005b578063bac5ff51146100dc578063c1d41fd4146100e5578063e8ea721a146100ee578063f56eae12146100f657600080fd5b806323ffcefb1461008d5780638eed752c146100a857806396c38294146100cb578063ac48bd5a146100d3575b600080fd5b6100956100ff565b6040519081526020015b60405180910390f35b6100bb6100b636600461033a565b6101b1565b604051901515815260200161009f565b6100956101d8565b61009560025481565b61009560015481565b61009560005481565b610095610289565b61009560035481565b6040516304b01c2560e51b8152602060048201526008602482015267151313d4cbd554d160c21b60448201526000907f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063960384a09060640160408051808303816000875af1158015610180573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101a49190610353565b6003556000819055919050565b600081600354426101c29190610377565b10156101d057506001919050565b506000919050565b6040516304b01c2560e51b81526020600482015260076024820152661155120bd554d160ca1b60448201526000907f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063960384a09060640160408051808303816000875af1158015610258573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061027c9190610353565b6003556002819055919050565b6040516304b01c2560e51b8152602060048201526007602482015266109510cbd554d160ca1b60448201526000907f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063960384a09060640160408051808303816000875af1158015610309573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061032d9190610353565b6003556001819055919050565b60006020828403121561034c57600080fd5b5035919050565b6000806040838503121561036657600080fd5b505080516020909101519092909150565b8181038181111561039857634e487b7160e01b600052601160045260246000fd5b9291505056fea26469706673582212206ef59f36602c5784ca765f1e4fcefa1e345d9bfc54a1f3b8ff8a0a37a98f38a464736f6c63430008100033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100885760003560e01c8063bac5ff511161005b578063bac5ff51146100dc578063c1d41fd4146100e5578063e8ea721a146100ee578063f56eae12146100f657600080fd5b806323ffcefb1461008d5780638eed752c146100a857806396c38294146100cb578063ac48bd5a146100d3575b600080fd5b6100956100ff565b6040519081526020015b60405180910390f35b6100bb6100b636600461033a565b6101b1565b604051901515815260200161009f565b6100956101d8565b61009560025481565b61009560015481565b61009560005481565b610095610289565b61009560035481565b6040516304b01c2560e51b8152602060048201526008602482015267151313d4cbd554d160c21b60448201526000907f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063960384a09060640160408051808303816000875af1158015610180573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101a49190610353565b6003556000819055919050565b600081600354426101c29190610377565b10156101d057506001919050565b506000919050565b6040516304b01c2560e51b81526020600482015260076024820152661155120bd554d160ca1b60448201526000907f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063960384a09060640160408051808303816000875af1158015610258573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061027c9190610353565b6003556002819055919050565b6040516304b01c2560e51b8152602060048201526007602482015266109510cbd554d160ca1b60448201526000907f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03169063960384a09060640160408051808303816000875af1158015610309573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061032d9190610353565b6003556001819055919050565b60006020828403121561034c57600080fd5b5035919050565b6000806040838503121561036657600080fd5b505080516020909101519092909150565b8181038181111561039857634e487b7160e01b600052601160045260246000fd5b9291505056fea26469706673582212206ef59f36602c5784ca765f1e4fcefa1e345d9bfc54a1f3b8ff8a0a37a98f38a464736f6c63430008100033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 16,
+        "contract": "contracts/DiaTelosTestnet.sol:TelosTestnetOracle",
+        "label": "tlosUSD",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 18,
+        "contract": "contracts/DiaTelosTestnet.sol:TelosTestnetOracle",
+        "label": "btcUSD",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 20,
+        "contract": "contracts/DiaTelosTestnet.sol:TelosTestnetOracle",
+        "label": "ethUSD",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 22,
+        "contract": "contracts/DiaTelosTestnet.sol:TelosTestnetOracle",
+        "label": "timestampOflatestUSD",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_uint256"
+      }
+    ],
+    "types": {
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
