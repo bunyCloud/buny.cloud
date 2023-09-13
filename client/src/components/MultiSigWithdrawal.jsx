@@ -178,10 +178,10 @@ const MultiSigWithdrawal = () => {
         <WalletFactory onDeployments={handleDeployments} />
         {contractAddress && (
           <>
-            <Heading size="lg" mt={3}>
+            <Heading size="md" mt={3}>
               <Grid templateColumns="repeat(5, 1fr)" gap={4}>
                 <GridItem colSpan={2} h="10">
-                  <Text noOfLines={2} overflow={'hidden'}>
+                  <Text noOfLines={1} overflow={'hidden'}>
                     <Text>{contractName}</Text>
                   </Text>
                 </GridItem>
