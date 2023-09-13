@@ -63,11 +63,11 @@ function WriteMessage({ userAddress, publicKey, onSuccess }) {
       <FormControl mt={4}>
         <FormLabel>Message to Encrypt</FormLabel>
 
-        <Textarea bg="white" placeholder="Enter your message" value={message} size={'sm'} onChange={(e) => setMessage(e.target.value)} />
+        <Textarea bg="white" placeholder="Enter your message" value={message} size={'xs'} onChange={(e) => setMessage(e.target.value)} />
       </FormControl>
       <Encryptor clearText={message} encryptionKey={publicKey} onEncryption={handleEncryptedMessage} />
       <Center>
-        <Button w="100%" maxWidth={360} colorScheme="twitter" mt={4} onClick={handleSubmit}>
+        <Button w="100%" size={'sm'} colorScheme="messenger" mt={4} onClick={handleSubmit}>
           Submit Message
         </Button>
       </Center>

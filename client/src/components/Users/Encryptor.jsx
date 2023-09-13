@@ -33,7 +33,7 @@ function Encryptor({ encryptionKey, clearText, onEncryption }) {
       
       
       <Center mt={2} mb={2}>
-      <Button maxWidth={360} size="sm" w="100%" colorScheme="twitter" onClick={handleEncryption}>
+      <Button  size="sm" w="100%" colorScheme="messenger" onClick={handleEncryption}>
         Encrypt
       </Button>
       </Center>

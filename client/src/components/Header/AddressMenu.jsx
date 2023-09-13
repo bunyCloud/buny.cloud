@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Menu, MenuButton, MenuList, MenuItem, MenuDivider, Center, HStack, Button, useToast } from '@chakra-ui/react';
 import { ChevronDownIcon, CopyIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 import { formatAddress } from '../../utils/formatMetamask';
 import { Text } from '@chakra-ui/react';
 import { HeaderConnect } from './HeaderConnect';
+import { AppContext } from '../../AppContext';
 
-const AddressMenu = ({account, balance, handleDisconnect}) => {
+const AddressMenu = ({ balance, handleDisconnect}) => {
   const toast = useToast();
+  const {account} = useContext(AppContext)
 
   const copyAddress = () => {
     if (navigator.clipboard) {
@@ -31,8 +33,9 @@ const AddressMenu = ({account, balance, handleDisconnect}) => {
         transition="all 0.2s"
         borderRadius="md"
         borderWidth="1px"
+        bg='white'
         borderColor="#6a14fc"
-        _hover={{ bg: 'red' }}
+        _hover={{ bg: 'ghostwhite' }}
         _expanded={{ bg: 'white' }}
         _focus={{ boxShadow: 'outline' }}
       >

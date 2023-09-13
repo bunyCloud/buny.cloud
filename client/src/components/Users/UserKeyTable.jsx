@@ -19,8 +19,11 @@ import {
   Text} from '@chakra-ui/react';
 import { EmailIcon } from '@chakra-ui/icons';
 import WriteMessage from './WriteMessage';
+import UserKeyStorage from '../../contracts/UserKeyStorage.json'
+import { formatAddress } from '../../utils/formatMetamask';
 
-function UserKeyTable({contractAddress, abi }) {
+function UserKeyTable() {
+  
   const [users, setUsers] = useState([]);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
@@ -41,7 +44,7 @@ function UserKeyTable({contractAddress, abi }) {
         return;
       }
 
-      const contract = new ethers.Contract(contractAddress, abi, provider);
+      const contract = new ethers.Contract(UserKeyStorage.address, UserKeyStorage.abi, provider);
 
       try {
         const [addresses, usernames, encryptedKeys] = await contract.getAllUsers();
@@ -63,7 +66,7 @@ function UserKeyTable({contractAddress, abi }) {
     }
 
     fetchUsers();
-  }, [ contractAddress, abi, toast]);
+  }, [toast]);
 
 
   const handleUserClick = (user) => {
@@ -76,16 +79,16 @@ function UserKeyTable({contractAddress, abi }) {
   }
 
   return (
-    <Box overflowX="auto" bg='ghostwhite' fontSize={'small'} border='0.5px solid silver'>
-    <Table size={'sm'} variant="simple" >
+    <Box overflowX="auto" bg='ghostwhite' fontSize={'xs'} border='0.5px solid silver'>
+    <Table size={'sm'}  variant="simple" >
       <Thead>
         <Tr>
-          <Th>Username</Th>
-          <Th>User Address</Th>
-          <Th>Public Key</Th>
+          <Th fontSize={'xs'}>User</Th>
+          <Th fontSize={'xs'}>Address</Th>
+          <Th fontSize={'xs'}>Public Key</Th>
         </Tr>
       </Thead>
-      <Tbody fontSize={'small'}>
+      <Tbody>
         {users.map((user, index) => (
           <Tr key={index}>
             <Td>
@@ -99,15 +102,15 @@ function UserKeyTable({contractAddress, abi }) {
                 {user.username}
               </Button>
             </Td>
-            <Td>{user.address}</Td>
-            <Td>{user.encryptedKey}</Td>
+            <Td fontSize={'xs'}>{formatAddress(user.address)}</Td>
+            <Td fontSize={'xs'}>{user.encryptedKey}</Td>
           </Tr>
         ))}
       </Tbody>
     </Table>
 
     {selectedUser && (
-      <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} size="sm">
+      <Drawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} size='xs'>
         <DrawerOverlay>
           <DrawerContent fontSize={'small'}>
             <DrawerCloseButton />

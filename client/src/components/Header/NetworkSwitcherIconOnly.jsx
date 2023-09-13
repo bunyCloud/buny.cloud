@@ -102,22 +102,22 @@ const NetworkSwitcherIconOnly = () => {
   return (
     <Menu>
       <Tooltip hasArrow label="Switch Network" bg="#c1cfd8" color="black">
-        <MenuButton size={'auto'} bg={'transparent'} as={Button}>
-          <HStack>
+        <MenuButton variant={'unstyled'} size={'auto'} bg={'transparent'} as={Button}>
+          <HStack bg='transparent'>
             <model-viewer
               style={{
-                width: '33px',
-                height: '33px',
-                marginTop: '-3px',
+                width: '40px',
+                height: '40px',
+                marginTop: '-1px',
                 backgroundColor: 'transparent',
               }}
               src={getModelSrc()}
               poster={selectedNetwork.includes('Testnet') ? "/telos.png" : "/telos.png"}
-              shadow-intensity="0.99"
+              shadow-intensity="1.99"
               auto-rotate={selectedNetwork === 'Telos Mainnet' ? true : false}
-              shadow-softness="0.57"
+              shadow-softness="0.07"
             ></model-viewer>
-            <Text color='white' fontSize={'sm'} ml={-1} mr={2}>{selectedNetwork}</Text>
+            
           </HStack>
         </MenuButton>
       </Tooltip>

@@ -1,4 +1,5 @@
 {
+  "address": "0x0e82BEB7c144b8b67DaF970F663BC2d6A99AC8D6",
   "abi": [
     {
       "anonymous": false,
@@ -225,6 +226,11 @@
           "internalType": "string",
           "name": "_contractName",
           "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "_ownerAddress",
+          "type": "address"
         }
       ],
       "name": "initialize",

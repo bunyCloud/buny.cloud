@@ -1,5 +1,5 @@
 {
-  "address": "0x452923736D4f54ef781f237De1452d3DB27cee32",
+  "address": "0x4a0C1F3E3CE2aEfd5188cee742E78ca499f90131",
   "abi": [
     {
       "inputs": [
@@ -91,6 +91,11 @@
           "internalType": "uint256",
           "name": "deploymentNumber",
           "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "contractName",
+          "type": "string"
         }
       ],
       "stateMutability": "view",
@@ -122,6 +127,11 @@
               "internalType": "uint256",
               "name": "deploymentNumber",
               "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "contractName",
+              "type": "string"
             }
           ],
           "internalType": "struct BunyMultiFactory.Deployment[]",

@@ -24,7 +24,6 @@ import { Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, Po
 import { QuestionOutlineIcon } from '@chakra-ui/icons'
 import FetchPublicEncryptionKey from './components/Users/FetchPublicEncryptionKey'
 import ViewMessages from './components/Users/ViewMessages'
-import FooterTabBar from './components/TabBar/FooterTabBar'
 
 function App() {
   const [chainId, setChainId] = useState(null)
@@ -203,7 +202,7 @@ function App() {
                 <HStack gap={1} justify={'right'} mt={1}>
                   <NetworkSwitcherIconOnly />
                   <div>
-                    {logged ? (
+                    {account ? (
                       <>
                         {!signature && (
                           <>
@@ -249,17 +248,17 @@ function App() {
           </Box>
 
           <Tabs isManual variant="enclosed" mt={10}>
-            <TabList zIndex={'999'} position={'fixed'} w="100%" bg="white" display="flex" justifyContent="center">
+            <TabList color='purple' zIndex={'999'} position={'fixed'} w="100%" bg="white" display="flex" justifyContent="center" p={1}>
               <Tab>Dashboard</Tab>
-              <Tab>Multi Signature</Tab>
-              <Tab>P2P Encryption</Tab>
-              <Tab> + ACTION</Tab>
+              <Tab>Vault</Tab>
+              <Tab>Directory</Tab>
+              
             </TabList>
 
             <TabPanels>
               <TabPanel>
                 <Center w={'100%'}>
-                  <Box w="100%" maxWidth={550} mt={10} style={{ overflowX: 'hidden' }}>
+                  <Box w="100%" maxWidth={550} mt={14} style={{ overflowX: 'hidden' }}>
                     {account && (
                       <>
                         <AccountLogin onAccountAddressChange={updateAccountAddress} onNftDetails={handleNftDetails} />
@@ -286,7 +285,7 @@ function App() {
                 </Box>
               </TabPanel>
               <TabPanel>
-                <Box m={8}>
+                <Box mt={8}>
                   <MultiSigWithdrawal />
                 </Box>
               </TabPanel>
@@ -295,7 +294,7 @@ function App() {
               <TabPanel>
                 <Center mt={2} mb={2}>
                  
-                  <Box w="100%" maxWidth={500} px={['1rem', '0']} p={2} m={4}>
+                  <Box w="100%" maxWidth={500} px={['1rem', '0']} p={2} mt={8} >
                     <Box border="0.5px solid silver" bg="white">
                     <Text borderBottom="0.5px solid silver"   p={2}>Contract</Text>
                       <UserStorage publicKey={publicKey} account={account} contractAddress={UserKeyStorage.address} abi={UserKeyStorage.abi} />
@@ -384,9 +383,7 @@ function App() {
                   </Box>
                 </Center>
               </TabPanel>
-              <TabPanel>
-                <FooterTabBar />
-              </TabPanel>
+             
             </TabPanels>
           </Tabs>
         </Layout>
