@@ -42,45 +42,53 @@ export const MetaMaskContextProvider = (props) => {
 
   useEffect(() => {
     const getProvider = async () => {
-      const provider = await detectEthereumProvider({ silent: true });
-      setHasProvider(Boolean(provider));
-    
-      if (provider) {
-        // Check for previously connected accounts
-        const accounts = await window.ethereum.request({ method: 'eth_accounts' });
-        if (accounts.length > 0) {
-          updateWallet(accounts);
+        const provider = await detectEthereumProvider({ silent: true });
+        setHasProvider(Boolean(provider));
+
+        if (provider) {
+            // Check for previously connected accounts
+            const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+            if (accounts.length > 0) {
+                updateWallet(accounts);
+            } else {
+                updateWalletAndAccounts();
+            }
+
+            window.ethereum.on('accountsChanged', updateWallet);
+            window.ethereum.on('chainChanged', updateWalletAndAccounts);
         } else {
-          updateWalletAndAccounts();
+            setErrorMessage("MetaMask or an Ethereum provider is not detected.");
+            // Start the onboarding process if MetaMask is not installed
+            if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
+                onboarding.startOnboarding();
+            }
         }
-    
-        window.ethereum.on('accountsChanged', updateWallet);
-        window.ethereum.on('chainChanged', updateWalletAndAccounts);
-      } else {
-        setErrorMessage("MetaMask or an Ethereum provider is not detected.");
-      }
     };
-    
 
-    getProvider()
+    getProvider();
 
+    // Cleanup listeners on component unmount
     return () => {
-      if (window.ethereum) {
-        window.ethereum.removeListener('accountsChanged', updateWallet)
-        window.ethereum.removeListener('chainChanged', updateWalletAndAccounts)
-      }
-    }
-  }, [updateWallet, updateWalletAndAccounts])
+        if (window.ethereum) {
+            window.ethereum.removeListener('accountsChanged', updateWallet);
+            window.ethereum.removeListener('chainChanged', updateWalletAndAccounts);
+        }
+    };
+}, [onboarding, updateWallet, updateWalletAndAccounts]);
+
 
   const connectMetaMask = async () => {
     setIsConnecting(true);
-  
+    
     if (!window.ethereum) {
       setErrorMessage("MetaMask or an Ethereum provider is not detected.");
+      if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
+        onboarding.startOnboarding();
+      }
       setIsConnecting(false);
       return;
     }
-  
+    
     try {
       const accounts = await window.ethereum.request({
         method: 'eth_requestAccounts',
@@ -92,6 +100,7 @@ export const MetaMaskContextProvider = (props) => {
     }
     setIsConnecting(false);
   };
+  
   
 
   return (

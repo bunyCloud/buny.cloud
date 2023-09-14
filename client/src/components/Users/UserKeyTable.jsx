@@ -33,20 +33,11 @@ function UserKeyTable() {
     const provider = new ethers.providers.JsonRpcProvider('https://testnet.telos.net/evm')
 
     async function fetchUsers() {
-      if (!provider) {
-        toast({
-          title: 'Error',
-          description: 'Network provider not found',
-          status: 'error',
-          duration: 5000,
-          isClosable: true,
-        })
-        return
-      }
-
-      const contract = new ethers.Contract(UserKeyStorage.address, UserKeyStorage.abi, provider)
+    
 
       try {
+        const contract = new ethers.Contract(UserKeyStorage.address, UserKeyStorage.abi, provider)
+
         const [addresses, usernames, encryptedKeys] = await contract.getAllUsers()
         const userList = addresses.map((address, index) => ({
           address,

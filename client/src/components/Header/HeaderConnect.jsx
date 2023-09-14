@@ -6,25 +6,30 @@ export const HeaderConnect = () => {
 
   return (
     <div>
-      <Center>
-        <HStack>
-          <div>
-            {!hasProvider && (
-              <a href="https://metamask.io" target="_blank" rel="noreferrer">
-                <Text fontSize={'sm'}>Install MetaMask</Text>
-              </a>
-            )}
 
-            {!wallet.accounts.length > 0 && (
-              <>
-                <Button w={'120px'} size={'xs'} colorScheme="twitter" border="1px solid white" disabled={isConnecting} onClick={connectMetaMask}>
-                  Connect
-                </Button>
-              </>
-            )}
-          </div>
-        </HStack>
-      </Center>
+          <Center>
+          
+            <HStack>
+              <div>
+                {!hasProvider && (
+                  <a href="https://metamask.io" target="_blank" rel="noreferrer">
+                    <Text fontSize={'sm'}>Install MetaMask</Text>
+                  </a>
+                )}
+
+                {!wallet.accounts.length > 0 && (
+                  <>
+                  <Button w={'120px'} size={'xs'} colorScheme='twitter'  border="1px solid white" disabled={isConnecting} onClick={connectMetaMask}>
+                    Connect 
+                  </Button>
+                  </>
+                )}
+                
+          
+              </div>
+            </HStack>
+          </Center>
+   
     </div>
   )
 }

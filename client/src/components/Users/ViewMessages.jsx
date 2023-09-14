@@ -18,6 +18,12 @@ function ViewMessages() {
 
   useEffect(() => {
     async function fetchMessages() {
+      // Check if window.ethereum is defined
+      if (!window.ethereum) {
+        console.log('Provider not found.');
+        return; // Exit the function early if no provider is found
+      }
+
       const provider = new ethers.providers.Web3Provider(window.ethereum)
       const signer = provider.getSigner()
       const contract = new ethers.Contract(contractAddress, contractABI, signer)
@@ -33,6 +39,7 @@ function ViewMessages() {
 
     fetchMessages()
   }, [account, contractABI, contractAddress, toast])
+
 
   function handleDecryptedText(index, decryptedMessage) {
     setDecryptedText((prev) => {

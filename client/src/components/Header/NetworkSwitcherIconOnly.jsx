@@ -10,7 +10,7 @@ const NetworkSwitcherIconOnly = () => {
     const networkData = {
         'Telos Mainnet': {
             chainId: 40,
-            rpcUrl: 'https://mainnet.telos.net/evm',
+            rpcUrl: 'https://mainnet.telos.net/evm/',
             nativeCurrency: {
                 name: 'Telos',
                 symbol: 'TLOS',
@@ -20,7 +20,7 @@ const NetworkSwitcherIconOnly = () => {
         },
         'Telos Testnet': {
             chainId: 41,
-            rpcUrl: 'https://testnet.telos.net/evm',
+            rpcUrl: 'https://testnet.telos.net/evm/',
             nativeCurrency: {
                 name: 'Telos',
                 symbol: 'TLOS',
@@ -28,36 +28,11 @@ const NetworkSwitcherIconOnly = () => {
             },
             blockExplorerUrls: ['https://testnet.teloscan.io/'],
         },
-        /*
-        'Fuji Testnet': {
-            chainId: 43113,
-            rpcUrl: 'https://api.avax-test.network/ext/bc/C/rpc',
-            nativeCurrency: {
-                name: 'Avalanche',
-                symbol: 'AVAX',
-                decimals: 18,
-            },
-            blockExplorerUrls: ['https://cchain.explorer.avax-test.network/'],
-        },
-        'Avalanche Mainnet': {
-            chainId: 43114,
-            rpcUrl: 'https://api.avax.network/ext/bc/C/rpc',
-            nativeCurrency: {
-                name: 'Avalanche',
-                symbol: 'AVAX',
-                decimals: 18,
-            },
-            blockExplorerUrls: ['https://cchain.explorer.avax.network/'],
-        },
-        */
+      
     };
 
     const { chainId, rpcUrl, nativeCurrency, blockExplorerUrls } = networkData[network];
     setProvider(rpcUrl);
-
-    if (!window.ethereum) {
-        throw new Error('Metamask not installed or not accessible.');
-    }
 
     const currentChainId = await window.ethereum.request({ method: 'eth_chainId' });
     if (parseInt(currentChainId, 16) === chainId) {
@@ -85,13 +60,17 @@ const NetworkSwitcherIconOnly = () => {
 };
 
   useEffect(() => {
+    if (!window.ethereum) {
+      console.log('Provider not found.');
+      return; // Exit the function early if no provider is found
+    }
     switchNetwork(selectedNetwork);
   }, [selectedNetwork]);
 
   const getModelSrc = () => {
     switch (selectedNetwork) {
-      case 'Fuji Testnet':
-      case 'Avalanche Mainnet':
+      case 'Telos Testnet':
+      case 'Telos Mainnet':
         return '/avax.glb';
       default:
         return '/telos.glb';
@@ -131,15 +110,6 @@ const NetworkSwitcherIconOnly = () => {
           <Image boxSize='2rem' borderRadius='full' src='/telos.png' mr='6px' />
           <Text>Telos Mainnet</Text>
         </MenuItem>
-
-        {/*<MenuItem minH='48px' onClick={() => setSelectedNetwork('Fuji Testnet')} zIndex={99999}>
-          <Image boxSize='2rem' borderRadius='full' src='/avax.png' mr='6px' />
-          <Text>Fuji Testnet</Text>
-        </MenuItem>
-        <MenuItem minH='40px' onClick={() => setSelectedNetwork('Avalanche Mainnet')} zIndex={99999}>
-          <Image boxSize='2rem' borderRadius='full' src='/avax.png' mr='6px' />
-          <Text>Avalanche Mainnet</Text>
-        </MenuItem>*/}
       </MenuList>
     </Menu>
   );

@@ -44,7 +44,7 @@ export const networks = {
     currencyName: "Telos",
     currencySymbol: "TLOS",
     hexdecimal:"0x29",
-    rpcUrl: "https://testnet.telos.net/evm",
+    rpcUrl: "https://testnet.telos.net/evm/",
     blockExplorerUrl: "https://testnet.teloscan.io",
     blockExplorerName: "Teloscan.io",
   },

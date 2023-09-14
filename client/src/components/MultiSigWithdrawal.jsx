@@ -35,12 +35,9 @@ const MultiSigWithdrawal = () => {
     setContractAddress(contractAddress)
   }
 
-  const provider = new ethers.providers.Web3Provider(window.ethereum)
-  const signer = provider.getSigner()
-  const contract = new ethers.Contract(contractAddress, contractABI, signer)
+
   //const message = `${contractName} is requesting a signature for authorization`
   const message = `Contract: ${contractName}\nTransaction Id: ${transactionId}\nAmount: ${amount.toString()}\nReceiver: ${recipient}`
-  const dataRows = message.split('\n')
 
   const reloadBalance = async () => {
     const provider = new ethers.providers.JsonRpcProvider('https://testnet.telos.net/evm')
@@ -61,6 +58,9 @@ const MultiSigWithdrawal = () => {
   }
 
   async function reloadTransactions() {
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    const signer = provider.getSigner()
+    const contract = new ethers.Contract(contractAddress, contractABI, signer)
     const transactionsData = await contract.getPendingTransactions()
 
     const transactions = transactionsData[0].map((txId, index) => {
@@ -80,6 +80,10 @@ const MultiSigWithdrawal = () => {
   }
 
   useEffect(() => {
+    if (!window.ethereum) {
+      console.log('Provider not found.');
+      return; // Exit the function early if no provider is found
+    }
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner()
     const contract = new ethers.Contract(contractAddress, contractABI, signer)
@@ -121,6 +125,10 @@ const MultiSigWithdrawal = () => {
   const [minSignatures, setMinSignatures] = useState('')
 
   useEffect(() => {
+    if (!window.ethereum) {
+      console.log('Provider not found.');
+      return; // Exit the function early if no provider is found
+    }
     const fetchContractBalance = async () => {
       const provider = new ethers.providers.Web3Provider(window.ethereum)
       const signer = provider.getSigner()
@@ -142,6 +150,9 @@ const MultiSigWithdrawal = () => {
 
   const approve = async (txId) => {
     try {
+      const provider = new ethers.providers.Web3Provider(window.ethereum)
+      const signer = provider.getSigner()
+      const contract = new ethers.Contract(contractAddress, contractABI, signer)
       const tx = await contract.signTransaction(txId)
       await tx.wait()
       alert('Owner added successfully!')
@@ -152,6 +163,10 @@ const MultiSigWithdrawal = () => {
   }
 
   useEffect(() => {
+    if (!window.ethereum) {
+      console.log('Provider not found.');
+      return; // Exit the function early if no provider is found
+    }
     if (signature) {
       const verify = () => {
         const actualAddress = utils.verifyMessage(message, signature)

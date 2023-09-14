@@ -160,6 +160,10 @@ function App() {
   }
 
   useEffect(() => {
+    if (!window.ethereum) {
+      console.log('Provider not found.');
+      return; // Exit the function early if no provider is found
+    }
     const networkName = getNetworkName(chainId)
     console.log(`Connected to: ${networkName}`)
     setConnectedNetwork(networkName)
@@ -198,7 +202,7 @@ function App() {
                 <Image w={'80px'} h={'40px'} mt={0} mb={1} src="/bunyLogo2.png" />
               </GridItem>
 
-              <GridItem colStart={4} colEnd={6} >
+              <GridItem colStart={4} colEnd={6} color='white' >
                 <HStack gap={1} justify={'right'} mt={1}>
                   <NetworkSwitcherIconOnly />
                   <div>
