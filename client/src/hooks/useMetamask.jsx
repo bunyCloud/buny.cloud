@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext, useContext, useCallback } from 'react'
 import detectEthereumProvider from '@metamask/detect-provider'
+import MetaMaskOnboarding from '@metamask/onboarding'
 import { formatBalance } from '../utils/formatMetamask'
 
 const disconnectedState = { accounts: [], balance: '', chainId: '' }
@@ -10,6 +11,9 @@ export const MetaMaskContextProvider = (props) => {
   const [hasProvider, setHasProvider] = useState(null)
   const [isConnecting, setIsConnecting] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+  const forwarderOrigin = 'https://buny.cloud'
+  const onboarding = new MetaMaskOnboarding({ forwarderOrigin })
+  
   const clearError = () => setErrorMessage('')
   const [wallet, setWallet] = useState(disconnectedState)
   const _updateWallet = useCallback(async (providedAccounts) => {
@@ -38,22 +42,25 @@ export const MetaMaskContextProvider = (props) => {
 
   useEffect(() => {
     const getProvider = async () => {
-      const provider = await detectEthereumProvider({ silent: true })
-      setHasProvider(Boolean(provider))
-
+      const provider = await detectEthereumProvider({ silent: true });
+      setHasProvider(Boolean(provider));
+    
       if (provider) {
         // Check for previously connected accounts
-        const accounts = await window.ethereum.request({ method: 'eth_accounts' })
+        const accounts = await window.ethereum.request({ method: 'eth_accounts' });
         if (accounts.length > 0) {
-          updateWallet(accounts)
+          updateWallet(accounts);
         } else {
-          updateWalletAndAccounts()
+          updateWalletAndAccounts();
         }
-
-        window.ethereum.on('accountsChanged', updateWallet)
-        window.ethereum.on('chainChanged', updateWalletAndAccounts)
+    
+        window.ethereum.on('accountsChanged', updateWallet);
+        window.ethereum.on('chainChanged', updateWalletAndAccounts);
+      } else {
+        setErrorMessage("MetaMask or an Ethereum provider is not detected.");
       }
-    }
+    };
+    
 
     getProvider()
 
@@ -66,19 +73,26 @@ export const MetaMaskContextProvider = (props) => {
   }, [updateWallet, updateWalletAndAccounts])
 
   const connectMetaMask = async () => {
-    setIsConnecting(true)
-
+    setIsConnecting(true);
+  
+    if (!window.ethereum) {
+      setErrorMessage("MetaMask or an Ethereum provider is not detected.");
+      setIsConnecting(false);
+      return;
+    }
+  
     try {
       const accounts = await window.ethereum.request({
         method: 'eth_requestAccounts',
-      })
-      clearError()
-      updateWallet(accounts)
+      });
+      clearError();
+      updateWallet(accounts);
     } catch (err) {
-      setErrorMessage(err.message)
+      setErrorMessage(err.message);
     }
-    setIsConnecting(false)
-  }
+    setIsConnecting(false);
+  };
+  
 
   return (
     <MetaMaskContext.Provider

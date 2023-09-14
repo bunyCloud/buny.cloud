@@ -3,8 +3,9 @@ import { ethers } from 'ethers'
 import { Text, Box, Button, Input, FormControl, FormLabel, useToast, Center, Textarea } from '@chakra-ui/react'
 import UserKeyStorage from '../../contracts/UserKeyStorage.json'
 import Encryptor from './Encryptor'
+import { formatAddress } from '../../utils/formatMetamask'
 
-function WriteMessage({ userAddress, publicKey, onSuccess }) {
+function WriteMessage({ username, userAddress, publicKey, onSuccess }) {
   const [message, setMessage] = useState('')
   const [encryptedMessage, setEncryptedMessage] = useState('')
 
@@ -45,32 +46,37 @@ function WriteMessage({ userAddress, publicKey, onSuccess }) {
 
   return (
     <Box overflowX="auto" bg="ghostwhite" p={2} fontSize={'small'} border="0.5px solid silver">
-      <FormControl>
-        <Text p={1} w="100%" as="b">
-          User Address
-        </Text>
-        <Text bg="white" p={1} noOfLines={2} overflow={'auto'} border="0.5px solid silver">
-          {userAddress}
-        </Text>
-        <Text p={1} w="100%" as="b">
-          Public Key
-        </Text>
-        <Text bg="white" p={1} noOfLines={2} overflow={'auto'} border="0.5px solid silver">
-          {publicKey}
-        </Text>
-      </FormControl>
+      <Box overflowX="auto" bg="InfoBackground" p={2} fontSize={'small'} border="0.5px solid silver">
+        <FormControl>
+        <Text>Sending message to:</Text>
+          <Text bg="white" p={1} noOfLines={2} overflow={'auto'} border="0.5px solid silver">
+            <Text p={1} w="100%" as="b">
+              Username:
+            </Text>{' '}
+            {username}
+          </Text>
 
+          <Text bg="white" p={1} noOfLines={2} overflow={'auto'} border="0.5px solid silver">
+            <Text p={1} w="100%" as="b">
+              Address:
+            </Text>{' '}
+            {formatAddress(userAddress)}
+          </Text>
+
+          <Text bg="white" p={1} noOfLines={2} overflow={'auto'} border="0.5px solid silver">
+            <Text p={1} w="100%" as="b">
+              Public Key:
+            </Text>{' '}
+            {formatAddress(publicKey)}
+          </Text>
+        </FormControl>
+      </Box>
       <FormControl mt={4}>
         <FormLabel>Message to Encrypt</FormLabel>
 
-        <Textarea bg="white" placeholder="Enter your message" value={message} size={'xs'} onChange={(e) => setMessage(e.target.value)} />
+        <Textarea border="0.5px solid silver" bg="white" placeholder="Enter your message" value={message} size={'sm'} onChange={(e) => setMessage(e.target.value)} />
       </FormControl>
-      <Encryptor clearText={message} encryptionKey={publicKey} onEncryption={handleEncryptedMessage} />
-      <Center>
-        <Button w="100%" size={'sm'} colorScheme="messenger" mt={4} onClick={handleSubmit}>
-          Submit Message
-        </Button>
-      </Center>
+      <Encryptor handleSubmit={handleSubmit} clearText={message} encryptionKey={publicKey} onEncryption={handleEncryptedMessage} />
     </Box>
   )
 }

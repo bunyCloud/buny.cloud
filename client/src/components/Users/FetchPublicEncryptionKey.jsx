@@ -1,6 +1,7 @@
 import { Box, Button, Center, HStack, IconButton, Text } from '@chakra-ui/react'
 import React, { useState, useEffect } from 'react'
-import { CopyIcon } from '@chakra-ui/icons'
+import { AddIcon, CopyIcon } from '@chakra-ui/icons'
+import { UserOutlined } from '@ant-design/icons';
 
 function FetchPublicEncryptionKey({ onPublicKey }) {
   const [encryptionKey, setEncryptionKey] = useState('')
@@ -45,26 +46,43 @@ function FetchPublicEncryptionKey({ onPublicKey }) {
 
   return (
     <>
-      <Box p={2} w="100%" bg='ghostwhite' border='0.5px solid silver'>
-        <Text p={2}>Request your MetaMask Public Encryption Key</Text>
+      <Box  p={2} bg="InfoBackground" border="1px solid silver">
+        <Text >Request your MetaMask Public Encryption Key</Text>
         <Center>
           
-        <Button mt={1} w="100%" maxWidth={360} colorScheme="twitter" onClick={handleRequestKey}>
-          Request
-        </Button>
+        <Button
+        variant={'outline'}
+        color="purple"
+        w="100%"
+        border='1px solid purple'
+        leftIcon={<UserOutlined />}
+        onClick={handleRequestKey}
+        >
+        <HStack pr={2} gap="auto">
+          <IconButton
+            size={'xs'}
+            variant={'unstyled'}
+            colorScheme="purple"
+            aria-label="Action"
+            icon={<AddIcon/>}
+          />
+
+          <Text>Request Public Key</Text>
+        </HStack>
+      </Button>
+        
+
 
         </Center>
-        {error && <div style={{ color: 'red' }}>{error}</div>}
+        
         {encryptionKey && (
           <div>
             
               
               <HStack justify={'center'} mb={-1}  w='100%' fontSize={'small'} p={2} mt={2}>
-
               <Text>Public Key</Text>
               <Text bg='white' p={1} noOfLines={2} overflow={'auto'} border='0.5px solid silver'>
                 <code>{encryptionKey.toString()}</code>
-                
                 <IconButton
                   size={'xs'}
                   variant={'unstyled'}

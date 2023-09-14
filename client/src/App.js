@@ -8,7 +8,7 @@ import { AppContext } from './AppContext'
 import NetworkSwitcherIconOnly from './components/Header/NetworkSwitcherIconOnly'
 import AccountAddressMenu from './components/Header/AccountAddressMenu'
 import AddressMenu from './components/Header/AddressMenu'
-import TBADescription from './components/TokenBound/text/TBADescription'
+import BunyDescription from './components/TokenBound/text/BunyDescription'
 import AccountDashboard from './components/TokenBound/AccountDashboard'
 import { HeaderConnect } from './components/MetaMask/HeaderConnect'
 import { formatChainAsNum } from './utils/formatMetamask'
@@ -259,11 +259,11 @@ function App() {
               <TabPanel>
                 <Center w={'100%'}>
                   <Box w="100%" maxWidth={550} mt={14} style={{ overflowX: 'hidden' }}>
-                    {account && (
+                    
                       <>
                         <AccountLogin onAccountAddressChange={updateAccountAddress} onNftDetails={handleNftDetails} />
                       </>
-                    )}
+                    
 
                     {!account && (
                       <>
@@ -281,8 +281,9 @@ function App() {
                   </Box>
                 </Center>
                 <Box m={8}>
-                  <TBADescription />
+                  <BunyDescription />
                 </Box>
+                
               </TabPanel>
               <TabPanel>
                 <Box mt={8}>
@@ -295,13 +296,13 @@ function App() {
                 <Center mt={2} mb={2}>
                  
                   <Box w="100%" maxWidth={500} px={['1rem', '0']} p={2} mt={8} >
-                    <Box border="0.5px solid silver" bg="white">
+                    <Box border="0.5px solid silver" bg="ghostwhite">
                     <Text borderBottom="0.5px solid silver"   p={2}>Contract</Text>
                       <UserStorage publicKey={publicKey} account={account} contractAddress={UserKeyStorage.address} abi={UserKeyStorage.abi} />
                     </Box>
 
                     <Box mt={2}  border="0.5px solid silver">
-                      <Grid templateColumns="repeat(5, 1fr)" gap={4} bg="white">
+                      <Grid templateColumns="repeat(5, 1fr)" gap={4} bg="ghostwhite">
                         <GridItem colSpan={2} >
                           <Text p={2}>Public Key</Text>
                         </GridItem>
@@ -329,7 +330,7 @@ function App() {
                     </Box>
 
                     <Box mt={2}  border="0.5px solid silver">
-                      <Grid templateColumns="repeat(5, 1fr)" gap={4} bg="white">
+                      <Grid templateColumns="repeat(5, 1fr)" gap={4} bg="ghostwhite">
                         <GridItem colSpan={2} >
                           <Text p={2}>User Directory</Text>
                         </GridItem>
@@ -356,7 +357,7 @@ function App() {
                     </Box>
 
                     <Box mt={2}  border="0.5px solid silver">
-                      <Grid templateColumns="repeat(5, 1fr)" gap={4} bg="white">
+                      <Grid templateColumns="repeat(5, 1fr)" gap={4} bg="ghostwhite">
                         <GridItem colSpan={2} >
                           <Text p={2}>View Messages</Text>
                         </GridItem>

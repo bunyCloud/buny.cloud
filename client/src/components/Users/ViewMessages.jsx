@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { ethers } from 'ethers'
 import { Box, Text, Center, List, ListItem, useToast, FormControl, HStack, Tag, Button } from '@chakra-ui/react'
 import UserKeyStorage from '../../contracts/UserKeyStorage.json'
 import Decryptor from './Decryptor'
 import { formatAddress } from '../../utils/formatMetamask'
+import { AppContext } from '../../AppContext'
 
 
-function ViewMessages({ account }) {
+function ViewMessages() {
+  const {account, chainId} = useContext(AppContext)
   const [decryptedText, setDecryptedText] = useState([])
   const [msgIds, setMsgIds] = useState([])
   const [messageContents, setMessageContents] = useState([])
@@ -21,7 +23,8 @@ function ViewMessages({ account }) {
       const contract = new ethers.Contract(contractAddress, contractABI, signer)
       try {
         const [fetchedMessageIDs, fetchedMessages] = await contract.getMessages(account)
-        setMsgIds(fetchedMessageIDs)
+        setMsgIds(fetchedMessageIDs.toString())
+        console.log(`fetched message ids ${fetchedMessageIDs}....`)
         setMessageContents(fetchedMessages)
       } catch (error) {
         console.log('errors not tears')
@@ -72,7 +75,7 @@ function ViewMessages({ account }) {
   }
 
   return (
-    <Box overflowX="auto" w="auto" bg="ghostwhite" p={4} fontSize={'small'} border="0.5px solid silver">
+    <Box overflowX="auto" w="auto" bg="InfoBackground" p={4} fontSize={'small'} border="0.5px solid silver">
       <FormControl>
         <HStack>
           <Text as="b">Viewing Message for Account:</Text>
@@ -82,24 +85,24 @@ function ViewMessages({ account }) {
         </HStack>
       </FormControl>
 
-      {messageContents.length > 0 && (
-        <Box mt={4} mb={2}>
+      {account && messageContents.length > 0 && (
+        <Box bg="ThreeDFace" color='white'>
           <List spacing={3} w="100%">
             {messageContents.map((message, index) => (
               <ListItem key={index} border="0.5px solid silver">
                 <Center>
                   <Text noOfLines={1}>
-                    {message && (
+                    {msgIds && (
                       <>
-                        <HStack gap="6px" p={1} mb={2} border="1px solid silver" bg="white" w="100%">
+                        <HStack gap="6px" p={1} mt={2} mb={2} border="1px solid silver" bg="white" w="100%">
                           <Tag variant={'outline'} colorScheme="blackAlpha" size={'sm'}>
-                            <Text># {msgIds.toString()}</Text>
+                            <Text># {msgIds[index]}</Text>
                           </Tag>
                           <Button size={'xs'} onClick={() => delMessage(msgIds[index], index)}>
                             Delete
                           </Button>
 
-                          <Center>
+                          <Center color='purple'>
                             {!decryptedText[index] ? (
                               <>
                                 <Text w={'auto'} p={2}>

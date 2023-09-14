@@ -58,7 +58,7 @@ function UserStorage({ publicKey, account, contractAddress, abi }) {
 
   return (
     <VStack spacing={4}>
-      <Box bg="ghostwhite" w="100%" mt={0} p={4} >
+      <Box bg="InfoBackground" w="100%" mt={0} p={4} >
         <Box p={4} border="0.5px solid silver" bg="white">
           <Text fontSize={'small'}>Network: Telos Testnet</Text>
           <HStack>
