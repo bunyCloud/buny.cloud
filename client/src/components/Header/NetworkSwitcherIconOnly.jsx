@@ -71,7 +71,7 @@ const NetworkSwitcherIconOnly = () => {
     switch (selectedNetwork) {
       case 'Telos Testnet':
       case 'Telos Mainnet':
-        return '/avax.glb';
+        return '/telos.glb';
       default:
         return '/telos.glb';
     }

@@ -33,7 +33,7 @@ const {chainId} = useContext(AppContext)
             <FormControl w="100%" p={6}>
               <FormLabel fontSize="small" mt={2} mb={1}>
                 <HStack gap="4px" m={1}>
-                  <Text>NFT Source Blockchain:</Text>
+                  <Text>Source Blockchain:</Text>
                   <WhatNetworkName chainId={formatChainAsNum(selectedChainId)} />
                   <ArrowRightIcon /> <WhatNetworkName chainId={formatChainAsNum(chainId)} />
                 </HStack>

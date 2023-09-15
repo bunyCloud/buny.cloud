@@ -5,28 +5,34 @@ import { Layout } from 'antd'
 import { HStack, IconButton, Box, Image, Grid, GridItem, Center, Button, Text } from '@chakra-ui/react'
 import { Avatar, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure } from '@chakra-ui/react'
 import { AppContext } from './AppContext'
-import NetworkSwitcherIconOnly from './components/Header/NetworkSwitcherIconOnly'
-import AccountAddressMenu from './components/Header/AccountAddressMenu'
-import AddressMenu from './components/Header/AddressMenu'
-import BunyDescription from './components/TokenBound/text/BunyDescription'
-import AccountDashboard from './components/TokenBound/AccountDashboard'
 import { HeaderConnect } from './components/MetaMask/HeaderConnect'
+import AddressMenu from './components/Header/AddressMenu'
+import NetworkSwitcherIconOnly from './components/Header/NetworkSwitcherIconOnly'
 import { formatChainAsNum } from './utils/formatMetamask'
 import useSessionStorageState from 'use-session-storage-state'
 import { useMetaMask } from './hooks/useMetamask'
+
+
+import AccountAddressMenu from './components/Header/AccountAddressMenu'
+
+import BunyDescription from './components/TokenBound/text/BunyDescription'
+import AccountDashboard from './components/TokenBound/AccountDashboard'
+
+
 import AccountLogin from './components/TokenBound/AccountLogin'
 import MultiSigWithdrawal from './components/MultiSigWithdrawal'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import { QuestionOutlineIcon } from '@chakra-ui/icons'
 import UserStorage from './components/Users/UserStorage'
 import UserKeyStorage from './contracts/UserKeyStorage.json'
 import UserKeyTable from './components/Users/UserKeyTable'
 import { Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton } from '@chakra-ui/react'
-import { QuestionOutlineIcon } from '@chakra-ui/icons'
+
 import FetchPublicEncryptionKey from './components/Users/FetchPublicEncryptionKey'
 import ViewMessages from './components/Users/ViewMessages'
 
 function App() {
-  const [chainId, setChainId] = useState(null)
+  const [chainId, setChainId] = useState(41)
   const [account, setAccount] = useState('')
   const [balance, setBalance] = useState('')
   const [tokenContract, setTokenContract] = useState(null)
@@ -208,13 +214,9 @@ function App() {
                   <div>
                     {account ? (
                       <>
-                        {!signature && (
-                          <>
                             <AddressMenu handleDisconnect={handleDisconnect} balance={balance} />
                           </>
-                        )}
-                      </>
-                    ) : (
+                        ) : (
                       <>
                         <HeaderConnect />
                       </>
