@@ -2,11 +2,16 @@
 
 pragma solidity ^0.8.18;
 
+interface Factory {
+    function newOwnerAdded(address walletAddress, address newOwner, address deployer) external;
+}
+
 contract MultiSigWallet {
     string public contractName;
+    address public factoryAddress;
     uint constant DURATION_24_HOURS = 86400; // 24 hours in seconds
     uint public minSignatures;
-    address private _owner;
+    address public _owner;
     mapping(address => uint8) private _owners;
     uint private _transactionIdx;
     address[] private _allOwners;
@@ -42,11 +47,12 @@ contract MultiSigWallet {
     event TransactionSigned(address by, uint transactionId);
 
    
-    function initialize(uint _minSignatures, string memory _contractName, address _ownerAddress) public {
+    function initialize(uint _minSignatures, string memory _contractName, address _ownerAddress, address _factoryAddress) public {
     require(minSignatures == 0 && bytes(contractName).length == 0, "Contract already initialized");
     require(_minSignatures > 0, "Minimum signatures should be greater than 0");
     minSignatures = _minSignatures; 
     contractName = _contractName;
+    factoryAddress = _factoryAddress;
     _owner = _ownerAddress;
     _owners[_owner] = 1; 
     _allOwners.push(_owner);
@@ -57,6 +63,8 @@ contract MultiSigWallet {
         require(_owners[owner] == 0, "Address is already an owner");
         _owners[owner] = 1;
         _allOwners.push(owner);
+        Factory(factoryAddress).newOwnerAdded(address(this), owner, msg.sender); // Notify the factory
+
     }
 
     function removeOwner(address owner) public isOwner {
