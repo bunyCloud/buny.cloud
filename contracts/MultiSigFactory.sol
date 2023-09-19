@@ -18,6 +18,12 @@ contract BunyMultiFactory {
         string contractName; 
     }
 
+      // New UserWallets struct
+    struct UserWallets {
+        address[] wallets;
+    }
+
+    mapping(address => address[]) public userWallets; // Mapping from owner's address to their associated wallets
     mapping(address => address[]) public ownersOfWallet;
     mapping(address => Deployment[]) public deploymentsByDeployer;
     event ContractCloned(address indexed target);
@@ -41,6 +47,7 @@ contract BunyMultiFactory {
 
     deploymentsByDeployer[msg.sender].push(newDeployment);
     emit ContractCloned(clone);
+    userWallets[msg.sender].push(clone);
     return clone;
 }
 
@@ -57,6 +64,11 @@ contract BunyMultiFactory {
         // Only a MultiSigWallet contract created from this factory should be able to call this function
         require(deploymentsByDeployer[deployer].length > 0, "Unauthorized");
         ownersOfWallet[walletAddress].push(newOwner);
+        userWallets[newOwner].push(walletAddress);
+    }
+
+    function getWalletsOfUser(address user) public view returns (address[] memory) {
+        return userWallets[user];
     }
 
     function getOwnersOf(address walletAddress) public view returns (address[] memory) {
