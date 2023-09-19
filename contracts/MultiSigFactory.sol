@@ -18,6 +18,7 @@ contract BunyMultiFactory {
         string contractName; 
     }
 
+    mapping(address => address[]) public ownersOfWallet;
     mapping(address => Deployment[]) public deploymentsByDeployer;
     event ContractCloned(address indexed target);
 
@@ -28,7 +29,7 @@ contract BunyMultiFactory {
 
     function createMultiSigWallet(uint _minSignatures, string memory _contractName) public returns (address) {
     address clone = _template.clone();
-    MultiSigWallet(payable(clone)).initialize(_minSignatures, _contractName, msg.sender);
+    MultiSigWallet(payable(clone)).initialize(_minSignatures, _contractName, msg.sender, address(this));
     uint deploymentNumber = deploymentsByDeployer[msg.sender].length + 1; // Next deployment number for this deployer
 
     Deployment memory newDeployment = Deployment({
@@ -51,5 +52,14 @@ contract BunyMultiFactory {
 
     function getDeploymentsOf(address deployer) public view returns (Deployment[] memory) {
         return deploymentsByDeployer[deployer];
+    }
+     function newOwnerAdded(address walletAddress, address newOwner, address deployer) external {
+        // Only a MultiSigWallet contract created from this factory should be able to call this function
+        require(deploymentsByDeployer[deployer].length > 0, "Unauthorized");
+        ownersOfWallet[walletAddress].push(newOwner);
+    }
+
+    function getOwnersOf(address walletAddress) public view returns (address[] memory) {
+        return ownersOfWallet[walletAddress];
     }
 }
