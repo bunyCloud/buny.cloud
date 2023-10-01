@@ -7,24 +7,25 @@ import { AppContext } from '../AppContext'
 
 
 const WhatNFTName = ({ inputAddress, inputTokenId, inputChainId }) => {
-  const { account } = useContext(AppContext)
+  const { account, rpcUrl } = useContext(AppContext)
   const [nftName, setNFTName] = useState(null)
 
-  let provider
-  if (inputChainId === '1') {
-    provider = new ethers.providers.JsonRpcProvider('https://mainnet.infura.io/v3/7b0c9a81ffce485b81a8ae728b43e948')
-  } else if (inputChainId === '43113') {
-    provider = new ethers.providers.JsonRpcProvider('https://api.avax-test.network/ext/bc/C/rpc')
-  } else if (inputChainId === '41') {
-    provider = new ethers.providers.JsonRpcProvider('https://testnet.telos.net/evm')
-  } else if (inputChainId === '40') {
-    provider = new ethers.providers.JsonRpcProvider('https://mainnet.telos.net/evm')
-  }
 
   useEffect(() => {
     const fetchNFTData = async () => {
       let metadata = {}
       try {
+        let provider
+        if (inputChainId === '1') {
+          provider = new ethers.providers.JsonRpcProvider('https://mainnet.infura.io/v3/7b0c9a81ffce485b81a8ae728b43e948')
+        } else if (inputChainId === '43113') {
+          provider = new ethers.providers.JsonRpcProvider('https://api.avax-test.network/ext/bc/C/rpc')
+        } else if (inputChainId === '41') {
+          provider = new ethers.providers.JsonRpcProvider(rpcUrl)
+        } else if (inputChainId === '40') {
+          provider = new ethers.providers.JsonRpcProvider('https://mainnet.telos.net/evm')
+        }
+      
         const contract = new ethers.Contract(inputAddress, TheBUNY.abi, provider)
         let tokenURI = await contract.tokenURI(inputTokenId)
         if (tokenURI.startsWith('ipfs://')) {
@@ -47,7 +48,7 @@ const WhatNFTName = ({ inputAddress, inputTokenId, inputChainId }) => {
     }
 
     fetchNFTData()
-  }, [inputAddress, inputTokenId, inputChainId, account, provider])
+  }, [inputAddress, inputTokenId, inputChainId, account])
 
   
 

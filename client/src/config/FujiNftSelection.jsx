@@ -1,9 +1,10 @@
 import React from 'react';
 import { Select } from '@chakra-ui/react';
+import FujiTheBUNY from '../contracts/fuji/FujiTheBUNY.json'
 
 function FujiNftSelection({onCollectionChange}) {
     const collections = [
-        { name: 'IBUNY', address: '0x39c47F7469b155eBCc9D7319d091b21d203bf836' },
+        { name: 'IBUNY', address: FujiTheBUNY.address },
        
         // Add the rest of the collections here...
     ];

@@ -17,6 +17,7 @@ function EthNftSelect({onCollectionChange}) {
         { name: 'MysterBean', address: '0x3af2a97414d1101e2107a70e7f33955da1346305' },
         { name: 'MutantApeYachtClub', address: '0x60e4d786628fea6478f785a6d7e704777c86a7c6' },
         { name: 'Pixelmon', address: '0x32973908faee0bf825a343000fe412ebe56f802a' },
+        {name: 'parallel', address: '0x76BE3b62873462d2142405439777e971754E8E77'},
         { name: 'Potatoz', address: '0x39ee2c7b3cb80254225884ca001f57118c8f21b6' },
         { name: 'PudgyPenguins', address: '0xbd3531da5cf5857e7cfaa92426877b022e612cf8' },
         { name: 'Wrapped Cryptopunks', address: '0xb7f7f6c52f2e2fdb1963eab30438024864c313f6' }

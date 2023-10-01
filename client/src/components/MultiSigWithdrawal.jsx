@@ -13,7 +13,7 @@ import AddOwnerDrawer from './Drawers/AddOwnerDrawer'
 import AddProposalDrawer from './Drawers/AddProposalDrawer'
 
 const MultiSigWithdrawal = () => {
-  const { chainId, account } = useContext(AppContext)
+  const { chainId, rpcUrl, account } = useContext(AppContext)
   const [newOwner, setNewOwner] = useState('')
   const [recipient, setRecipient] = useState('')
   const [amount, setAmount] = useState('')
@@ -35,14 +35,31 @@ const MultiSigWithdrawal = () => {
     setContractAddress(contractAddress)
   }
 
+  const handleOnCopy = () => {
+    onCopy();
+  
+    // Toast notification after copying
+    toast({
+      title: "Copied",
+      description: "Address has been copied to clipboard.",
+      status: "info",
+      duration: 3000,
+      isClosable: true,
+    });
+  };
+  
 
   //const message = `${contractName} is requesting a signature for authorization`
   const message = `Contract: ${contractName}\nTransaction Id: ${transactionId}\nAmount: ${amount.toString()}\nReceiver: ${recipient}`
 
   const reloadBalance = async () => {
-    const provider = new ethers.providers.JsonRpcProvider('https://testnet.telos.net/evm')
+    let provider
+     if (chainId === '41') {
+      provider = new ethers.providers.JsonRpcProvider(rpcUrl)
+    } else if (chainId === '43113') {
+      provider = new ethers.providers.JsonRpcProvider('https://api.avax-test.network/ext/bc/C/rpc')
+    } 
     const contract = new ethers.Contract(contractAddress, contractABI, provider)
-
     try {
       const contractBalance = await contract.walletBalance()
       setBalance(ethers.utils.formatEther(contractBalance))
@@ -187,29 +204,30 @@ const MultiSigWithdrawal = () => {
 
   return (
     <Center>
-      <Box mt={4} maxWidth={500} p={4} bg="ghostwhite" border="0.5px solid silver">
+      <Box mt={4} maxWidth={500} p={4} bg="ghostwhite" border="0.5px solid silver" w="100%">
         <Heading size="lg">Buny Vault</Heading>
         <Text>Multi-signature on-chain wallet.</Text>
         <WalletFactory onDeployments={handleDeployments} />
         {contractAddress && (
           <>
-            <Heading size="md" mt={3}>
+            <Heading size="md" mt={3} w="100%" p={2} bg="InfoBackground" border="1px solid silver">
+          
               <Grid templateColumns="repeat(5, 1fr)" gap={4}>
-                <GridItem colSpan={2} h="10">
+                <GridItem colSpan={2} h="10" p={1}>
                   <Text noOfLines={1} overflow={'hidden'}>
-                    <Text>{contractName}</Text>
+                    <Text color="purple" fontSize={'md'}>{contractName}</Text>
                   </Text>
                 </GridItem>
-                <GridItem colStart={4} colEnd={6} h="10">
-                  <HStack w="100%" gap="auto">
-                    <Text fontSize="md">Balance: {balance} TLOS</Text>
-                    <IconButton icon={<RepeatIcon />} onClick={reloadBalance} aria-label="Copy Address" size="sm" variant="unstyled" />
+                <GridItem colStart={4} colEnd={6} h="10" p={1}>
+                  <HStack h={8} w="100%" gap="2px">
+                    <Text fontSize="sm">{balance}   / </Text> <WhatNetworkSymbol chainId={chainId} />
+                    <IconButton mb={1}  icon={<RepeatIcon fontSize={'md'} />} onClick={reloadBalance} aria-label="Copy Address" size="sm" variant="unstyled" />
                   </HStack>
                 </GridItem>
               </Grid>
-              <HStack gap="auto">
-                <Text fontSize={'sm'}>{contractAddress}</Text>
-                <IconButton icon={<CopyIcon />} onClick={onCopy} aria-label="Copy Address" size="xs" variant="unstyled" />
+              <HStack gap="auto" p={1}>
+                <Text noOfLines={1} w='100%' fontSize={'xs'}  overflow={'auto'} >{contractAddress}</Text>
+                <IconButton icon={<CopyIcon />} onClick={handleOnCopy} aria-label="Copy Address" size="sm" mb={1} variant="unstyled" />
               </HStack>
             </Heading>
 
@@ -224,7 +242,7 @@ const MultiSigWithdrawal = () => {
               <Center>
                 <List spacing={3}>
                   {owners.map((owner) => (
-                    <ListItem border="1px" borderColor="gray" borderRadius="md" p="2px" bg="ThreeDFace" w={350} key={owner}>
+                    <ListItem border="1px" borderColor="gray" borderRadius="md" p="2px" bg="ThreeDFace" w={300} key={owner}>
                       <HStack>
                         <KeyOutlined />
                         <Text> {owner}</Text>

@@ -15,7 +15,7 @@ import WhatNetworkSymbol from '../../utils/WhatNetworkSymbol'
 import BalanceDashboard from './BalanceDashboard'
 
 const AccountDashboard = () => {
-  const { accountAddress, account, avatarImage, avatarName, tokenContract, tokenId, accountName, chainId } = useContext(AppContext)
+  const { accountAddress, rpcUrl, account, avatarImage, avatarName, tokenContract, tokenId, accountName, chainId } = useContext(AppContext)
   const [accountBalance, setAccountBalance] = useState(null)
   const [nftSymbol, setNftSymbol] = useState()
   const [implementation, setImplementation] = useState('')
@@ -33,7 +33,7 @@ const AccountDashboard = () => {
 
   const loadAccount = async (accountAddress) => {
     try {
-      const provider = new ethers.providers.JsonRpcProvider('https://testnet.telos.net/evm')
+      const provider = new ethers.providers.JsonRpcProvider(rpcUrl)
       const registryContract = new ethers.Contract(BunyERC6551Registry.address, BunyERC6551Registry.abi, provider)
       const info = await registryContract.getAccountDetails(accountAddress)
       console.log(`Attempting to load account address: ${accountAddress}`)

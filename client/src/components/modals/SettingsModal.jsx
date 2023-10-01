@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { ethers } from 'ethers'
 import {
   Button,
@@ -29,10 +29,12 @@ import CalendarDailyTelos from '../../contracts/CalendarDailyTelos.json'
 import { formatAddress } from '../../utils/formatMetamask'
 import FetchCalendarInfo from '../Calendar/FetchCalendarInfo'
 import FetchUserRole from '../Calendar/FetchUserRole'
+import { AppContext } from '../../AppContext'
 
 const SettingsModal = ({ accountAddress, account, accountName }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const toast = useToast()
+  const {rpcUrl} = useContext(AppContext)
   const { hasCopied, onCopy } = useClipboard('')
 
   const handleCopy = (value) => {
@@ -76,7 +78,7 @@ const SettingsModal = ({ accountAddress, account, accountName }) => {
 
   useEffect(() => {
     const fetchAccountName = async () => {
-      const provider = new ethers.providers.JsonRpcProvider('https://testnet.telos.net/evm')
+      const provider = new ethers.providers.JsonRpcProvider(rpcUrl)
       const contract = new ethers.Contract(accountAddress, BunyERC6551Account.abi, provider)
       const acctName = await contract.accountName()
       setContractAccountName(acctName)

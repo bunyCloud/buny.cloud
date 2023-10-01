@@ -6,7 +6,7 @@ import { AppContext } from '../AppContext'
 
 
 const WhatCollectionName = ({ inputAddress, inputChainId }) => {
-  const { account } = useContext(AppContext)
+  const { account, rpcUrl } = useContext(AppContext)
   const [collectionName, setCollectionName] = useState(null)
 
   let provider
@@ -15,7 +15,7 @@ const WhatCollectionName = ({ inputAddress, inputChainId }) => {
   } else if (inputChainId === '43113') {
     provider = new ethers.providers.JsonRpcProvider('https://api.avax-test.network/ext/bc/C/rpc')
   } else if (inputChainId === '41') {
-    provider = new ethers.providers.JsonRpcProvider('https://testnet.telos.net/evm')
+    provider = new ethers.providers.JsonRpcProvider(rpcUrl)
   } else if (inputChainId === '40') {
     provider = new ethers.providers.JsonRpcProvider('https://mainnet.telos.net/evm')
   }

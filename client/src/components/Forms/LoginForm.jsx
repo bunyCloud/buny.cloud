@@ -32,8 +32,8 @@ const {chainId} = useContext(AppContext)
           <>
             <FormControl w="100%" p={6}>
               <FormLabel fontSize="small" mt={2} mb={1}>
-                <HStack gap="4px" m={1}>
-                  <Text>Source Blockchain:</Text>
+                <HStack gap="2px">
+                  <Text mr={1}>Route:</Text>
                   <WhatNetworkName chainId={formatChainAsNum(selectedChainId)} />
                   <ArrowRightIcon /> <WhatNetworkName chainId={formatChainAsNum(chainId)} />
                 </HStack>
@@ -44,7 +44,7 @@ const {chainId} = useContext(AppContext)
                 value={selectedChainId}
                 onChange={handleChange}
                 w="100%"
-                maxWidth={365}
+                maxWidth={350}
                 placeholder="Select Network"
                 color="black"
                 bg="white">
@@ -66,7 +66,7 @@ const {chainId} = useContext(AppContext)
                   </>
                 )}
               </FormLabel>
-              <Box backgroundColor="white" color="black" maxWidth={365}>
+              <Box backgroundColor="white" color="black" maxWidth={350}>
                 <>{selectedChainId === '40' ? <TelosNftSelect onCollectionChange={handleCollectionChange} w="100%" /> : null}</>
                 <>{selectedChainId === '1' ? <EthNftSelect onCollectionChange={handleCollectionChange} w="100%" /> : null}</>
                 <>{selectedChainId === '41' ? <TelosTestnetNftSelect onCollectionChange={handleCollectionChange} w="100%" /> : null}</>
@@ -92,7 +92,7 @@ const {chainId} = useContext(AppContext)
                         onChange={onInputAddressChange}
                         placeholder="Input or Select NFT collection address"
                         //minWidth={'300px'}
-                        w="300px"
+                        w="220px"
                       />{' '}
                     </VStack>
                   </WrapItem>
@@ -108,7 +108,7 @@ const {chainId} = useContext(AppContext)
                         backgroundColor={'white'}
                         color="black"
                         type="number"
-                        w="60px"
+                        w="50px"
                         value={inputTokenId}
                         onChange={onInputTokenIdChange}
                       />

@@ -86,19 +86,6 @@ const MetamaskSignature = ({ isActive, inputName, accountAddress, inputAddress, 
 
  
 
-  // Select NFT and create ERC6551 token bound account
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const createAccount = async (tokenId) => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
-    const signer = provider.getSigner()
-    const implementation = BunyERC6551Account.address // Contract address of account contract
-    const salt = '1' // can be any random number
-    const initData = '0x' // not being used
-    const registryContract = new ethers.Contract(BunyERC6551Registry.address, BunyERC6551Registry.abi, signer)
-    await registryContract.createAccount(implementation, chainId, inputAddress, tokenId, salt, initData)
-    const accountAddress = await registryContract.account(implementation, chainId, inputAddress, tokenId, salt)
-    setAccountAddress(accountAddress)
-  }
 
 
   const handleSign = async () => {
@@ -156,7 +143,7 @@ const MetamaskSignature = ({ isActive, inputName, accountAddress, inputAddress, 
                   Signature
                 </Text>
                 <Box bg='white' w='auto'  color='black' >
-                <Text noOfLines={6}  p={3} fontSize="14px" color="black"   w={'100%'} maxWidth={365}>
+                <Text noOfLines={6}  p={3} fontSize="14px" color="black"   w={'100%'} maxWidth={300}>
                   {signature && <>{signature}</>}
                 </Text>
                 </Box>
@@ -208,15 +195,7 @@ const MetamaskSignature = ({ isActive, inputName, accountAddress, inputAddress, 
                 </Center>
 
                 <Center>
-                  <Text>
-                    {!isActive && (
-                      <>
-                        <Button variant={'solid'} colorScheme="twitter" w="100%" maxWidth={300} onClick={createAccount}>
-                          Create Account
-                        </Button>
-                      </>
-                    )}
-                  </Text>
+                
                 </Center>
               </Box>
             </>

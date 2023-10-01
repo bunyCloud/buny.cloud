@@ -68,6 +68,7 @@ const AddProposalDrawer = ({contractAddress, contractABI}) => {
             <div>
               Submit transfer proposal for owner approval.
             </div>
+{/*
             <Button
               size="small"
               p={2}
@@ -78,7 +79,7 @@ const AddProposalDrawer = ({contractAddress, contractABI}) => {
               }}>
               Settings
             </Button>
-            
+   */}         
             <Box mt={2} p={2} bg="InfoBackground" border="1px solid silver">
           <Heading size="md">Propose Transaction</Heading>
           

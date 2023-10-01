@@ -1,8 +1,9 @@
 import { Button, Center, HStack, Text } from '@chakra-ui/react'
-import { useMetaMask } from '../../hooks/useMetamask'
+
+import { useSDK } from '@metamask/sdk-react'
 
 export const HeaderConnect = () => {
-  const { wallet, hasProvider, isConnecting, connectMetaMask } = useMetaMask()
+  const { wallet, hasProvider, isConnecting, connectMetaMask } = useSDK()
 
   return (
     <div>

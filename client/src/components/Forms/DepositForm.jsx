@@ -67,7 +67,7 @@ const DepositForm = ({accountAddress, accountBalance, accountName, account}) => 
         contract.removeAllListeners("NewDeposit");
       }
     };
-  }, [contract]);
+  }, [contract, toast]);
 
   return (
     <div>

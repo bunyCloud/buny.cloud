@@ -5,12 +5,14 @@
   "homepage": "http://localhost/",
   "dependencies": {
     "@ant-design/icons": "^5.2.5",
+    "@carbon/react": "^1.39.0",
     "@chakra-ui/icons": "^2.0.19",
     "@chakra-ui/react": "^2.6.1",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@metamask/detect-provider": "^2.0.0",
     "@metamask/onboarding": "^1.0.1",
+    "@metamask/sdk-react": "^0.7.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "antd": "^5.8.5",
@@ -23,7 +25,6 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^5.3.0",
     "react-scripts": "5.0.1",
-    "styled-components": "^6.0.7",
     "use-session-storage-state": "^18.2.0",
     "web-vitals": "^2.1.4"
   },

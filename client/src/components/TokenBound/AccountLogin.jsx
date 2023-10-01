@@ -3,6 +3,8 @@ import { Button, Box, Alert, AlertIcon, AlertDescription, Text, AlertTitle, HSta
 import React, { useState, useEffect, useContext } from 'react'
 import BunyERC6551Registry from '../../contracts/BunyERC6551Registry.json'
 import BunyERC6551Account from '../../contracts/BunyERC6551Account.json'
+import FujiERC6551Registry from '../../contracts/fuji/FujiERC6551Registry.json'
+import FujiERC6551Account from '../../contracts/fuji/FujiERC6551Account.json'
 import TheBUNY from '../../contracts/TheBUNY.json'
 import axios from 'axios'
 import { ethers } from 'ethers'
@@ -15,9 +17,10 @@ import WhatNFTImage from '../../utils/WhatNFTImage'
 import WhatNFTName from '../../utils/WhatNFTName'
 import { RepeatIcon } from '@chakra-ui/icons'
 import { IconButton } from '@chakra-ui/react'
-import WhatIsBound from '../../utils/WhatIsBound'
 import WhatCollectionName from '../../utils/WhatCollectionName'
 import WhatNFTOwner from '../../utils/WhatNFTOwner'
+import FetchAccountAddressTelos from './FetchAccountAddressTelos'
+import WhatNetworkName from '../../utils/WhatNetworkName'
 
 const options = [
   {
@@ -57,14 +60,17 @@ const AccountLogin = ({ onAccountAddressChange, onNftDetails }) => {
     setTokenId,
     setTokenContract,
     signature,
+    chainId,
+    rpcUrl,
     setSignature,
     setAccountAddress,
     accountAddress,
   } = useContext(AppContext)
   const [loading, setLoading] = React.useState(true)
-  const [chainId, setChainId] = useState('') //
   const [inputAddress, setInputAddress] = useState('')
   const [isActive, setIsActive] = useState(false)
+  const [isFujiActive, setIsFujiActive] = useState(false)
+  const [isTelosActive, setIsTelosActive] = useState(false)
   const [inputTokenId, setInputTokenId] = useState(null) // State variable for the inputTokenId input field
   const [inputAccount, setInputAccount] = useState('') // State variable for the account input field
   const [inputImage, setInputImage] = useState(null)
@@ -87,6 +93,10 @@ const AccountLogin = ({ onAccountAddressChange, onNftDetails }) => {
 
   const prev = () => {
     setCurrent(current - 1)
+  }
+
+  const reset = () => {
+    setCurrent(current - 2)
   }
 
   const handleChange = (event) => {
@@ -118,7 +128,13 @@ const AccountLogin = ({ onAccountAddressChange, onNftDetails }) => {
   const handleIsActive = (value) => {
     setIsActive(value)
   }
+  const handleIsTelosActive = (value) => {
+    setIsTelosActive(value)
+  }
 
+  const handleIsFujiActive = (value) => {
+    setIsFujiActive(value)
+  }
   const handleCollectionChange = (value) => {
     setInputAddress(value)
   }
@@ -134,26 +150,30 @@ const AccountLogin = ({ onAccountAddressChange, onNftDetails }) => {
   const createAccount = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     const signer = provider.getSigner()
-    const implementation = BunyERC6551Account.address
+    const implementation = FujiERC6551Account.address
     const salt = '1' // or some other unique number
     const initData = '0x' // no init data
-    const registryContract = new ethers.Contract(BunyERC6551Registry.address, BunyERC6551Registry.abi, signer)
-    const create = await registryContract.createAccount(implementation, selectedChainId, inputAddress, inputTokenId, salt, initData)
+    const contract = new ethers.Contract(BunyERC6551Registry.address, BunyERC6551Registry.abi, signer)
+    const create = await contract.createAccount(implementation, selectedChainId, inputAddress, inputTokenId, salt, initData)
     console.log(create.hash)
     console.log(create.confirmations)
   }
 
   useEffect(() => {
-    // Call the checkOwner function whenever nftOwner changes
+    if (!window.ethereum) {
+      console.log('Provider not found.')
+      return
+    }
     if (nftOwner) {
       const checkOwner = async (nftOwner) => {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
         const address = await signer.getAddress()
-        console.log(address)
+        console.log(`user address ${address}`)
         if (nftOwner === address) {
           setIsOwner(true)
-          setTokenContract(inputAddress)
+          console.log('connected user is owner')
+          //          setTokenContract(inputAddress)
           setAvatarImage(inputImage)
           setTokenId(inputTokenId)
         }
@@ -163,17 +183,31 @@ const AccountLogin = ({ onAccountAddressChange, onNftDetails }) => {
     if (isOwner) {
       const checkAccount = async () => {
         try {
-          const provider = new ethers.providers.JsonRpcProvider('https://testnet.telos.net/evm')
-          const implementation = BunyERC6551Account.address
-          const salt = '1' // or some other unique number
-          const registryContract = new ethers.Contract(BunyERC6551Registry.address, BunyERC6551Registry.abi, provider)
-          const accountAddress = await registryContract.account(implementation, selectedChainId, inputAddress, inputTokenId, salt)
-          const isAccountFound = !!accountAddress
-          if (!isAccountFound) {
-            console.log('No account found')
-            return
+          let provider
+          if (chainId === 41) {
+            provider = new ethers.providers.JsonRpcProvider(rpcUrl)
+          } else if (chainId === 43113) {
+            provider = new ethers.providers.JsonRpcProvider('https://api.avax-test.network/ext/bc/C/rpc')
           }
-          const accountDetails = await registryContract.getAccountDetails(accountAddress)
+          let contract
+          const signer = provider.getSigner()
+          if (chainId === 41) {
+            contract = new ethers.Contract(BunyERC6551Registry.address, BunyERC6551Registry.abi, signer)
+            console.log('telos testnet registry')
+          } else if (chainId === 43113) {
+            contract = new ethers.Contract(FujiERC6551Registry.address, FujiERC6551Registry.abi, signer)
+            console.log('checking fuji registry')
+          }
+          let implementation
+          if (chainId === 41) {
+            implementation = BunyERC6551Account.address
+          } else if (chainId === 43113) {
+            implementation = FujiERC6551Account.address
+          }
+          const salt = '1'
+          const accountAddress = await contract.account(implementation, selectedChainId, inputAddress, inputTokenId, salt)
+          console.log('preset account address received')
+          const accountDetails = await contract.getAccountDetails(accountAddress)
           if (accountDetails[0] !== ethers.constants.AddressZero) {
             setAccountAddress(accountAddress)
             onAccountAddressChange(accountAddress)
@@ -189,6 +223,7 @@ const AccountLogin = ({ onAccountAddressChange, onNftDetails }) => {
       checkAccount()
     }
   }, [
+    chainId,
     inputAddress,
     inputImage,
     inputTokenId,
@@ -202,39 +237,13 @@ const AccountLogin = ({ onAccountAddressChange, onNftDetails }) => {
     setTokenId,
   ])
 
-  // Function to reset all state variables
-  const handleReset = () => {
-    setAccountAddress('')
-    setInputAddress('')
-    setInputTokenId(null)
-    setInputAccount('')
-    setInputImage(null)
-    setInputName(null)
-    setNftSymbol(null)
-    setSelectedChainId(options[0].value)
-    setInputDescription(null)
-    setNftOwner(null)
-    setIsOwner(null)
-    prev()
-  }
-
   const fetchNFTData = async () => {
     setLoading(true)
     try {
       let metadata = {}
-      let provider
-      if (selectedChainId === '137') {
-        provider = new ethers.providers.JsonRpcProvider('https://polygon-rpc.com')
-      } else if (selectedChainId === '1') {
-        provider = new ethers.providers.JsonRpcProvider('https://mainnet.infura.io/v3/7b0c9a81ffce485b81a8ae728b43e948')
-      } else if (selectedChainId === '41') {
-        provider = new ethers.providers.JsonRpcProvider('https://testnet.telos.net/evm')
-      } else if (selectedChainId === '43113') {
-        provider = new ethers.providers.JsonRpcProvider('https://api.avax-test.network/ext/bc/C/rpc')
-      } else if (selectedChainId === '40') {
-        provider = new ethers.providers.JsonRpcProvider('https://mainnet.telos.net/evm')
-      }
-      const contract = new ethers.Contract(inputAddress, TheBUNY.abi, provider)
+      //const provider = new ethers.providers.JsonRpcProvider('https://api.avax-test.network/ext/bc/C/rpc')
+      const provider = new ethers.providers.JsonRpcProvider(rpcUrl)
+       const contract = new ethers.Contract(inputAddress, TheBUNY.abi, provider)
       let tokenURI = await contract.tokenURI(inputTokenId)
       if (tokenURI.startsWith('ipfs://')) {
         const ipfsGatewayUrl = 'https://ipfs.io/ipfs/' // Replace with your preferred IPFS gateway URL
@@ -249,7 +258,6 @@ const AccountLogin = ({ onAccountAddressChange, onNftDetails }) => {
 
         if (lowerNftOwner === lowerAddress) {
           setIsOwner(true)
-          setTokenContract(inputAddress)
         } else {
           setIsOwner(false)
         }
@@ -316,7 +324,6 @@ const AccountLogin = ({ onAccountAddressChange, onNftDetails }) => {
           inputTokenId={inputTokenId}
           logged={logged}
           inputAccount={inputAccount}
-          handleReset={handleReset}
           handleChange={handleChange}
           handleCollectionChange={handleCollectionChange}
           onInputAddressChange={handleAddressChange}
@@ -333,14 +340,12 @@ const AccountLogin = ({ onAccountAddressChange, onNftDetails }) => {
           selectedNetwork={selectedChainName}
           inputChainId={selectedChainId}
           inputAddress={inputAddress}
-          nftOwner={nftOwner}
           nftSymbol={nftSymbol}
           inputName={inputName}
           inputTokenId={inputTokenId}
           onNftDetails={handleNftDetails}
           handleAccountAddress={handleAccountAddress}
           fetchNFTData={fetchNFTData}
-          isOwner={isOwner}
         />
       ),
       cardTitle: 'Verify NFT',
@@ -369,6 +374,7 @@ const AccountLogin = ({ onAccountAddressChange, onNftDetails }) => {
                     <Text noOfLines={3} fontSize={'small'}>
                       Double check your inputs and try again.
                     </Text>
+                    <Text>Make sure you are connected and on the correct network</Text>
                   </AlertDescription>
                 </Alert>
               </>
@@ -405,14 +411,38 @@ const AccountLogin = ({ onAccountAddressChange, onNftDetails }) => {
                           {!isActive && (
                             <>
                               <Text noOfLines={2} fontSize={'small'}>
-                                NFT found but is not token bound.
+                                NFT Token Account Bindings
                               </Text>
+                              <HStack>
+                                <Text noOfLines={2}>No token bound account found on</Text>
+                                <WhatNetworkName chainId={chainId} /> <Text>{chainId.toString()}</Text>
+                              </HStack>
+
                               <Text>Sign transaction and create account to continue</Text>
                             </>
                           )}
                         </div>
 
-                        <WhatIsBound isOwner={isOwner} nftOwner={nftOwner} onIsActive={handleIsActive} />
+                        <Box border="0.5px solid purple.200" mt={1} mb={1}>
+                          <FetchAccountAddressTelos
+                            onIsActive={handleIsActive}
+                            inputAddress={inputAddress}
+                            inputTokenId={inputTokenId}
+                            inputChainId={selectedChainId}
+                          />
+                        </Box>
+
+                        {/*
+
+                       <Box  border="0.5px solid purple.200" mt={1} mb={1}>
+                        <FetchAccountAddressFuji
+                          onIsActive={handleIsActive}
+                          inputAddress={inputAddress}
+                          inputTokenId={inputTokenId}
+                          inputChainId={selectedChainId}
+                        />
+                       </Box>
+                       */}
                       </AlertDescription>
                     </Alert>
                     {!isActive && (
@@ -420,15 +450,16 @@ const AccountLogin = ({ onAccountAddressChange, onNftDetails }) => {
                         <Center bg="ghostwhite" p={2} color="black">
                           <VStack>
                             <WhatCollectionName inputAddress={inputAddress} inputChainId={selectedChainId} />
-                            <WhatNFTName
+                            <WhatNFTName inputAddress={inputAddress} inputChainId={selectedChainId} inputTokenId={inputTokenId} />
+                            <WhatNFTOwner
                               onIsOwner={handleIsOwner}
                               onNftOwner={handleNftOwner}
                               inputAddress={inputAddress}
                               inputChainId={selectedChainId}
                               inputTokenId={inputTokenId}
                             />
-                            <WhatNFTOwner inputAddress={inputAddress} inputChainId={selectedChainId} inputTokenId={inputTokenId} />
                             <WhatNFTImage size={'lg'} inputAddress={inputAddress} inputChainId={selectedChainId} inputTokenId={inputTokenId} />
+                            <Text></Text>
                             <Button onClick={createAccount} variant={'outline'} size={'md'} colorScheme="telegram">
                               Create Account
                             </Button>
@@ -527,9 +558,8 @@ const AccountLogin = ({ onAccountAddressChange, onNftDetails }) => {
                 : []
             }
             footerStyle={{ backgroundColor: '#6a14fc', color: 'white', padding: '4px' }}
-            footStyle
             bodyStyle={{ backgroundColor: '#6a14fc', color: 'white', padding: '4px' }}
-            style={{ backgroundColor: '#6a14fc', color: 'white', paddingBottom: '10px', marginBottom: '16px' }}
+            style={{ backgroundColor: '#6a14fc', color: 'white', paddingBottom: '10px', marginBottom: '16px', width: '350px' }}
             headStyle={{ backgroundColor: '#6a14fc', color: 'white', marginBottom: '-10px', fontSize: '18px' }}
             title={
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -538,7 +568,7 @@ const AccountLogin = ({ onAccountAddressChange, onNftDetails }) => {
                   <IconButton
                     isRound={true}
                     variant="unstyled"
-                    onClick={handleReset}
+                    onClick={reset}
                     colorScheme="whiteAlpha"
                     aria-label="Done"
                     fontSize="18px"

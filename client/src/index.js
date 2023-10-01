@@ -5,17 +5,32 @@ import { ChakraProvider } from '@chakra-ui/react'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
-import { MetaMaskContextProvider } from './hooks/useMetamask'
+import { MetaMaskProvider } from '@metamask/sdk-react'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <ChakraProvider>
-      <MetaMaskContextProvider>
+      
         <BrowserRouter>
+        <MetaMaskProvider
+        debug={false}
+        sdkOptions={{
+          logging: {
+            developerMode: false,
+          },
+                    getUniversalLink: true,
+          checkInstallationImmediately: false, // This will automatically connect to MetaMask on page load
+          dappMetadata: {
+            name: 'The Buny Project',
+            url: 'https://buny.cloud',
+          },
+        }}>
           <App />
+          </MetaMaskProvider>
         </BrowserRouter>
-      </MetaMaskContextProvider>
+      
     </ChakraProvider>
   </React.StrictMode>,
 )

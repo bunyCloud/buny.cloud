@@ -6,9 +6,28 @@ import { Text } from '@chakra-ui/react';
 import { AppContext } from '../../AppContext';
 import { HeaderConnect } from './HeaderConnect';
 
-const AccountAddressMenu = ({balance, handleDisconnect}) => {
-  const { accountAddress } = useContext(AppContext);
+const AccountAddressMenu = ({balance}) => {
+  const { accountAddress, setAccountAddress } = useContext(AppContext);
   const toast = useToast();
+
+  const handleDisconnect = () => {
+    // If using the injected window.ethereum object
+    if (window.ethereum && typeof window.ethereum.disconnect === 'function') {
+      window.ethereum.disconnect();
+    }
+
+    // Reset the account state to null
+    setAccountAddress(null);
+
+    toast({
+      title: 'Disconnected',
+      description: 'Successfully disconnected from MetaMask.',
+      status: 'info',
+      duration: 3000,
+      isClosable: true,
+    });
+  };
+
 
   const copyAddress = () => {
     if (navigator.clipboard) {

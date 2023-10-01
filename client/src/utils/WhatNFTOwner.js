@@ -6,7 +6,7 @@ import { AppContext } from '../AppContext'
 
 
 const WhatNFTOwner = ({onIsOwner, onNftOwner, inputAddress, inputTokenId, inputChainId }) => {
-  const { account } = useContext(AppContext)
+  const { account, rpcUrl } = useContext(AppContext)
   const [isOwner, setIsOwner] = useState(false)
   const [nftOwner, setNftOwner] = useState(null)
 
@@ -17,7 +17,7 @@ const WhatNFTOwner = ({onIsOwner, onNftOwner, inputAddress, inputTokenId, inputC
   } else if (inputChainId === '43113') {
     provider = new ethers.providers.JsonRpcProvider('https://api.avax-test.network/ext/bc/C/rpc')
   } else if (inputChainId === '41') {
-    provider = new ethers.providers.JsonRpcProvider('https://testnet.telos.net/evm')
+    provider = new ethers.providers.JsonRpcProvider(rpcUrl)
   } else if (inputChainId === '40') {
     provider = new ethers.providers.JsonRpcProvider('https://mainnet.telos.net/evm')
   }

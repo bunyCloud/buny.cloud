@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from 'react'
 import { ethers } from 'ethers'
 import { Box, Text, Center, List, ListItem, useToast, FormControl, HStack, Tag, Button } from '@chakra-ui/react'
 import UserKeyStorage from '../../contracts/UserKeyStorage.json'
+import FujiUserStorage from '../../contracts/fuji/FujiUserStorage.json'
+
 import Decryptor from './Decryptor'
 import { formatAddress } from '../../utils/formatMetamask'
 import { AppContext } from '../../AppContext'
@@ -16,6 +18,19 @@ function ViewMessages() {
   const contractAddress = UserKeyStorage.address
   const contractABI = UserKeyStorage.abi
 
+  const contracts = {
+    41: { // telos testnet
+      address: UserKeyStorage.address,
+      abi: UserKeyStorage.abi
+    },
+    43113: { // fuji testnet
+      address: FujiUserStorage.address,
+      abi: FujiUserStorage.abi
+    }
+  };
+
+  const currentContractConfig = contracts[chainId];
+
   useEffect(() => {
     async function fetchMessages() {
       // Check if window.ethereum is defined
@@ -26,7 +41,7 @@ function ViewMessages() {
 
       const provider = new ethers.providers.Web3Provider(window.ethereum)
       const signer = provider.getSigner()
-      const contract = new ethers.Contract(contractAddress, contractABI, signer)
+      const contract = new ethers.Contract(currentContractConfig.address, currentContractConfig.abi, signer)
       try {
         const [fetchedMessageIDs, fetchedMessages] = await contract.getMessages(account)
         setMsgIds(fetchedMessageIDs.toString())

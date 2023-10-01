@@ -3,7 +3,6 @@ import { Box, TableContainer, Table, Tbody, Tr, Td, Text, HStack } from '@chakra
 import { AppContext } from '../../AppContext'
 import WhatNetworkName from '../../utils/WhatNetworkName'
 import { formatChainAsNum } from '../../utils/formatMetamask'
-import FetchAccountAddress from '../TokenBound/FetchAccountAddress'
 import WhatNFTOwner from '../../utils/WhatNFTOwner'
 
 const LoginForm2 = ({  inputChainId, inputAddress, inputName,  nftSymbol, inputTokenId, handleAccountAddress, fetchNFTData }) => {
@@ -36,9 +35,9 @@ const LoginForm2 = ({  inputChainId, inputAddress, inputName,  nftSymbol, inputT
   
 
   return (
-    <Box fontSize='12px'>
-      <TableContainer p={4}>
-        <Table variant='simple' size="auto" p={2}>
+    <Box fontSize='12px' w='auto'>
+      <TableContainer p={4} w='100%'>
+        <Table variant='simple' size="auto" p={2} w='auto'>
           <Tbody bg="#6a14fc" textAlign={'left'} width="100%">
             <Tr>
               <Td as="b" mr={2} >
@@ -70,6 +69,7 @@ const LoginForm2 = ({  inputChainId, inputAddress, inputName,  nftSymbol, inputT
                 </HStack>
               </Td>
             </Tr>
+            {/*
             <Tr>
               <Td as="b" mr={2} >
                 isOwner
@@ -82,11 +82,17 @@ const LoginForm2 = ({  inputChainId, inputAddress, inputName,  nftSymbol, inputT
 
               </Td>
             </Tr>
+            */}
             <Tr>
               <Td as="b" mr={2} >
                 NFT
               </Td>
-              <Td>{inputAddress && (<>{inputAddress}</>)}</Td>
+              <Td>{inputAddress && (<>
+              
+              <Text noOfLines={1} overflow={'auto'}>
+              {inputAddress}
+              </Text>
+              </>)}</Td>
             </Tr>
 
             <Tr>
@@ -94,7 +100,8 @@ const LoginForm2 = ({  inputChainId, inputAddress, inputName,  nftSymbol, inputT
                 Owner
               </Td>
               <Td>
-{nftOwner && (<><Text>{nftOwner}</Text></>)}
+              {nftOwner}
+<WhatNFTOwner onIsOwner={isOwner} onNftOwner={handleNftOwner} inputAddress={inputAddress} inputChainId={inputChainId} inputTokenId={inputTokenId} />
               </Td>
             </Tr>           
           </Tbody>

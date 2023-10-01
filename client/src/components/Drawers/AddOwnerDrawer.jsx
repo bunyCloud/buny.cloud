@@ -58,16 +58,18 @@ const AddOwnerDrawer = ({ contractAddress, contractABI }) => {
         <div style={{ padding: '14px', marginTop: '40px' }}>
           <Space direction="vertical">
             <div>Add Owner to Multi Signature Vault</div>
+          {/*
             <Button
               size="small"
               p={2}
               variant={'outline'}
-              colorScheme="purple"
+              colorScheme='purple'
               onClick={() => {
                 setVisible2(true)
               }}>
               Settings
             </Button>
+   */}  
 
             <Box mt={3} p={2} bg="InfoBackground" border="1px solid silver">
               <Heading size="md">Add Owner</Heading>

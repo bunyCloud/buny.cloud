@@ -1,24 +1,15 @@
 import './App.css'
 import React, { useState, useEffect } from 'react'
-import { ethers } from 'ethers'
 import { Layout } from 'antd'
-import { HStack, IconButton, Box, Image, Grid, GridItem, Center, Button, Text } from '@chakra-ui/react'
+import { HStack, IconButton, Box, Image, Grid, GridItem, Center, Text } from '@chakra-ui/react'
 import { Avatar, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure } from '@chakra-ui/react'
 import { AppContext } from './AppContext'
-import { HeaderConnect } from './components/MetaMask/HeaderConnect'
 import AddressMenu from './components/Header/AddressMenu'
 import NetworkSwitcherIconOnly from './components/Header/NetworkSwitcherIconOnly'
-import { formatChainAsNum } from './utils/formatMetamask'
 import useSessionStorageState from 'use-session-storage-state'
-import { useMetaMask } from './hooks/useMetamask'
-
-
 import AccountAddressMenu from './components/Header/AccountAddressMenu'
-
 import BunyDescription from './components/TokenBound/text/BunyDescription'
 import AccountDashboard from './components/TokenBound/AccountDashboard'
-
-
 import AccountLogin from './components/TokenBound/AccountLogin'
 import MultiSigWithdrawal from './components/MultiSigWithdrawal'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
@@ -27,13 +18,16 @@ import UserStorage from './components/Users/UserStorage'
 import UserKeyStorage from './contracts/UserKeyStorage.json'
 import UserKeyTable from './components/Users/UserKeyTable'
 import { Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton } from '@chakra-ui/react'
-
 import FetchPublicEncryptionKey from './components/Users/FetchPublicEncryptionKey'
 import ViewMessages from './components/Users/ViewMessages'
+import MintFormLayout from './components/MintFormLayout'
+import { useSDK } from '@metamask/sdk-react'
+import ConnectMetaMask from './components/Header/ConnectMetaMask'
 
 function App() {
   const [chainId, setChainId] = useState(41)
-  const [account, setAccount] = useState('')
+    const [account, setAccount] = useState('')
+  const [rpcUrl,setRpcUrl] = useState('https://testnet15.telos.caleos.io/evm')
   const [balance, setBalance] = useState('')
   const [tokenContract, setTokenContract] = useState(null)
   const [tokenId, setTokenId] = useState(null)
@@ -45,12 +39,12 @@ function App() {
   const [nftSymbol, setNftSymbol] = useState(null)
   const [setHasProvider] = useState(null)
   const [nftOwner, setNftOwner] = useState('')
-  const [provider, setProvider] = useState(null)
-  const { isOpen, onOpen, onClose } = useDisclosure()
+    const { isOpen, onOpen, onClose } = useDisclosure()
   const [logged, setLogged] = useState(false)
   const [signature] = useSessionStorageState(null)
-  const { wallet, hasProvider, isConnecting, connectMetaMask } = useMetaMask()
+  const { hasProvider } = useSDK()
   const [publicKey, setPublicKey] = useState()
+
 
   const handleNftDetails = (nftOwner, nftSymbol, avatarImage, avatarName) => {
     setNftOwner(nftOwner)
@@ -69,87 +63,7 @@ function App() {
     setAccount(null)
   }
 
-  const handleBalance = (address, provider) => {
-    if (address && provider) {
-      provider
-        .getBalance(address)
-        .then((balance) => {
-          let formattedBalance = ethers.utils.formatEther(balance)
-          setBalance(Number(formattedBalance).toFixed(3))
-        })
-        .catch((error) => {
-          console.error('Error while fetching the balance:', error.message)
-          console.error('Stack trace:', error.stack)
-
-          // Check if the error is due to a revert with reason
-          if (error.code === ethers.utils.Logger.errors.CALL_EXCEPTION) {
-            const reason = error.data ? ethers.utils.toUtf8String(error.data) : ''
-            console.log('Revert reason:', reason)
-          }
-
-          // You can add more specific error handling based on the error code or message if required.
-        })
-    }
-  }
-
-  useEffect(() => {
-    if (provider && account) {
-      provider.on('block', () => {
-        handleBalance(account, provider)
-      })
-    }
-    return () => {
-      if (provider) {
-        provider.removeAllListeners('block')
-      }
-    }
-  }, [provider, account])
-
-  useEffect(() => {
-    try {
-      const checkConnection = async () => {
-        if (!window.ethereum) {
-          console.log('Please install MetaMask!')
-          return
-        }
-
-        const chainId = await window.ethereum.request({ method: 'eth_chainId' })
-        setChainId(formatChainAsNum(chainId)) // Set the chainId state variable
-
-        const accounts = await window.ethereum.request({ method: 'eth_accounts' })
-        const logged = accounts.length > 0
-        setLogged(logged)
-
-        if (logged) {
-          const provider = new ethers.providers.Web3Provider(window.ethereum)
-          const account = accounts[0]
-          const balance = await provider.getBalance(account)
-          const formattedBalance = ethers.utils.formatEther(balance)
-          setAccount(account)
-          setBalance(Number(formattedBalance).toFixed(2))
-        }
-      }
-
-      checkConnection().catch((error) => {
-        console.error('An error occurred while logged into MetaMask:', error.message)
-        console.error('Stack trace:', error.stack)
-
-        // Check if the error is due to a revert with reason
-        if (error.code === ethers.utils.Logger.errors.CALL_EXCEPTION) {
-          const reason = error.data ? ethers.utils.toUtf8String(error.data) : ''
-          console.log('Revert reason:', reason)
-        }
-      })
-    } catch (error) {
-      console.error('An error occurred in useEffect:', error.message)
-      console.error('Stack trace:', error.stack)
-    }
-  }, [])
-
-  const reloadPage = () => {
-    window.location.reload()
-  }
-
+ 
   const getNetworkName = (chainId) => {
     switch (chainId) {
       case 1:
@@ -191,6 +105,8 @@ function App() {
         setChainId,
         accountAddress,
         setAccountAddress,
+        rpcUrl,
+            setRpcUrl,
         avatarImage,
         setAvatarImage,
         tokenContract,
@@ -212,13 +128,14 @@ function App() {
                 <HStack gap={1} justify={'right'} mt={1}>
                   <NetworkSwitcherIconOnly />
                   <div>
-                    {account ? (
+                    {account && !signature && (
                       <>
                             <AddressMenu handleDisconnect={handleDisconnect} balance={balance} />
                           </>
-                        ) : (
+                        )}
+                        {!account && (
                       <>
-                        <HeaderConnect />
+                        <ConnectMetaMask />
                       </>
                     )}
 
@@ -234,7 +151,7 @@ function App() {
                     {signature && avatarImage && accountAddress && (
                       <>
                         <Avatar size={'sm'} src={avatarImage} border="2px solid white" onClick={onOpen} />
-                        <Modal isOpen={isOpen} onClose={onClose} size={'full'}>
+                        <Modal isOpen={isOpen} onClose={onClose} size='3xl'>
                           <ModalOverlay />
                           <ModalContent>
                             <ModalHeader>NFT Profile</ModalHeader>
@@ -258,8 +175,8 @@ function App() {
               <Tab>Dashboard</Tab>
               <Tab>Vault</Tab>
               <Tab>Directory</Tab>
-              
-            </TabList>
+              <Tab>IBUNY</Tab>
+              </TabList>
 
             <TabPanels>
               <TabPanel>
@@ -296,8 +213,6 @@ function App() {
                   <MultiSigWithdrawal />
                 </Box>
               </TabPanel>
-
-
               <TabPanel>
                 <Center mt={2} mb={2}>
                  
@@ -307,11 +222,11 @@ function App() {
                       <UserStorage publicKey={publicKey} account={account} contractAddress={UserKeyStorage.address} abi={UserKeyStorage.abi} />
                     </Box>
 
+                    {!publicKey && (
+                      <>
                     <Box mt={2}  border="0.5px solid silver">
                       <Grid templateColumns="repeat(5, 1fr)" gap={4} bg="ghostwhite">
-                        <GridItem colSpan={2} >
-                          <Text p={2}>Public Key</Text>
-                        </GridItem>
+                        
                         <GridItem colStart={5} colEnd={6} >
                           <Center>
                             <Popover isLazy>
@@ -331,10 +246,13 @@ function App() {
                           </Center>
                         </GridItem>
                       </Grid>
-
+                            
                       <FetchPublicEncryptionKey onPublicKey={handleEncryptionKey} />
-                    </Box>
 
+
+                    </Box>
+</>
+                    )}
                     <Box mt={2}  border="0.5px solid silver">
                       <Grid templateColumns="repeat(5, 1fr)" gap={4} bg="ghostwhite">
                         <GridItem colSpan={2} >
@@ -390,7 +308,9 @@ function App() {
                   </Box>
                 </Center>
               </TabPanel>
-             
+             <TabPanel>
+              <MintFormLayout />
+             </TabPanel>
             </TabPanels>
           </Tabs>
         </Layout>

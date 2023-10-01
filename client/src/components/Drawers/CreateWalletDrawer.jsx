@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Popup, Space } from 'antd-mobile'
-import { Box, HStack, Button, IconButton, Text } from '@chakra-ui/react'
+import { Box, HStack, Button, IconButton, Text, Heading } from '@chakra-ui/react'
 import { AddIcon } from '@chakra-ui/icons'
 import CreateWallet from '../MultiSig/CreateWallet'
 
@@ -47,20 +47,16 @@ const RightCreateWallet = () => {
         bodyStyle={{ height: '100%', width: '300px' }}>
         <div style={{ padding: '14px', marginTop: '40px' }}>
           <Space direction="vertical">
-            <div>
-              Control panel for managing actions such as creating wallets, proposing transactions, adding new owners, sending encrypted messages, loading
-              wallets, creating contact list, transfering accounts, approving pending transactions along with other general account settings.{' '}
-            </div>
-            <Button
-              size="small"
-              p={2}
-              variant={'outline'}
-              colorScheme='purple'
-              onClick={() => {
-                setVisible2(true)
-              }}>
-              Settings
-            </Button>
+          <Box p={4}>  {/* Padding for better spacing */}
+          <Heading size={'md'}>
+            Multi-Signature Wallet
+          </Heading>
+
+  <Text mt={2}>Enhanced Security: Set number of private keys to authorize a transaction.</Text>
+  <Text mt={2}>Collaborative Control: Multi-signature wallets ensure that no single individual has complete control over funds or assets.</Text>
+  
+</Box>
+            
 
             <CreateWallet />
                     </Space>
